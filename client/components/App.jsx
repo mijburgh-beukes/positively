@@ -7,6 +7,7 @@ import { setUser } from '../actions'
 // Components
 import Dashboard from './Dashboard'
 import Profile from './Profile'
+import AddHabit from './AddHabit'
 
 const App = (props) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const App = (props) => {
     <>
       <Dashboard />
       <Profile />
+      <AddHabit />
     </>
   )
 }
