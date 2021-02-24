@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react'
-import { getUser } from '../apiClient'
+import { connect } from 'react-redux'
+
+import { getUser } from '../api/apiClient'
+import { setUser } from '../actions'
 
 // Components
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 
-const App = () => {
+const App = (props) => {
   useEffect(() => {
+    // TODO: Remove hardcoding of user ID
     getUser(2)
       .then((user) => {
-        console.log(user)
+        props.dispatch(setUser(user))
         return null
       })
       .catch(err => console.log(err))
@@ -18,9 +22,15 @@ const App = () => {
   return (
     <>
       <Dashboard />
-      <Profile user={user} />
+      <Profile />
     </>
   )
 }
 
-export default App
+function mapStateToProps (state) {
+  return {
+    user: state.userReducer
+  }
+}
+
+export default connect(mapStateToProps)(App)

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { getUser } from '../apiClient'
+import { getUser } from '../api/apiClient'
 
 const Dashboard = () => {
   return (
