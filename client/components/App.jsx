@@ -1,27 +1,36 @@
-import React, {useState, useEffect} from 'react'
-import {getGreeting} from '../apis/apiClient'
-import AddHabit from './AddHabit'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const App = () => {
+import { getUser } from '../api/apiClient'
+import { setUser } from '../actions'
 
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
+// Components
+import Dashboard from './Dashboard'
+import Profile from './Profile'
 
+const App = (props) => {
   useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
+    // TODO: Remove hardcoding of user ID
+    getUser(2)
+      .then((user) => {
+        props.dispatch(setUser(user))
+        return null
       })
-  }, [count])
+      .catch(err => console.log(err))
+  }, [])
+
   return (
     <>
-    {count}
-    <h1>{greeting}</h1>
-    <AddHabit/>
-    <button onClick={() => setCount(count + 1)}>Click</button>
+      <Dashboard />
+      <Profile />
     </>
   )
 }
 
-export default App
+function mapStateToProps (state) {
+  return {
+    user: state.userReducer
+  }
+}
+
+export default connect(mapStateToProps)(App)
