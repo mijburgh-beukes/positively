@@ -15,8 +15,7 @@
     "build": "npm run webpack",
     "knex": "knex --knexfile server/db/knexfile.js",
     "server": "node server",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test": "jest --watchAll --verbose",
     "webpack": "webpack --config ./client/webpack.config.js",
     "lint": "eslint --ext .js,.jsx ."
   },

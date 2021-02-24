@@ -9,8 +9,9 @@ module.exports = router
 router.get('/:id', (req, res) => {
   const { id } = req.params
   db.getUser(id)
-    .then((user) => {
-      res.json(user)
+    .then((userData) => {
+      console.log(userData)
+      res.json(userData)
       return null
     })
     .catch(err => {
