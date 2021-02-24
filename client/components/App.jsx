@@ -1,25 +1,24 @@
-import React, {useState, useEffect} from 'react'
-import {getGreeting} from '../apiClient'
+import React, { useEffect } from 'react'
+import { getUser } from '../apiClient'
+
+// Components
 import Dashboard from './Dashboard'
+import Profile from './Profile'
 
 const App = () => {
-
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
-
   useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
+    getUser(2)
+      .then((user) => {
+        console.log(user)
+        return null
       })
-  }, [count])
+      .catch(err => console.log(err))
+  }, [])
+
   return (
     <>
-    {count}
-    <h1>{greeting}</h1>
-    <Dashboard />
-    <button onClick={() => setCount(count + 1)}>Click</button>
+      <Dashboard />
+      <Profile user={user} />
     </>
   )
 }
