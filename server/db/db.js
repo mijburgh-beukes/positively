@@ -12,6 +12,21 @@ function getUser (id, db = database) {
     .then(formatUserData)
 }
 
+function addHabit (habit, db = database) {
+  const {title, description, habit_icon, total_goal_count, priority, goal_count} = habit
+  return db('habits')
+    .insert({
+      user_id: 1,
+      title,
+      description,
+      habit_icon,
+      total_goal_count,
+      priority,
+      goal_count,
+    })
+}
+
 module.exports = {
-  getUser
+  getUser,
+  addHabit
 }
