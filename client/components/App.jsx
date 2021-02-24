@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {getGreeting} from '../apiClient'
-import Dashboard from './Dashboard'
+import {getGreeting} from '../apis/apiClient'
+import AddHabit from './AddHabit'
 
 const App = () => {
 
@@ -18,7 +18,7 @@ const App = () => {
     <>
     {count}
     <h1>{greeting}</h1>
-    <Dashboard />
+    <AddHabit/>
     <button onClick={() => setCount(count + 1)}>Click</button>
     </>
   )
