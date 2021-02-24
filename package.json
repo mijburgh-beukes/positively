@@ -13,6 +13,7 @@
     "dev:server": "nodemon server",
     "start": "node server",
     "build": "npm run webpack",
+    "knex": "knex --knexfile server/db/knexfile.js",
     "server": "node server",
     "test": "jest",
     "test:watch": "jest --watchAll",
