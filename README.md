@@ -1,5 +1,6 @@
 GET 'api/v1/user/:id' will return the following object:
 
+```
 [
     {
         "id": 2,
@@ -30,4 +31,5 @@ GET 'api/v1/user/:id' will return the following object:
         ]
     }
 ]
+```
 
