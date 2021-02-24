@@ -3,7 +3,7 @@ const request = require('supertest')
 const db = require('../db/db')
 const server = require('../server')
 
-const baseURL = '/api/v1/'
+const baseURL = '/api/v1'
 
 jest.mock('../db/db', () => {
   return {
@@ -50,10 +50,21 @@ describe('GET /api/v1/user/:id', () => {
     return request(server)
       .get(baseURL + '/user/2')
       .then(res => {
-        console.log(res.status)
         expect(res.status).toBe(200)
-        console.log(res.body)
         expect(res.body).toEqual(fakeReturnedData)
+        return null
+      })
+  })
+
+  it('should reject with a 500 code', () => {
+    db.getUser.mockImplementation(() => Promise.reject(new Error('oh noes!')))
+    expect.assertions(2)
+
+    return request(server)
+      .get(baseURL + '/user/2')
+      .then(err => {
+        expect(err.status).toEqual(500)
+        expect(err.text).toEqual('DATABASE ERROR: oh noes!')
         return null
       })
   })
