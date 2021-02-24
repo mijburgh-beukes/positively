@@ -1,4 +1,5 @@
 function createHabits (usersLine) {
+  // eslint-disable-next-line camelcase
   const { id, title, description, habit_icon, total_goal_count, priority, goal_count } = usersLine
   return {
     id,
