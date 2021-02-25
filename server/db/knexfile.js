@@ -17,8 +17,11 @@ module.exports = {
     connection: {
       filename: ':memory:'
     },
+    migrations: {
+      directory: path.join(__dirname, 'migrations')
+    },
     seeds: {
-      directory: './tests/seeds'
+      directory: path.join(__dirname, 'seeds')
     },
     useNullAsDefault: true
   },
