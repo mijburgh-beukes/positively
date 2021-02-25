@@ -1,11 +1,12 @@
 const mockHabitChanges = {
-  id: 1,
+  id: 4,
+  user_id: 1,
   title: 'running',
-  description: '3km per day',
-  habitIcon: 'some icon',
-  totalGoalCount: 0,
+  description: '30min a day',
+  habit_icon: 'some icon',
+  total_goal_count: 0,
   priority: 2,
-  goalCount: 0
+  goal_count: 0
 }
 
 module.exports = { mockHabitChanges }
