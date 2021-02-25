@@ -53,11 +53,7 @@ const AddHabit = (props) => {
           Priority:
           <input type="number" name="priority" onChange={handleChange} placeholder="choose a number from 1 - 5, 1 being the highest" />
         </label>
-        {/* Add update function to onClick
-        Add delete function to onClick */}
         <button onClick={handleSubmit}>Add habit</button>
-        <button >Update</button>
-        <button >Delete</button>
       </form>
     </>
   )
