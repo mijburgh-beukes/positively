@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-function Achievements(props) {
+function Achievements (props) {
   return (
     <div className="container-sm">
       <h4>Achievements</h4>
