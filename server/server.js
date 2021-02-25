@@ -16,7 +16,7 @@ server.use('/api/v1/user', user)
 server.use('/api/v1/habit', habit)
 
 server.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '../public/index.html'))
+  res.sendFile(path.join(__dirname, '../server/public/index.html'))
 )
 
 module.exports = server
