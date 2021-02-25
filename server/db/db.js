@@ -13,7 +13,6 @@ function getUser (id, db = database) {
 }
 
 function addHabit (habit, db = database) {
-  console.log(habit)
   return db('habits').insert({
     user_id: habit.userId,
     title: habit.title,
