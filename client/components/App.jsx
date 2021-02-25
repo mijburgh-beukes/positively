@@ -8,12 +8,12 @@ import { setUser } from '../actions'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 
-const App = (props) => {
+const App = ({ dispatch, user }) => {
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(2)
       .then((user) => {
-        props.dispatch(setUser(user))
+        dispatch(setUser(user))
         return null
       })
       .catch(err => console.log(err))
@@ -29,7 +29,7 @@ const App = (props) => {
 
 function mapStateToProps (state) {
   return {
-    user: state.userReducer
+    user: state.user
   }
 }
 
