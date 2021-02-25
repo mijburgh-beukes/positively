@@ -13,22 +13,15 @@ function getUser (id, db = database) {
 }
 
 function addHabit (habit, db = database) {
-  const {
-    title,
-    description,
-    habit_icon,
-    total_goal_count,
-    priority,
-    goal_count
-  } = habit
+  console.log(habit)
   return db('habits').insert({
-    user_id: 1,
-    title,
-    description,
-    habit_icon,
-    total_goal_count,
-    priority,
-    goal_count
+    user_id: habit.userId,
+    title: habit.title,
+    description: habit.description,
+    habit_icon: habit.habitIcon,
+    total_goal_count: habit.totalGoalCount,
+    priority: habit.priority,
+    goal_count: habit.goalCount
   })
 }
 
@@ -50,8 +43,14 @@ function getHabit (id, db) {
   return db('habits').select().where('id', id).first()
 }
 
+function deleteHabit (habitId, db = database) {
+  return db('habits').del()
+    .where('id', habitId)
+}
+
 module.exports = {
   getUser,
   addHabit,
-  editHabit
+  editHabit,
+  deleteHabit
 }
