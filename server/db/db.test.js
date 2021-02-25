@@ -32,6 +32,7 @@ describe('editHabit', () => {
   it('should update a habit', () => {
     return editHabit(4, mockHabitChanges, connection).then(habit => {
       expect(habit).toEqual(mockHabitChanges)
+      return null
     })
   })
 })

@@ -4,7 +4,7 @@ const database = require('knex')(config)
 
 const { formatUserData } = require('../formatter')
 
-function getUser(id, db = database) {
+function getUser (id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
     .select()
@@ -12,7 +12,7 @@ function getUser(id, db = database) {
     .then(formatUserData)
 }
 
-function addHabit(habit, db = database) {
+function addHabit (habit, db = database) {
   const {
     title,
     description,
@@ -32,7 +32,7 @@ function addHabit(habit, db = database) {
   })
 }
 
-function editHabit(id, changes, db = database) {
+function editHabit (id, changes, db = database) {
   return db('habits')
     .update({
       title: changes.title,
@@ -46,7 +46,7 @@ function editHabit(id, changes, db = database) {
     .catch(err => new Error(err))
 }
 
-function getHabit(id, db) {
+function getHabit (id, db) {
   return db('habits').select().where('id', id).first()
 }
 

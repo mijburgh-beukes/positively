@@ -26,6 +26,7 @@ router.post('/', (req, res) => {
   db.addHabit(habit)
     .then(() => {
       res.sendStatus(201)
+      return null
     })
     .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
 })
