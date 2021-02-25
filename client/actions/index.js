@@ -14,8 +14,9 @@ export const setHabit = (habit) => {
   }
 }
 export function createDeleteHabit (id) {
-  return { type: 'DELETE_TODO',
-           id
+  return {
+    type: 'DELETE_TODO',
+    id
   }
 }
 

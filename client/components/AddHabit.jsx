@@ -27,7 +27,7 @@ const AddHabit = (props) => {
   }
 
   return (
-    <div style={{padding: '2rem'}}>
+    <div style={{ padding: '2rem' }}>
       <form>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title: </label>
@@ -61,7 +61,7 @@ const AddHabit = (props) => {
   )
 }
 
-function mapStateToProps(globalState) {
+function mapStateToProps (globalState) {
   return {
     newHabit: globalState.newHabit
   }

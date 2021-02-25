@@ -1,12 +1,12 @@
 const habitReducer = (state = [{
-  "id": 1,
-  "user_id": 1,
-  "title": "updatedrunning",
-  "description": "go for a run everyday",
-  "habit_icon": "some icon",
-  "total_goal_count": 0,
-  "priority": 4,
-  "goal_count": 0
+  id: 1,
+  user_id: 1,
+  title: 'updatedrunning',
+  description: 'go for a run everyday',
+  habit_icon: 'some icon',
+  total_goal_count: 0,
+  priority: 4,
+  goal_count: 0
 }], action) => {
   switch (action.type) {
     case 'SET_HABIT':
