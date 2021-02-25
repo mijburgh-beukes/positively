@@ -13,3 +13,12 @@
   margin-top: auto;
   margin-bottom: auto;
 } */
+
+.achievement-badge {
+  background-color: #ed1e79;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  margin: auto;
+}
