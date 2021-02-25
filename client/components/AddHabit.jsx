@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { saveHabit } from '../actions'
 
-const AddHabit = () => {
+const AddHabit = (props) => {
   const [formData, setFormData] = useState({
      title: "",
      description: "",
@@ -20,17 +21,22 @@ const AddHabit = () => {
     })
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    props.dispatch(saveHabit(formData)) 
+  }
+
   return (
     <>
       <form>
         <label>
-          Habit:
+          Title:
           <input type="text" name="title" onChange={handleChange} placeholder="What's your habit?" />
         </label>
 
         <label>
           Description:
-          <input type="text" name="description" onChange={handleChange} placeholder="Describe your habit" />
+          <textarea type="text" name="description" onChange={handleChange} placeholder="Describe your habit" />
         </label>
 
         <label>
@@ -47,6 +53,7 @@ const AddHabit = () => {
           Priority:
           <input type="number" name="priority" onChange={handleChange} placeholder="choose a number from 1 - 5, 1 being the highest" />
         </label>
+        <button onClick={handleSubmit}>Add habit</button>
       </form>
     </>
   )

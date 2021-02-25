@@ -12,7 +12,7 @@ import AddHabit from './AddHabit'
 const App = (props) => {
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
-    getUser(2)
+    getUser(1)
       .then((user) => {
         props.dispatch(setUser(user))
         return null
