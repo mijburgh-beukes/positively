@@ -34,7 +34,7 @@ const App = ({ dispatch, user }) => {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }
