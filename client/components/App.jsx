@@ -15,7 +15,7 @@ const App = ({ dispatch, user }) => {
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(1)
-      .then((user) => {
+      .then(user => {
         dispatch(setUser(user))
         return null
       })
@@ -34,7 +34,7 @@ const App = ({ dispatch, user }) => {
   )
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     user: state.user
   }
