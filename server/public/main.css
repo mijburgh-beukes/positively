@@ -1,0 +1,13 @@
+/* * {
+  border: 1px solid black;
+} */
+
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}

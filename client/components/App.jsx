@@ -5,6 +5,7 @@ import { getUser } from '../api/apiClient'
 import { setUser } from '../actions'
 
 // Components
+import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 
@@ -20,10 +21,11 @@ const App = ({ dispatch, user }) => {
   }, [])
 
   return (
-    <>
+    <div className="app">
+      <Nav />
       <Dashboard />
       <Profile />
-    </>
+    </div>
   )
 }
 
