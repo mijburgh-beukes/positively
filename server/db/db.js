@@ -42,6 +42,9 @@ function editHabit (id, changes, db = database) {
 function getHabit (id, db) {
   return db('habits').select().where('id', id).first()
 }
+function getHabits (db) {
+  return db('habits').select()
+}
 
 function deleteHabit (habitId, db = database) {
   return db('habits').del()
@@ -52,5 +55,6 @@ module.exports = {
   getUser,
   addHabit,
   editHabit,
-  deleteHabit
+  deleteHabit,
+  getHabits
 }
