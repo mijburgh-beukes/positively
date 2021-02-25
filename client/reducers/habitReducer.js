@@ -4,7 +4,7 @@ const habitReducer = (state = [{}], action) => {
       return action.habit
 
     default :
-    return state
+      return state
   }
 }
 

@@ -21,7 +21,7 @@ export const saveHabit = (habit) => {
         dispatch(setHabit(allHabits))
         return null
       })
-      .catch(err => 
+      .catch(err =>
         console.log(err))
   }
 }

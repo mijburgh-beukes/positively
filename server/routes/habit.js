@@ -7,18 +7,18 @@ const router = express.Router()
 module.exports = router
 
 router.post('/', (req, res) => {
-  const {title, description, habitIcon, totalGoalCount, priority, goalCount} = req.body
+  const { title, description, habitIcon, totalGoalCount, priority, goalCount } = req.body
   const habit = {
     title,
     description,
     habit_icon: habitIcon,
     total_goal_count: totalGoalCount,
     priority,
-    goal_count: goalCount,
+    goal_count: goalCount
   }
-  db.addHabit(habit).then(()=>{
+  db.addHabit(habit).then(() => {
     res.sendStatus(201)
-  }).catch((e)=>{
+  }).catch((e) => {
     console.log(e)
   })
 })

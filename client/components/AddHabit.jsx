@@ -4,13 +4,13 @@ import { saveHabit } from '../actions'
 
 const AddHabit = (props) => {
   const [formData, setFormData] = useState({
-     title: "",
-     description: "",
-     habitIcon: "",
-     totalGoalCount: 0,
-     priority: 0,
-     goalCount: 0,
-    })
+    title: '',
+    description: '',
+    habitIcon: '',
+    totalGoalCount: 0,
+    priority: 0,
+    goalCount: 0
+  })
 
   const handleChange = (event) => {
     setFormData(currentFormData => {
@@ -23,7 +23,7 @@ const AddHabit = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.dispatch(saveHabit(formData)) 
+    props.dispatch(saveHabit(formData))
   }
 
   return (
@@ -53,7 +53,11 @@ const AddHabit = (props) => {
           Priority:
           <input type="number" name="priority" onChange={handleChange} placeholder="choose a number from 1 - 5, 1 being the highest" />
         </label>
+        {/* Add update function to onClick
+        Add delete function to onClick */}
         <button onClick={handleSubmit}>Add habit</button>
+        <button >Update</button>
+        <button >Delete</button>
       </form>
     </>
   )
@@ -64,6 +68,5 @@ function mapStateToProps (globalState) {
     newHabit: globalState.newHabit
   }
 }
-
 
 export default connect(mapStateToProps)(AddHabit)
