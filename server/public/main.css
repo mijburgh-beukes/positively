@@ -1,15 +1,15 @@
-/* * {
+* {
   border: 1px solid black;
-} */
-
-.app {
-  display: flex;
-  flex-direction: row;
 }
 
-.nav {
+/* .app {
+  display: flex;
+  flex-direction: row;
+} */
+
+/* .nav {
   display: flex;
   flex-direction: column;
   margin-top: auto;
   margin-bottom: auto;
-}
+} */
