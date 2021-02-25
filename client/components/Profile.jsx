@@ -12,10 +12,10 @@ const Profile = ({ user }) => {
       </div>
       <div>
         <h3>Current Habits:</h3>
-        {user.habits && user.habits.map(habit =>
+        {user.habits?.map(habit =>
           <div key={habit.id}>
             <h4>{habit.title}</h4>
-            <img src="" alt="habit-icon"/>
+            <img src={user.habitIcon} alt="habit-icon"/>
             <p>{habit.description}</p>
             <p>Priority: {habit.priority}</p>
             <p>Goal total: {habit.totalGoalCount}</p>
