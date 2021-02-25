@@ -6,7 +6,7 @@ const Profile = ({ user }) => {
     <>
       <div>
         <h1>Hey {user.firstName} {user.lastName}!</h1>
-        <img src="" alt="user-image"/>
+        <img src={user.userImage} alt="user-image"/>
         <h2>Level: </h2>
         <p>Current Exp. {user.totalXp}</p>
       </div>
