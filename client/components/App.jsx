@@ -9,6 +9,7 @@ import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 import AddHabit from './AddHabit'
+import { Route, Switch } from 'react-router-dom'
 
 const App = ({ dispatch, user }) => {
   useEffect(() => {
@@ -24,9 +25,11 @@ const App = ({ dispatch, user }) => {
   return (
     <div className="app">
       <Nav />
-      <Dashboard />
-      <Profile />
-      <AddHabit />
+      <Switch>
+        <Route path="/user/:id" component={Profile} />
+        <Route path="/habit" component={AddHabit} />
+        <Route exact path="/" component={Dashboard} />
+      </Switch>
     </div>
   )
 }
