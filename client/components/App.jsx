@@ -8,6 +8,7 @@ import { setUser } from '../actions'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
+import AddHabit from './AddHabit'
 
 const App = ({ dispatch, user }) => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const App = ({ dispatch, user }) => {
       <Nav />
       <Dashboard />
       <Profile />
+      <AddHabit />
     </div>
   )
 }
