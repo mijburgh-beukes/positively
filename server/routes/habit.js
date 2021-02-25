@@ -7,18 +7,26 @@ const router = express.Router()
 module.exports = router
 
 router.post('/', (req, res) => {
-  const { title, description, habitIcon, totalGoalCount, priority, goalCount } = req.body
-  const habit = {
-    title,
-    description,
-    habit_icon: habitIcon,
-    total_goal_count: totalGoalCount,
-    priority,
-    goal_count: goalCount
-  }
-  db.addHabit(habit).then(() => {
-    res.sendStatus(201)
-  }).catch((e) => {
-    res.status(500).send(e)
-  })
+  const habit = req.body
+  db.addHabit(habit)
+    .then(() => {
+      res.sendStatus(201)
+      return null
+    })
+    .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
+})
+
+router.patch('/:id', (req, res) => {
+  const userId = Number(req.params.id)
+  const changes = req.body
+  db.editHabit(userId, changes)
+    .then(habit => res.json(habit))
+    .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
+})
+
+router.delete('/:id', (req, res) => {
+  const habitId = Number(req.params.id)
+  db.deleteHabit(habitId)
+    .then((habit) => res.json(habit))
+    .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
 })

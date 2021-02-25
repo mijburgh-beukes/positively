@@ -2,8 +2,9 @@ const knex = require('knex')
 const config = require('./knexfile')
 const connection = knex(config.test)
 
-const { getUser } = require('./db')
+const { getUser, editHabit, deleteHabit, getHabits } = require('./db')
 const { formatUserData } = require('../formatter')
+const { mockHabitChanges } = require('../testFixtures/mockEditHabit')
 
 jest.mock('../formatter', () => {
   return {
@@ -23,5 +24,26 @@ describe('getUser', () => {
       expect(userData).toHaveLength(2)
       return null
     })
+  })
+})
+
+describe('editHabit', () => {
+  it('should update a habit', () => {
+    return editHabit(4, mockHabitChanges, connection).then(habit => {
+      expect(habit).toEqual(mockHabitChanges)
+      return null
+    })
+  })
+})
+
+describe('deleteHabit', () => {
+  it('should delete a specified habit', () => {
+    expect.assertions(1)
+    return deleteHabit(7, connection)
+      .then(() => getHabits(connection))
+      .then(habits => {
+        expect(habits.map(habit => habit.id)).toEqual([8, 9])
+        return null
+      })
   })
 })
