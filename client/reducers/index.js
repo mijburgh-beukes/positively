@@ -4,6 +4,6 @@ import userReducer from './userReducer'
 import habitReducer from './habitReducer'
 
 export default combineReducers({
-  userReducer,
+  user: userReducer,
   habitReducer
 })

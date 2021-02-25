@@ -5,33 +5,35 @@ import { getUser } from '../api/apiClient'
 import { setUser } from '../actions'
 
 // Components
+import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 import AddHabit from './AddHabit'
 
-const App = (props) => {
+const App = ({ dispatch, user }) => {
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(1)
       .then((user) => {
-        props.dispatch(setUser(user))
+        dispatch(setUser(user))
         return null
       })
       .catch(err => console.log(err))
   }, [])
 
   return (
-    <>
+    <div className="app">
+      <Nav />
       <Dashboard />
       <Profile />
       <AddHabit />
-    </>
+    </div>
   )
 }
 
 function mapStateToProps (state) {
   return {
-    user: state.userReducer
+    user: state.user
   }
 }
 
