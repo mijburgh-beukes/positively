@@ -6,10 +6,11 @@ const App = () => {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    getGreeting()
+    return getGreeting()
       .then((greeting) => {
         console.log(greeting)
         setGreeting(greeting)
+        return null
       })
   }, [count])
 
