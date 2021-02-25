@@ -27,39 +27,41 @@ const AddHabit = (props) => {
   }
 
   return (
-    <>
+    <div style={{padding: '2rem'}}>
       <form>
-        <label>
-          Title:
-          <input type="text" name="title" onChange={handleChange} placeholder="What's your habit?" />
-        </label>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">Title: </label>
+          <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?"/>
+        </div>
 
-        <label>
-          Description:
-          <textarea type="text" name="description" onChange={handleChange} placeholder="Describe your habit" />
-        </label>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">Description: </label>
+          <input type="text" className="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?"/>
+        </div>
 
-        <label>
-          Icon:
-          <input type="text" name="habitIcon" onChange={handleChange} placeholder="image src goes here" />
-        </label>
+        <div className="mb-3">
+          <label htmlFor="habitIcon" className="form-label">Icon: </label>
+          <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source"/>
+        </div>
 
-        <label>
-          total goal count:
-          <input type="number" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" />
-        </label>
+        <div className="mb-3">
+          <label htmlFor="totalGoalCount" className="form-label">Total Goal Count: </label>
+          <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!"/>
+        </div>
 
-        <label>
-          Priority:
-          <input type="number" name="priority" onChange={handleChange} placeholder="choose a number from 1 - 5, 1 being the highest" />
-        </label>
-        <button onClick={handleSubmit}>Add habit</button>
+        <div className="mb-3">
+          <label htmlFor="priority" className="form-label">Priority: </label>
+          <input type="range" className="form-range" min="0" max="5" name="priority"></input>
+        </div>
+
+        <button type="button" onClick={handleSubmit} className="btn btn-primary">Add Habit</button>
+
       </form>
-    </>
+    </div>
   )
 }
 
-function mapStateToProps (globalState) {
+function mapStateToProps(globalState) {
   return {
     newHabit: globalState.newHabit
   }
