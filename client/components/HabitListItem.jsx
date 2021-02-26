@@ -16,11 +16,8 @@ function Habit ({ dispatch, habit }) {
     patchHabit(habitId, { goalCount: count++ })
     // updates DB goalCount - break in the .then statement for some reason...
     // no error, simply won't update redux store per below:
-
       .then((updatedHabit) => {
-        const { id, goal_count } = updatedHabit
-        // console.log('component', id, goal_count)
-        dispatch(updateCount(id, goal_count))
+        dispatch(updateCount(habitId))
         return null
       })
       .catch(err => console.log(err))
