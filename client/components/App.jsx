@@ -27,7 +27,9 @@ const App = ({ dispatch, user }) => {
     <div className="app">
       <Nav />
       <Switch>
-        <Route path="/user/:id" component={Profile} />
+        <Route path="/user/:id">
+          <Profile />
+        </Route>
         <Route path="/habit" component={AddHabit} />
         <Route exact path="/" component={Dashboard} />
       </Switch>
