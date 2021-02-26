@@ -4,7 +4,9 @@ const baseUrl = '/api/v1/user'
 const habitUrl = '/api/v1/habit'
 
 export function getUser (id) {
+
   return request.get(`${baseUrl}/${id}`)
+
     .then((res) => {
       console.log('getUserApi', res)
       return res.body[0]
