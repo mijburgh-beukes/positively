@@ -7,26 +7,23 @@ import { patchHabit } from '../api/apiClient'
 
 // Start with db updating redux  state!!
 
-// onClick function to update habit - sends updated habit data to server to write to DB
 // onClick function to update user totalXp for each click - number of exp points to be decided
 // TODO: button function to add count to goalCount
 // TODO: button function to add Exp to user totalXp
 
 function Habit ({ dispatch, habitObj }) {
-  console.log(habitObj.id)
-
+  const { id } = habitObj
   let count = habitObj.goalCount
 
   function handleCount () {
-    // need the new goalCount and habit id to update the entry,
-    // send info to api, then to route, then to db..
-    patchHabit(1, { goalCount: count++ })
-
-    // updateCount(habitObj.id)
-    //   .then(() => {
-    //     return null
-    //   })
-    //   .catch(err => console.log(err))
+    patchHabit(id, { goalCount: count++ })
+      .then((updatedHabit) => {
+        const { id } = updatedHabit
+        console.log(id)
+        // dispatch(updateCount(habitObj.id))
+        return null
+      })
+      .catch(err => console.log(err))
   }
 
   return (
