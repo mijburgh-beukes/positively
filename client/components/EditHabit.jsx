@@ -1,16 +1,9 @@
 // import React, { useState } from 'react'
 // import { connect } from 'react-redux'
-// import { saveHabit } from '../actions'
+// import { updateHabit, removeHabit } from '../actions'
 
-// const EditHabit = (props) => {
-//   const [formData, setFormData] = useState({
-//     title: '',
-//     description: '',
-//     habitIcon: '',
-//     totalGoalCount: 0,
-//     priority: 0,
-//     goalCount: 0
-//   })
+// const EditHabit = ({ user }) => {
+//   const [formData, setFormData] = useState()
 
 //   const handleChange = (event) => {
 //     setFormData(currentFormData => {
