@@ -9,6 +9,7 @@ import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 import AddHabit from './AddHabit'
+
 import { Route, Switch } from 'react-router-dom'
 
 const App = ({ dispatch, user }) => {
