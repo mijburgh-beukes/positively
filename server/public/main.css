@@ -21,7 +21,9 @@ body {
 } */
 
 .module-h2 {
-  font-weight: 900;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 0.75rem;
 }
 
 .achievement-badge {
@@ -36,6 +38,22 @@ body {
 .agenda {
   background-color: #fff;
   border-radius: 0.75rem;
+}
+
+.agenda .row {
+  margin: 0rem
+}
+
+.agenda h2 {
+  padding: 0;
+}
+
+.agenda h3 {
+  padding: 0;
+}
+
+.agenda h4 {
+  padding: 0;
 }
 
 /* THis is a temporary placeholder class */
