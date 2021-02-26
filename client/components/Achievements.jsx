@@ -3,19 +3,19 @@ import { connect } from 'react-redux'
 
 function Achievements (props) {
   return (
-    <div className="container-sm">
-      <h4>Achievements</h4>
+    <div className="container-sm shadow module px-3 pb-2 pt-3">
+      <h2 className="module-h2">Achievements</h2>
       <div className="row row-cols-2">
-        <div className="col-sm-3">
+        <div className="col-sm-3 py-2">
           <Badge />
         </div>
-        <div className="col-sm-3">
+        <div className="col-sm-3 py-2">
           <Badge />
         </div>
-        <div className="col-sm-3">
+        <div className="col-sm-3 py-2">
           <Badge />
         </div>
-        <div className="col-sm-3">
+        <div className="col-sm-3 py-2">
           <Badge />
         </div>
       </div>
@@ -23,10 +23,10 @@ function Achievements (props) {
   )
 }
 
-function Badge(props) {
+function Badge (props) {
   return (
-    <div className="container">
-      <div className="achievement-badge justify-content-centre">Badge</div>
+    <div className="achievement-badge">
+      <p className="mb-0">Badge</p>
     </div>
   )
 }
