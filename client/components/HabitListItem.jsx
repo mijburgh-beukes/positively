@@ -2,24 +2,29 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import { patchHabit } from '../api/apiClient'
 // 1 - onClick function to update habit - sends updated habit data to server to write to DB
 // onClick function to update user totalXp for each click - number of exp points to be decided
 // TODO: button function to add count to goalCount
 // TODO: button function to add Exp to user totalXp
 
 function Habit ({ habitObj }) {
-  // console.log('habitListItem', habitObj)
   const { goalCount } = habitObj
 
-  function incrementItem () {
-    return updateCount(count + 1)
+  const { count, setCount } = useState(goalCount)
+
+  function plusCount () {
+    return patchHabit()
+      .then(() => {
+        dispatch(addCount())
+      })
   }
 
   return (
     <div className='habitListItem'>
       {<p>{habitObj.title}</p>}
-      <button aria-label='delete' onClick={incrementItem}>
-        <span className='habitButton' src="/public" alt="plus-button">+</span>
+      <button onClick={plusCount}>
+        <span className='plusButton' src="" alt="plus-button">+</span>
       </button>
     </div>
   )

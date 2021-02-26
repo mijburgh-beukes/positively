@@ -7,6 +7,7 @@ function HabitList ({ user }) {
   // const { habits } = props.user
   return (
     <div>
+      <h4>Active Habits</h4>
       { user.habits?.map(habit =>
         <HabitListItem
           key={habit.id}

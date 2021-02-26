@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import HabitList from './HabitList'
 
 const Profile = ({ user }) => {
-  console.log(user)
   return (
     <>
       <div>
@@ -11,18 +11,7 @@ const Profile = ({ user }) => {
         <h2>Level: </h2>
         <p>Current Exp. {user.totalXp}</p>
       </div>
-      <div>
-        <h3>Current Habits:</h3>
-        {user.habits?.map(habit =>
-          <div key={habit.id}>
-            <h4>{habit.title}</h4>
-            <img src={user.habitIcon} alt="habit-icon"/>
-            <p>{habit.description}</p>
-            <p>Priority: {habit.priority}</p>
-            <p>Goal total: {habit.totalGoalCount}</p>
-            <p>Goal count: {habit.goalCount}</p>
-          </div>)}
-      </div>
+      <HabitList />
     </>
   )
 }

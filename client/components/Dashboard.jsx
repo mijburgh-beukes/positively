@@ -9,7 +9,6 @@ import Achievements from './Achievements'
 const Dashboard = () => {
   return (
     <div>
-      <HabitList />
       <Achievements />
     </div>
   )
