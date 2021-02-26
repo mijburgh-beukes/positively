@@ -11,7 +11,7 @@ const Profile = ({ user }) => {
         <h2>Level: </h2>
         <p>Current Exp. {user.totalXp}</p>
       </div>
-      {/* <HabitList /> */}
+      <HabitList />
     </>
   )
 }
