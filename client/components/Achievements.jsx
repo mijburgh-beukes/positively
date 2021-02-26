@@ -31,7 +31,7 @@ function Badge (props) {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }

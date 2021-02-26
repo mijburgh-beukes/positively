@@ -20,7 +20,7 @@ const UserDetails = () => {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }

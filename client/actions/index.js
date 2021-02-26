@@ -1,4 +1,3 @@
-
 import { addHabit, patchHabit, deleteHabit } from '../api/apiClient'
 
 export const setUser = (user) => {
@@ -21,7 +20,6 @@ export function createDeleteHabit (id) {
     id
   }
 }
-
 
 export const saveHabit = (habit) => {
   return dispatch => {
@@ -58,4 +56,3 @@ export const updateHabit = (id, patchData) => {
         console.log(err))
   }
 }
-
