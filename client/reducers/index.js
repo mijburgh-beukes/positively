@@ -1,9 +1,20 @@
-import { combineReducers } from 'redux'
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_USER':
+      return action.user
 
-import userReducer from './userReducer'
-import habitReducer from './habitReducer'
+    case 'SET_HABIT':
+      return action.habit
 
-export default combineReducers({
-  user: userReducer,
-  habitReducer
-})
+    case 'UPDATE_HABIT':
+      return state.habits.map(habit => habit.id === action.id ? action.habit : habit)
+
+    case 'DELETE_HABIT':
+      return state.habits.filter(habit => habit.id !== action.id)
+
+    default :
+      return state
+  }
+}
+
+export default reducer
