@@ -16,6 +16,7 @@ export function addHabit (habit) {
     .post(habitUrl)
     .send(habit)
     .then(res => {
+      console.log(res)
       console.log('addHabbitApi', res)
       return res.body
     })

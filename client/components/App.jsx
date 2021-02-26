@@ -20,7 +20,7 @@ const App = ({ dispatch, user }) => {
         return null
       })
       .catch(err => console.log(err))
-  }, [])
+  }, [user])
 
   return (
     <div className="app">
@@ -34,7 +34,7 @@ const App = ({ dispatch, user }) => {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }

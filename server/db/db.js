@@ -31,7 +31,8 @@ function editHabit (id, changes, db = database) {
       description: changes.description,
       habit_icon: changes.habitIcon,
       total_goal_count: changes.totalGoalCount,
-      priority: changes.priority
+      priority: changes.priority,
+      goal_count: changes.goalCount
     })
     .where('id', id)
     .then(() => getHabit(id, db))
