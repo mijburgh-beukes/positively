@@ -2,7 +2,7 @@ import React from 'react'
 
 function Agenda () {
   return (
-    <div className="container-sm agenda shadow px-3 pb-2 pt-3">
+    <div className="container-sm module shadow px-3 pb-2 pt-3">
       <div className="row">
         <h2 className="module-h2">Agenda</h2>
         <h4>Your top performing habit</h4>

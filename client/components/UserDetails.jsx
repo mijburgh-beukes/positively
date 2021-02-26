@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 const UserDetails = () => {
   return (
-    <div className="container-sm">
-      <div className="card d-flex justify-content-center">
+    <div className="container-sm module shadow px-3 pb-2 pt-3">
+      <div className="card">
         <img
           src="https://yourwikis.com/wp-content/uploads/2020/01/mark-zuck-img.jpg"
           className="card-img-top rounded-circle w-25 m-auto"
@@ -20,7 +20,7 @@ const UserDetails = () => {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }
