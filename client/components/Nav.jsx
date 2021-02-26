@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
   return (
     <div className="nav">
-      <img src="" alt="app-logo"/>
+      <img src="./src/logo.svg" alt="app-logo" className="logo"/>
       {/* TODO: need to be links once router is set up */}
       {/* TODO: needs image srcs */}
       <a to=""><img src="" alt="dashboard"/></a>

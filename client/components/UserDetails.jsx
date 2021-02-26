@@ -7,7 +7,7 @@ const UserDetails = () => {
       <div className="card">
         <img
           src="https://yourwikis.com/wp-content/uploads/2020/01/mark-zuck-img.jpg"
-          className="card-img-top rounded-circle w-25 m-auto"
+          className="card-img-top rounded-circle w-75 m-auto"
           alt="..."
         />
         <div className="card-body m-auto">

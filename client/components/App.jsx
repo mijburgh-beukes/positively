@@ -24,13 +24,19 @@ const App = ({ dispatch, user }) => {
   }, [])
 
   return (
-    <div className="app">
-      <Nav />
-      <Switch>
-        <Route path="/user/:id" component={Profile} />
-        <Route path="/habit" component={AddHabit} />
-        <Route exact path="/" component={Dashboard} />
-      </Switch>
+    <div className="app container-md">
+      <div className="row">
+        <div className="col-sm-1">
+          <Nav />
+        </div>
+        <div className="col-sm-11">
+          <Switch>
+            <Route path="/user/:id" component={Profile} />
+            <Route path="/habit" component={AddHabit} />
+            <Route exact path="/" component={Dashboard} />
+          </Switch>
+        </div>
+      </div>
     </div>
   )
 }
