@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { updateCount } from '../actions/index'
+import { patchHabit } from '../api/apiClient'
 
 // Start with db updating redux  state!!
 
@@ -12,12 +13,20 @@ import { updateCount } from '../actions/index'
 // TODO: button function to add Exp to user totalXp
 
 function Habit ({ dispatch, habitObj }) {
-  const { goalCount } = habitObj
-
   console.log(habitObj.id)
 
+  let count = habitObj.goalCount
+
   function handleCount () {
-    updateCount(habitObj.id)
+    // need the new goalCount and habit id to update the entry,
+    // send info to api, then to route, then to db..
+    patchHabit(1, { goalCount: count++ })
+
+    // updateCount(habitObj.id)
+    //   .then(() => {
+    //     return null
+    //   })
+    //   .catch(err => console.log(err))
   }
 
   return (
