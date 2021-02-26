@@ -13,6 +13,7 @@ export const setHabit = (habit) => {
     habit
   }
 }
+
 export function createDeleteHabit (id) {
   return {
     type: 'DELETE_HABIT',
