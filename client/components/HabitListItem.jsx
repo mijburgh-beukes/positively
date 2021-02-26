@@ -14,6 +14,8 @@ import { updateCount } from '../actions/index'
 function Habit ({ dispatch, habitObj }) {
   const { goalCount } = habitObj
 
+  console.log(habitObj.id)
+
   function handleCount () {
     updateCount(habitObj.id)
   }
@@ -21,7 +23,7 @@ function Habit ({ dispatch, habitObj }) {
   return (
     <div className='habitListItem'>
       {<p>{habitObj.title}</p>}
-      <button className='plusButton' onClick={() => handleCount}>
+      <button className='plusButton' onClick={handleCount}>
         <span>+</span>
       </button>
     </div>
