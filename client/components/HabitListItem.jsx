@@ -5,22 +5,22 @@ import { connect } from 'react-redux'
 import { updateCount } from '../actions/index'
 import { patchHabit } from '../api/apiClient'
 
-// Start with db updating redux  state!!
-
 // onClick function to update user totalXp for each click - number of exp points to be decided
-// TODO: button function to add count to goalCount
 // TODO: button function to add Exp to user totalXp
 
-function Habit ({ dispatch, habitObj }) {
-  const { id } = habitObj
-  let count = habitObj.goalCount
+function Habit ({ dispatch, habit }) {
+  const habitId = habit.id
+  let count = habit.goalCount
 
   function handleCount () {
-    patchHabit(id, { goalCount: count++ })
+    patchHabit(habitId, { goalCount: count++ })
+    // updates DB goalCount - break in the .then statement for some reason...
+    // no error, simply won't update redux store per below:
+
       .then((updatedHabit) => {
-        const { id } = updatedHabit
-        console.log(id)
-        // dispatch(updateCount(habitObj.id))
+        const { id, goal_count } = updatedHabit
+        // console.log('component', id, goal_count)
+        dispatch(updateCount(id, goal_count))
         return null
       })
       .catch(err => console.log(err))
@@ -28,7 +28,7 @@ function Habit ({ dispatch, habitObj }) {
 
   return (
     <div className='habitListItem'>
-      {<p>{habitObj.title}</p>}
+      {<p>{habit.title}</p>}
       <button className='plusButton' onClick={handleCount}>
         <span>+</span>
       </button>

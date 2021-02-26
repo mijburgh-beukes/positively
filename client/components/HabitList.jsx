@@ -11,7 +11,7 @@ function HabitList ({ user }) {
       { user.habits?.map(habit =>
         <HabitListItem
           key={habit.id}
-          habitObj={habit}
+          habit={habit}
         />) }
     </div>
 
