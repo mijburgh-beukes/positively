@@ -12,6 +12,7 @@ function HabitList ({ user }) {
         <HabitListItem
           key={habit.id}
           habit={habit}
+          user={user}
         />) }
     </div>
 

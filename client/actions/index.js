@@ -64,3 +64,11 @@ export const updateCount = (id, goalCount) => {
     goalCount
   }
 }
+
+export const updateXp = (id, xp) => {
+  return {
+    type: 'UPDATE_XP',
+    id,
+    xp
+  }
+}
