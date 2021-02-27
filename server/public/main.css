@@ -17,13 +17,19 @@ body {
 
 .nav {
   /* display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-bottom: auto; */
+  flex-direction: row;
+  flex-wrap: wrap; */
   background-color: #1B1446;
   height: 100%;
   color: #fff;
-  justify-content: center;
+  align-items: center;
+  min-height: 4rem;
+}
+
+.nav svg {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem 0;
 }
 
 .card {
@@ -51,7 +57,7 @@ body {
 .module {
   background-color: #fff;
   border-radius: 0.75rem;
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
 }
 
 .module .row {
@@ -106,7 +112,15 @@ body {
 
 .logo {
   width: 60%;
-  height: auto;
+  max-height: 4rem;
+}
+
+.active {
+  fill: #ed1e79;
+}
+
+.inactive {
+  fill: #ffffff77;
 }
 /* .agenda {
   height: calc(100% - 2rem);
