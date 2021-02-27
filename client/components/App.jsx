@@ -24,8 +24,8 @@ const App = ({ dispatch, user }) => {
   }, [])
 
   return (
-    <div className="app container-md">
-      <div className="row">
+    <div className="app container-sm rounded-3 gx-0">
+      <div className="row gx-3">
         <div className="col-md-1">
           <Nav />
         </div>

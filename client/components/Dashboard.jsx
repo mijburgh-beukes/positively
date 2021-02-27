@@ -6,10 +6,11 @@ import UserDetails from './UserDetails'
 
 const Dashboard = () => {
   return (
-    <div className="row">
+    <div className="row gx-3 pe-3 py-3">
       <div className="col-md-9">
-        <div className="module hero px-3 pt-2">
+        <div className="hero rounded-3 px-3 pb-1 pt-2 mb-3">
           <h1>Hello Burg</h1>
+          <p>Here&apos;s an overview of your lifestyle ...</p>
         </div>
         <Agenda />
       </div>

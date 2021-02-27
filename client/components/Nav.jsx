@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <div className="nav d-flex flex-lg-column flex-lg-row">
+    <div className="nav d-flex flex-lg-column flex-lg-row rounded-start">
       <img src="./src/logo.svg" alt="app-logo" className="logo"/>
       {/* TODO: need to be links once router is set up */}
       <a to="">{/* <img src="./src/dashboard.svg" alt="dashboard" className="inactive"/> */}

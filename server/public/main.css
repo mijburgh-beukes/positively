@@ -1,5 +1,5 @@
 /* * {
-  border: 1px solid rgb(255, 0, 234);
+  border: 1px solid rgb(0, 255, 8);
 } */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
@@ -36,9 +36,8 @@ body {
   border: none;
 }
 
-.module-h2 {
-  font-weight: 600;
-  padding: 0;
+.module-header {
+  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
@@ -78,8 +77,8 @@ body {
 
 /* THis is a temporary placeholder class */
 .habitPH {
-  display: grid;
-  vertical-align: center;
+  /* display: grid;
+  vertical-align: center; */
   background-color: #ed1e79;
   color: #fff;
   height: 2rem;
