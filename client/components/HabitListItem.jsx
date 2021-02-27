@@ -27,6 +27,9 @@ function Habit ({ dispatch, habit, user }) {
 
   return (
     <div className='habitListItem'>
+      <div>
+        {habit.goalCount}
+      </div>
       {<p>{habit.title}</p>}
       <button className='plusButton' onClick={handleCount}>
         <span>+</span>
