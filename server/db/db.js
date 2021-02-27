@@ -12,6 +12,17 @@ function getUser (id, db = database) {
     .then(formatUserData)
 }
 
+function updateUser (userId, userChanges, db = database) {
+  return db('users').where('users.id', userId)
+    .update({
+      firstName: userChanges.firstName,
+      lastName: userChanges.lastName,
+      userImage: userChanges.userImage,
+      totalXp: userChanges.totalXp,
+      pw: userChanges.pw
+    })
+}
+
 function addHabit (habit, db = database) {
   return db('habits').insert({
     user_id: habit.userId,
@@ -56,5 +67,6 @@ module.exports = {
   addHabit,
   editHabit,
   deleteHabit,
-  getHabits
+  getHabits,
+  updateUser
 }

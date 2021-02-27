@@ -12,6 +12,18 @@ export function getUser (id) {
     .catch(e => { throw new Error(e.response.text) })
 }
 
+export function patchUser (userId, userChanges) {
+  console.log('api', userChanges)
+  return request
+    .patch(`${baseUrl}/${userId}`)
+    .send(userChanges)
+    .then(res => {
+      console.log('userChanges', res)
+      return res.body
+    })
+    .catch(e => { throw new Error(e.response.text) })
+}
+
 export function addHabit (habit) {
   return request
     .post(habitUrl)
