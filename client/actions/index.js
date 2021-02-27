@@ -65,10 +65,9 @@ export const updateCount = (id, goalCount) => {
   }
 }
 
-export const updateXp = (id, xp) => {
+export const updateXp = (xp) => {
   return {
     type: 'UPDATE_XP',
-    id,
     xp
   }
 }

@@ -25,13 +25,10 @@ const userReducer = (state = [], action) => {
       }
 
     case 'UPDATE_XP':
-      return state.map((user) => {
-        const currentUser = state.find(user => user.id === action.id)
-        return {
-          ...user,
-          totalXp: currentUser ? action.totalXp : user.totalXp
-        }
-      })
+      return {
+        ...state,
+        totalXp: action.xp
+      }
 
     default :
       return state
