@@ -17,7 +17,7 @@ const userReducer = (state = [], action) => {
         const newCount = state.habits.find(habit => habit.id === action.id)
         return {
           ...habit,
-          goalCount: newCount ? habit.goalCount + 1 : habit.goalCount
+          goalCount: newCount ? action.goalCount : habit.goalCount
         }
       })
 

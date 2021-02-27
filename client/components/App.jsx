@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 
 import { getUser } from '../api/apiClient'
@@ -12,7 +12,8 @@ import AddHabit from './AddHabit'
 
 import { Route, Switch } from 'react-router-dom'
 
-const App = ({ dispatch, user }) => {
+function App ({ dispatch, user }) {
+  // const [currentUser, setUser] = useState()
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(1)

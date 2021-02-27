@@ -57,10 +57,10 @@ export const updateHabit = (id, patchData) => {
   }
 }
 
-export const updateCount = (id) => {
-  console.log('action', id)
+export const updateCount = (id, goalCount) => {
   return {
     type: 'UPDATE_COUNT',
-    id
+    id,
+    goalCount
   }
 }
