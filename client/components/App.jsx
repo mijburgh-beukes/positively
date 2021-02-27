@@ -25,12 +25,12 @@ function App ({ dispatch, user }) {
   }, [])
 
   return (
-    <div className="app container-sm rounded-3 gx-0">
+    <div className="app container-lg rounded-3 gx-0">
       <div className="row gx-3">
         <div className="col-md-1">
           <Nav />
         </div>
-        <div className="col-sm-11">
+        <div className="col-sm-11 mx-auto">
           <Switch>
             <Route path="/user/:id" component={Profile} />
             <Route exact path="/" component={Dashboard} />
