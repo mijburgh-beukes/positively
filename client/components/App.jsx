@@ -8,11 +8,12 @@ import { setUser } from '../actions'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
-import AddHabit from './AddHabit'
 
 import { Route, Switch } from 'react-router-dom'
 
-const App = ({ dispatch, user }) => {
+function App ({ dispatch, user }) {
+  // const [currentUser, setUser] = useState(user)
+
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(1)
@@ -32,7 +33,6 @@ const App = ({ dispatch, user }) => {
         <div className="col-sm-11">
           <Switch>
             <Route path="/user/:id" component={Profile} />
-            <Route path="/habit" component={AddHabit} />
             <Route exact path="/" component={Dashboard} />
           </Switch>
         </div>

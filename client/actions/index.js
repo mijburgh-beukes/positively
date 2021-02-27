@@ -14,9 +14,9 @@ export const setHabit = (habit) => {
   }
 }
 
-export function createDeleteHabit (id) {
+export function deleteTheHabit (id) {
   return {
-    type: 'DELETE_TODO',
+    type: 'DELETE_HABIT',
     id
   }
 }
@@ -24,8 +24,8 @@ export function createDeleteHabit (id) {
 export const saveHabit = (habit) => {
   return dispatch => {
     addHabit(habit)
-      .then((allHabits) => {
-        dispatch(setHabit(allHabits))
+      .then((habit) => {
+        dispatch(setHabit(habit))
         return null
       })
       .catch(err =>
@@ -37,7 +37,7 @@ export const removeHabit = (id) => {
   return dispatch => {
     deleteHabit(id)
       .then(() => {
-        dispatch(createDeleteHabit(id))
+        dispatch(deleteTheHabit(id))
         return null
       })
       .catch(err =>
@@ -54,5 +54,20 @@ export const updateHabit = (id, patchData) => {
       })
       .catch(err =>
         console.log(err))
+  }
+}
+
+export const updateCount = (id, goalCount) => {
+  return {
+    type: 'UPDATE_COUNT',
+    id,
+    goalCount
+  }
+}
+
+export const updateXp = (xp) => {
+  return {
+    type: 'UPDATE_XP',
+    xp
   }
 }

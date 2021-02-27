@@ -17,3 +17,11 @@ router.get('/:id', (req, res) => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
+
+router.patch('/:id', (req, res) => {
+  const userId = Number(req.params.id)
+  const userChanges = req.body
+  db.updateUser(userId, userChanges)
+    .then(() => res.status(200).send('Success'))
+    .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
+})
