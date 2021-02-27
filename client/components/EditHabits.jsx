@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateHabit, removeHabit } from '../actions'
 
 const EditHabits = (props) => {
-  const [formData, setFormData] = useState()
+  const [formData, setFormData] = useState({})
 
   const handleChange = (event) => {
     setFormData(currentFormData => {
@@ -14,49 +14,49 @@ const EditHabits = (props) => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleUpdate = (event) => {
     event.preventDefault()
-    props.dispatch(saveHabit(formData))
+    props.dispatch(updateHabit(formData))
   }
 
   return (
-    <div style={{padding: '2rem'}}>
+    <div style={{ padding: '2rem' }}>
       <form>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title: </label>
-          <input type="text" class="form-control" name="title" onChange={handleChange} placeholder="What's your habit?"/>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">Title: </label>
+          <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?"/>
         </div>
 
-        <div class="mb-3">
-          <label for="description" class="form-label">Description: </label>
-          <input type="text" class="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?"/>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">Description: </label>
+          <input type="text" className="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?"/>
         </div>
 
-        <div class="mb-3">
-          <label for="habitIcon" class="form-label">Icon: </label>
-          <input type="text" class="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source"/>
+        <div className="mb-3">
+          <label htmlFor="habitIcon" className="form-label">Icon: </label>
+          <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source"/>
         </div>
 
-        <div class="mb-3">
-          <label for="totalGoalCount" class="form-label">Total Goal Count: </label>
-          <input type="number" class="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!"/>
+        <div className="mb-3">
+          <label htmlFor="totalGoalCount" className="form-label">Total Goal Count: </label>
+          <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!"/>
         </div>
 
-        <div class="mb-3">
-          <label for="priority" class="form-label">Priority: </label>
-          <input type="range" class="form-range" min="0" max="5" name="priority"></input>
+        <div className="mb-3">
+          <label htmlFor="priority" className="form-label">Priority: </label>
+          <input type="range" className="form-range" min="0" max="5" name="priority"></input>
         </div>
 
-        <button type="button" onClick={handleSubmit} class="btn btn-primary">Add Habit</button>
+        <button type="button" onClick={handleUpdate} className="btn btn-primary">Update Habit</button>
 
       </form>
     </div>
   )
 }
 
-function mapStateToProps(globalState) {
+function mapStateToProps (globalState) {
   return {
-    habits: globalState.user.habits
+    habits: globalState
   }
 }
 
