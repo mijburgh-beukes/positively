@@ -8,6 +8,7 @@ import { setUser } from '../actions'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
+import EditHabits from './EditHabits'
 
 import { Route, Switch } from 'react-router-dom'
 
@@ -29,6 +30,7 @@ function App ({ dispatch, user }) {
       <Nav />
       <Switch>
         <Route path="/user/:id" component={Profile} />
+        <Route path="/editHabits" component={EditHabits} />
         <Route exact path="/" component={Dashboard} />
       </Switch>
     </div>
