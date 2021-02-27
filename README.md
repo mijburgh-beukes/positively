@@ -33,3 +33,17 @@ GET 'api/v1/user/:id' will return the following object:
 ]
 ```
 
+POST 'api/v1/habit' accepts a json
+
+```
+{
+    "userId": "2",
+    "title": "running",
+    "description": "30min a day",
+    "habitIcon": "some icon",
+    "totalGoalCount": 0,
+    "priority": 2,
+    "goalCount": 0
+}
+```
+

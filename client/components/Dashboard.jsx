@@ -1,15 +1,17 @@
 import React from 'react'
-import Habits from './Habits/Habits'
-import AddHabit from './AddHabit'
+// TODO: confirm habitList component location - tentatively imported here
+
+import Achievements from './Achievements'
+import Agenda from './Agenda'
+import UserDetails from './UserDetails'
 
 const Dashboard = () => {
   return (
-    <>
-      <h4>This is the dashboard</h4>
-      <AddHabit />
-      <Habits />
-    </>
-
+    <div>
+      <Agenda />
+      <Achievements />
+      <UserDetails />
+    </div>
   )
 }
 
