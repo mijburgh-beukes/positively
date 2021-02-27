@@ -6,7 +6,7 @@ const habitUrl = '/api/v1/habit'
 export function getUser (id) {
   return request.get(`${baseUrl}/${id}`)
     .then((res) => {
-      console.log('getUserApi', res)
+      console.log('getUserApi', res.body[0])
       return res.body[0]
     })
     .catch(e => { throw new Error(e.response.text) })

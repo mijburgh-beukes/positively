@@ -5,6 +5,7 @@ import { saveHabit } from '../actions'
 const AddHabit = (props) => {
   const [formData, setFormData] = useState({
     title: '',
+    userId: 1,
     description: '',
     habitIcon: '',
     totalGoalCount: 0,
