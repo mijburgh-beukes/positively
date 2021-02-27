@@ -14,7 +14,7 @@ export const setHabit = (habit) => {
   }
 }
 
-export function createDeleteHabit (id) {
+export function deleteTheHabit (id) {
   return {
     type: 'DELETE_HABIT',
     id
@@ -24,8 +24,8 @@ export function createDeleteHabit (id) {
 export const saveHabit = (habit) => {
   return dispatch => {
     addHabit(habit)
-      .then((allHabits) => {
-        dispatch(setHabit(allHabits))
+      .then((habit) => {
+        dispatch(setHabit(habit))
         return null
       })
       .catch(err =>
@@ -37,7 +37,7 @@ export const removeHabit = (id) => {
   return dispatch => {
     deleteHabit(id)
       .then(() => {
-        dispatch(createDeleteHabit(id))
+        dispatch(deleteTheHabit(id))
         return null
       })
       .catch(err =>

@@ -5,7 +5,6 @@ const habitUrl = '/api/v1/habit'
 
 export function getUser (id) {
   return request.get(`${baseUrl}/${id}`)
-
     .then((res) => {
       return res.body[0]
     })
