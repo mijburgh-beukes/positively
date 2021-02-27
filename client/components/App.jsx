@@ -30,7 +30,7 @@ function App ({ dispatch, user }) {
         <div className="col-md-1">
           <Nav />
         </div>
-        <div className="col-sm-11 mx-auto">
+        <div className="col mx-auto">
           <Switch>
             <Route path="/user/:id" component={Profile} />
             <Route exact path="/" component={Dashboard} />
