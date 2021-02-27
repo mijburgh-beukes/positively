@@ -16,7 +16,7 @@ export const setHabit = (habit) => {
 
 export function createDeleteHabit (id) {
   return {
-    type: 'DELETE_TODO',
+    type: 'DELETE_HABIT',
     id
   }
 }
@@ -54,5 +54,20 @@ export const updateHabit = (id, patchData) => {
       })
       .catch(err =>
         console.log(err))
+  }
+}
+
+export const updateCount = (id, goalCount) => {
+  return {
+    type: 'UPDATE_COUNT',
+    id,
+    goalCount
+  }
+}
+
+export const updateXp = (xp) => {
+  return {
+    type: 'UPDATE_XP',
+    xp
   }
 }
