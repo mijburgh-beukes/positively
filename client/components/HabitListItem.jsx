@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { setHabitCount, updateCount } from '../actions/index'
+import { updateCount } from '../actions/index'
 import { patchHabit } from '../api/apiClient'
 
 // onClick function to update user totalXp for each click - number of exp points to be decided
@@ -10,12 +10,10 @@ import { patchHabit } from '../api/apiClient'
 
 function Habit ({ dispatch, habit }) {
   function handleCount () {
-    patchHabit(habit.id, { goalCount: habit.goalCount + 1 })
-    // updates DB goalCount - break in the .then statement for some reason...
-    // no error, simply won't update redux store per below:
-      .then((res) => {
-        console.log(res)
-        dispatch(updateCount(habit.id, habit.goalCount))
+    const newCount = habit.goalCount + 1
+    patchHabit(habit.id, { goalCount: newCount })
+      .then(() => {
+        dispatch(updateCount(habit.id, newCount))
         return null
       })
       .catch(err => console.log(err))

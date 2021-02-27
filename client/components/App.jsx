@@ -22,7 +22,7 @@ function App ({ dispatch, user }) {
         return null
       })
       .catch(err => console.log(err))
-  }, [])
+  }, [user])
 
   return (
     <div className="app">
