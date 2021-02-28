@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 import { updateHabit, removeHabit } from '../actions'
 
 const EditHabits = ({ dispatch, habits }) => {
-
-  // onclick set form state to that data from the habit clicked and display form with already populated data from clicked habit
-
-  
   const [formData, setFormData] = useState({
     title: '',
     userId: 1,
@@ -26,9 +22,9 @@ const EditHabits = ({ dispatch, habits }) => {
     })
   }
 
-  const handleUpdate = (event) => {
-    event.preventDefault()
-    dispatch(updateHabit(formData))
+  const handleUpdate = (id, event) => {
+    // event.preventDefault()
+    dispatch(updateHabit(id, formData))
   }
 
   const populateForm = (habit, event) => {
@@ -77,8 +73,7 @@ const EditHabits = ({ dispatch, habits }) => {
             <input type="range" className="form-range" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
           </div>
 
-          <button type="button" onClick={handleUpdate} className="btn btn-primary">Update</button>
-
+          <button type="button" onClick={() => handleUpdate(formData.id)}  className="btn btn-primary">Update</button>
         </form>
       </div>
     </>
