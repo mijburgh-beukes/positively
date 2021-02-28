@@ -11,7 +11,7 @@ function Agenda ({ user }) {
   const b2 = bottomTwoHabits ? bottomTwoHabits[1].title : null
 
   return (
-    <div className="bg-white rounded-3 px-3 pb-1 pt-2 mb-sm-3">
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3">
       <div className="row">
         <h3 className="module-header">Agenda</h3>
         <h4>Your top performing habit</h4>
