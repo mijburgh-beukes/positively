@@ -5,17 +5,17 @@ const { mockUser, mockUser2 } = require('./testFixtures/mockUserData')
 
 describe('formatUserData function', () => {
   it("should create a new user if user.id isn't present", () => {
-    let userIds = []
+    const userIds = []
     mockUser.forEach(user => userIds.push(user.user_id))
-    let formattedUsers = formatUserData(mockUser)
-    expect(formattedUsers.length).toEqual(_.sortedUniq(userIds).length)
+    const formattedUsers = formatUserData(mockUser)
+    expect(formattedUsers).toHaveLength(_.sortedUniq(userIds).length)
   })
 
   it('should add a new habit if user.id is present', () => {
-    let habitIds = []
+    const habitIds = []
     mockUser.forEach(user => habitIds.push(user.id))
 
-    let formattedUsers = formatUserData(mockUser2)
-    expect(formattedUsers[0].habits.length).toEqual(2)
+    const formattedUsers = formatUserData(mockUser2)
+    expect(formattedUsers[0].habits).toHaveLength(2)
   })
 })
