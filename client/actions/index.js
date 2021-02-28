@@ -24,7 +24,7 @@ export function deleteTheHabit (id) {
 export const saveHabit = (habit) => {
   return dispatch => {
     addHabit(habit)
-      .then((habit) => {
+      .then(() => {
         dispatch(setHabit(habit))
         return null
       })
