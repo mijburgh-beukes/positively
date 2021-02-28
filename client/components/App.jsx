@@ -30,7 +30,7 @@ function App ({ dispatch, user }) {
       <Nav />
       <Switch>
         <Route path="/user/:id" component={Profile} />
-        <Route path="/editHabits" component={EditHabits} />
+        <Route path="/edithabits" component={EditHabits} />
         <Route exact path="/" component={Dashboard} />
       </Switch>
     </div>
