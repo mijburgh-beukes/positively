@@ -81,6 +81,7 @@ describe('PATCH /api/v1/:id', () => {
       .then(res => {
         expect(res.status).toEqual(200)
         expect(res.text).toEqual('Success')
+        return null
       })
   })
 
@@ -95,6 +96,7 @@ describe('PATCH /api/v1/:id', () => {
       .then(err => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')
+        return null
       })
   })
 })

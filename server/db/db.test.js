@@ -63,6 +63,7 @@ describe('updateUser', () => {
       .then(() => getUserById(10, connection))
       .then(user => {
         expect(user).toEqual(mockUpdateUser)
+        return null
       })
   })
 })
@@ -83,6 +84,7 @@ describe('addHabit', () => {
       .then(() => getHabits(connection))
       .then(habits => {
         expect(habits).toHaveLength(7)
+        return null
       })
   })
 })

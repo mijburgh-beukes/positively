@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { updateHabit } from '../actions'
+import { updateHabit, removeHabit } from '../actions'
 
 const EditHabits = ({ dispatch, user }) => {
   console.log(user)
