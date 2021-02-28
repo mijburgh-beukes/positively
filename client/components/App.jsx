@@ -26,13 +26,19 @@ function App ({ dispatch, user }) {
   }, [])
 
   return (
-    <div className="app">
-      <Nav />
-      <Switch>
-        <Route path="/user/:id" component={Profile} />
-        <Route path="/edithabits" component={EditHabits} />
-        <Route exact path="/" component={Dashboard} />
-      </Switch>
+    <div className="app container-lg rounded-3 gx-0">
+      <div className="row gx-3">
+        <div className="col-md-1">
+          <Nav />
+        </div>
+        <div className="col mx-auto">
+          <Switch>
+            <Route path="/user/:id" component={Profile} />
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/edithabits" component={EditHabits} />
+          </Switch>
+        </div>
+      </div>
     </div>
   )
 }

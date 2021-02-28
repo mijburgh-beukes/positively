@@ -39,7 +39,7 @@ const EditHabits = ({ dispatch, habits }) => {
       goalCount: habit.goalCount
     })
   }
-  
+
   return (
     <>
       <div className="col">
@@ -73,7 +73,7 @@ const EditHabits = ({ dispatch, habits }) => {
             <input type="range" className="form-range" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
           </div>
 
-          <button type="button" onClick={() => handleUpdate(formData.id)}  className="btn btn-primary">Update</button>
+          <button type="button" onClick={() => handleUpdate(formData.id)} className="btn btn-primary">Update</button>
         </form>
       </div>
     </>

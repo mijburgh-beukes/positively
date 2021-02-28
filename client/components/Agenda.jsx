@@ -1,16 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function Agenda () {
+function Agenda (props) {
   return (
-    <div className="container-sm module shadow px-3 pb-2 pt-3">
+    <div className="bg-white rounded-3 px-3 pb-1 pt-2 mb-sm-3">
       <div className="row">
-        <h2 className="module-h2">Agenda</h2>
+        <h3 className="module-header">Agenda</h3>
         <h4>Your top performing habit</h4>
         <HabitPH />
         <h4>Habits needing some love</h4>
         <HabitPH />
         <HabitPH />
-        <h2>Keep up that momentum!</h2>
+        <h4><strong>Keep up that momentum!</strong></h4>
       </div>
     </div>
   )
@@ -18,10 +19,16 @@ function Agenda () {
 // This is just a placeholder for the habit components
 function HabitPH () {
   return (
-    <div className="habitPH mb-2 rounded-3">
-      Habit title in here
+    <div className="habitPH mb-2 ms-2 rounded-3">
+      <p>Habit title in here</p>
     </div>
   )
 }
 
-export default Agenda
+function mapStateToProps (state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Agenda)
