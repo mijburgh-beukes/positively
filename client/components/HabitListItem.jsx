@@ -6,6 +6,9 @@ import { updateCount, updateXp } from '../actions/index'
 import { patchHabit, patchUser } from '../api/apiClient'
 
 function Habit ({ dispatch, habit, user }) {
+  const topHabitTitle = habit ? habit.title : null
+  const topHabitGoalCount = habit ? habit.goalCount : null
+
   function handleCount () {
     const newCount = habit.goalCount + 1
     const newXP = user.totalXp + 25
@@ -28,12 +31,11 @@ function Habit ({ dispatch, habit, user }) {
   return (
     <div className='habitListItem'>
       <div>
-        {habit.goalCount}
+        {`${topHabitTitle} - ${topHabitGoalCount}xp `}
+        <button className='plusButton' onClick={handleCount}>
+          <span>+</span>
+        </button>
       </div>
-      {<p>{habit.title}</p>}
-      <button className='plusButton' onClick={handleCount}>
-        <span>+</span>
-      </button>
     </div>
   )
 }
