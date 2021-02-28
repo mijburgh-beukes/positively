@@ -53,7 +53,7 @@ const EditHabits = ({ dispatch, habits }) => {
               <button id={habit.id} key={habit.id} className="btn btn-secondary" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
-            <form className="bg-white rounded-3 px-3 pb-1 pt-2 mb-sm-3">
+            <form className="bg-white rounded-3 px-3 pb-3 pt-2 mb-sm-3">
               <div className="mb-3">
                 <label htmlFor="title" className="form-label">Title: </label>
                 <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>

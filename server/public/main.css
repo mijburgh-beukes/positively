@@ -1,5 +1,7 @@
 * {
   outline: 1px solid rgb(0, 255, 8);
+  /* margin: 0;
+  padding: 0; */
 }
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
@@ -105,7 +107,8 @@ body {
 .hero {
   display: grid;
   vertical-align: center;
-  background-color: #1B1446 ;
+  /* background-color: #1B1446 ; */
+  background-color: #ed1e79 ;
   color: #fff;
 }
 
@@ -120,6 +123,10 @@ body {
 
 .inactive {
   fill: #ffffff77;
+}
+
+.form-range{
+  color: red;
 }
 /* .agenda {
   height: calc(100% - 2rem);
