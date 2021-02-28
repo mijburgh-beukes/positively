@@ -6,7 +6,8 @@ import { calculateLevel } from '../utils'
 const UserDetails = ({ user }) => {
   const userLevel = calculateLevel(user.totalXp)
   return (
-    <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3 mb-md-3 d-none d-sm-block">
+    /* add d-none d-sm-block to top level div? */
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3 ">
       <div className="card">
         <img
           src={user.userImage}
@@ -14,9 +15,9 @@ const UserDetails = ({ user }) => {
           alt="..."
         />
         <div className="card-body mx-auto py-0">
-          <h5 className="card-title text-center">{`${user.firstName} ${user.lastName}`}</h5>
+          <h3 className="card-title text-center text-midnight">{`${user.firstName} ${user.lastName}`}</h3>
 
-          <div className="power-level">{`Level ${userLevel} habiteer`}</div>
+          <div className="power-level mx-auto">{`Level ${userLevel} habiteer`}</div>
         </div>
       </div>
     </div>
