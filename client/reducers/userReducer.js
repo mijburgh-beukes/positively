@@ -16,7 +16,10 @@ const userReducer = (state = [], action) => {
       return state.habits.map(habit => habit.id === action.id ? action.habit : habit)
 
     case 'DELETE_HABIT':
-      return state.habits.filter(habit => habit.id !== action.id)
+      return {
+        ...state,
+        habits: state.habits.filter(habit => habit.id !== action.id)
+      }
 
     case 'UPDATE_COUNT':
       return {

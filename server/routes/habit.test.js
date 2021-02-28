@@ -59,6 +59,7 @@ describe('PATCH /api/v1/habit/:id', () => {
       .patch(baseURL + '/habit/1')
       .then(res => {
         expect(res.body).toEqual('hi')
+        return null
       })
   })
 
@@ -70,6 +71,7 @@ describe('PATCH /api/v1/habit/:id', () => {
       .then(err => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')
+        return null
       })
   })
 })
@@ -82,6 +84,7 @@ describe('DELETE /api/v1/habit/:id', () => {
       .delete(baseURL + '/habit/1')
       .then(res => {
         expect(res.body).toEqual('deleted')
+        return null
       })
   })
 
@@ -95,6 +98,7 @@ describe('DELETE /api/v1/habit/:id', () => {
       .then(err => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')
+        return null
       })
   })
 })

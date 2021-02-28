@@ -45,7 +45,6 @@ export function deleteHabit (id) {
   return request
     .delete(`${habitUrl}/${id}`)
     .then(res => {
-      console.log('deletehabitAPI', res.body)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })

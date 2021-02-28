@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { updateHabit } from '../actions'
+import { updateHabit, removeHabit } from '../actions'
 
 const EditHabits = ({ dispatch, user }) => {
   console.log(user)
@@ -25,6 +25,10 @@ const EditHabits = ({ dispatch, user }) => {
 
   function handleUpdate () {
     dispatch(updateHabit(formData.id, formData))
+  }
+
+  function handleDelete () {
+    dispatch(removeHabit(formData.id))
   }
 
   const populateForm = (habit) => {
@@ -80,6 +84,8 @@ const EditHabits = ({ dispatch, user }) => {
               </div>
 
               <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
+
+              <button type="button" onClick={handleDelete} className="btn accentBG text-white">Delete Habit</button>
             </form>
           </div>
         </div>

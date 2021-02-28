@@ -63,12 +63,13 @@ describe('updateUser', () => {
       .then(() => getUserById(10, connection))
       .then(user => {
         expect(user).toEqual(mockUpdateUser)
+        return null
       })
   })
 })
 
 describe('addHabit', () => {
-  let mockHabit = {
+  const mockHabit = {
     user_id: 1,
     title: 'Swimming',
     description: 'swimming every second day',
@@ -82,7 +83,8 @@ describe('addHabit', () => {
     return addHabit(mockHabit, connection)
       .then(() => getHabits(connection))
       .then(habits => {
-        expect(habits.length).toEqual(7)
+        expect(habits).toHaveLength(7)
+        return null
       })
   })
 })
