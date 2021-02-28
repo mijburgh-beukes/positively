@@ -18,7 +18,7 @@ function App ({ dispatch, user }) {
 
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
-    getUser(2)
+    getUser(1)
       .then(user => {
         dispatch(setUser(user))
         return null

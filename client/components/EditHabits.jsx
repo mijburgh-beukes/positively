@@ -28,6 +28,10 @@ const EditHabits = ({ dispatch, user }) => {
     dispatch(updateHabit(formData.id, formData))
   }
 
+  function handleDelete () {
+    dispatch(removeHabit(formData.id))
+  }
+
   const populateForm = (habit) => {
     setFormData({
       id: habit.id,
@@ -81,6 +85,8 @@ const EditHabits = ({ dispatch, user }) => {
               </div>
 
               <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
+
+              <button type="button" onClick={handleDelete} className="btn accentBG text-white">Delete Habit</button>
             </form>
           </div>
         </div>
