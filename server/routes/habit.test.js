@@ -16,7 +16,9 @@ const habit = {
 
 jest.mock('../db/db', () => {
   return {
-    addHabit: jest.fn()
+    addHabit: jest.fn(),
+    editHabit: jest.fn(),
+    deleteHabit: jest.fn()
   }
 })
 
@@ -34,8 +36,8 @@ describe('POST /api/v1/habit', () => {
   })
 
   it('responds with error if missing fields', () => {
-    db.addHabit.mockImplementation(() => Promise.reject())
-    expect.assertions(1)
+    db.addHabit.mockImplementation(() => Promise.reject(new Error('oh noes!')))
+    expect.assertions(2)
     return request(server)
       .post(baseURL + '/habit')
       .send({
@@ -43,7 +45,56 @@ describe('POST /api/v1/habit', () => {
       })
       .then(err => {
         expect(err.status).toEqual(500)
+        expect(err.text).toEqual('DATABASE ERROR: oh noes!')
         return null
+      })
+  })
+})
+
+describe('PATCH /api/v1/habit/:id', () => {
+  it('should responds with a habit', () => {
+    db.editHabit.mockImplementation(() => Promise.resolve('hi'))
+    expect.assertions(1)
+    return request(server)
+      .patch(baseURL + '/habit/1')
+      .then(res => {
+        expect(res.body).toEqual('hi')
+      })
+  })
+
+  it('should reject with status 500', () => {
+    db.editHabit.mockImplementation(() => Promise.reject(new Error('oh noes!')))
+    expect.assertions(2)
+    return request(server)
+      .patch(baseURL + '/habit/1')
+      .then(err => {
+        expect(err.status).toEqual(500)
+        expect(err.text).toEqual('DATABASE ERROR: oh noes!')
+      })
+  })
+})
+
+describe('DELETE /api/v1/habit/:id', () => {
+  it('should responds with a habit', () => {
+    db.deleteHabit.mockImplementation(() => Promise.resolve('deleted'))
+    expect.assertions(1)
+    return request(server)
+      .delete(baseURL + '/habit/1')
+      .then(res => {
+        expect(res.body).toEqual('deleted')
+      })
+  })
+
+  it('should reject with status 500', () => {
+    db.deleteHabit.mockImplementation(() =>
+      Promise.reject(new Error('oh noes!'))
+    )
+    expect.assertions(2)
+    return request(server)
+      .delete(baseURL + '/habit/1')
+      .then(err => {
+        expect(err.status).toEqual(500)
+        expect(err.text).toEqual('DATABASE ERROR: oh noes!')
       })
   })
 })
