@@ -42,7 +42,6 @@ const EditHabits = ({ dispatch, habits }) => {
       priority: habit.priority,
       goalCount: habit.goalCount
     })
-    console.log(habit)
   }
   
   return (
@@ -55,27 +54,27 @@ const EditHabits = ({ dispatch, habits }) => {
         <form>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">Title: </label>
-            <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?"/>
+            <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
           </div>
 
           <div className="mb-3">
             <label htmlFor="description" className="form-label">Description: </label>
-            <input type="text" className="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?"/>
+            <input type="text" className="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?" value={formData.description}/>
           </div>
 
           <div className="mb-3">
             <label htmlFor="habitIcon" className="form-label">Icon: </label>
-            <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source"/>
+            <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source" value={formData.habitIcon}/>
           </div>
 
           <div className="mb-3">
             <label htmlFor="totalGoalCount" className="form-label">Total Goal Count: </label>
-            <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!"/>
+            <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount}/>
           </div>
 
           <div className="mb-3">
             <label htmlFor="priority" className="form-label">Priority: </label>
-            <input type="range" className="form-range" min="0" max="5" name="priority"></input>
+            <input type="range" className="form-range" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
           </div>
 
           <button type="button" onClick={handleUpdate} className="btn btn-primary">Update</button>
