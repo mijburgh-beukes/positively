@@ -1,6 +1,5 @@
-const level = 250
-
 function calculateLevel (xp) {
+  const level = 250
   return Math.floor(xp / level)
 }
 
@@ -8,4 +7,31 @@ function calculateLevelv2 (xp) {
   return Math.floor((1 + Math.sqrt(1 + (8 * xp) / 50)) / 2)
 }
 
-module.exports = { calculateLevel, calculateLevelv2 }
+function findBossHabit (user) {
+  const { habits } = user
+  const valueArray = habits?.map((habit) => habit.goalCount)
+  let index = 0
+  let value = 0
+  valueArray?.forEach((item, i) => {
+    if (item > value) {
+      index = i
+      value = item
+    }
+  })
+  return habits ? habits[index] : null
+}
+
+function findSadHabits (user) {
+  const { habits } = user
+  const bottomTwo = habits?.sort(function (a, b) {
+    return a.goalCount - b.goalCount
+  })
+  return bottomTwo
+}
+
+module.exports = {
+  calculateLevel,
+  calculateLevelv2,
+  findBossHabit,
+  findSadHabits
+}

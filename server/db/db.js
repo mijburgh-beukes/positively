@@ -4,7 +4,7 @@ const database = require('knex')(config)
 
 const { formatUserData } = require('../formatter')
 
-function getUser (id, db = database) {
+function getUser(id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
     .select()
@@ -12,18 +12,24 @@ function getUser (id, db = database) {
     .then(formatUserData)
 }
 
-function updateUser (userId, userChanges, db = database) {
-  return db('users').where('users.id', userId)
-    .update({
-      firstName: userChanges.firstName,
-      lastName: userChanges.lastName,
-      userImage: userChanges.userImage,
-      totalXp: userChanges.totalXp,
-      pw: userChanges.pw
-    })
+function getUserById(id, db = database) {
+  return db('users')
+    .select('firstName', 'lastName', 'userImage', 'totalXp', 'pw')
+    .where('id', id)
+    .first()
 }
 
-function addHabit (habit, db = database) {
+function updateUser(userId, userChanges, db = database) {
+  return db('users').where('id', userId).update({
+    firstName: userChanges.firstName,
+    lastName: userChanges.lastName,
+    userImage: userChanges.userImage,
+    totalXp: userChanges.totalXp,
+    pw: userChanges.pw
+  })
+}
+
+function addHabit(habit, db = database) {
   return db('habits').insert({
     user_id: habit.userId,
     title: habit.title,
@@ -35,7 +41,7 @@ function addHabit (habit, db = database) {
   })
 }
 
-function editHabit (id, changes, db = database) {
+function editHabit(id, changes, db = database) {
   return db('habits')
     .update({
       title: changes.title,
@@ -47,26 +53,26 @@ function editHabit (id, changes, db = database) {
     })
     .where('id', id)
     .then(() => getHabit(id, db))
-    .catch(err => new Error(err))
 }
 
-function getHabit (id, db) {
+function getHabit(id, db) {
   return db('habits').select().where('id', id).first()
 }
-function getHabits (db) {
+function getHabits(db) {
   return db('habits').select()
 }
 
-function deleteHabit (habitId, db = database) {
-  return db('habits').del()
-    .where('id', habitId)
+function deleteHabit(habitId, db = database) {
+  return db('habits').del().where('id', habitId)
 }
 
 module.exports = {
   getUser,
+  getUserById,
   addHabit,
   editHabit,
   deleteHabit,
   getHabits,
-  updateUser
+  updateUser,
+  addHabit
 }
