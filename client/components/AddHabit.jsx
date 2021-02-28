@@ -37,8 +37,9 @@ const AddHabit = (props) => {
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <form>
+    <div className="col pe-3 py-3 ps-3 ps-md-0">
+      <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
+        <h3>Add your new habit</h3>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title: </label>
           <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
