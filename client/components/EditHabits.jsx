@@ -43,17 +43,17 @@ const EditHabits = ({ dispatch, habits }) => {
   return (
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       <div className="col">
-        <div className="hero rounded-3 px-3 pb-1 pt-2 mb-3">
+        <div className=" text-midnight shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 bg-white">
           <h1>Edit your habits</h1>
           <p>Pick one from the list on the left</p>
         </div>
-        <div className="row">
+        <div className="row gx-3">
           <div className="col-3">
             {habits?.map(habit => (
-              <button id={habit.id} key={habit.id} className="btn btn-secondary" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
-            <form className="bg-white rounded-3 px-3 pb-3 pt-2 mb-sm-3">
+            <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
               <div className="mb-3">
                 <label htmlFor="title" className="form-label">Title: </label>
                 <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
@@ -76,10 +76,10 @@ const EditHabits = ({ dispatch, habits }) => {
 
               <div className="mb-3">
                 <label htmlFor="priority" className="form-label">Priority: </label>
-                <input type="range" className="form-range" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
+                <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
               </div>
 
-              <button type="button" onClick={() => handleUpdate(formData.id)} className="btn btn-primary">Update</button>
+              <button type="button" onClick={() => handleUpdate(formData.id)} className="btn accentBG text-white">Update</button>
             </form>
           </div>
         </div>
