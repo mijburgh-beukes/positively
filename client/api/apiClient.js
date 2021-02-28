@@ -26,7 +26,6 @@ export function addHabit (habit) {
     .post(habitUrl)
     .send(habit)
     .then(res => {
-      console.log('addhabbitAPI', res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })

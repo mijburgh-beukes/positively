@@ -51,6 +51,7 @@ describe('patchUser', () => {
 
 describe('addHabit', () => {
   const newHabit = {
+    id: 1,
     title: 'run once a week',
     userId: 2,
     description: 'run at least once per week, 5km',
@@ -60,14 +61,13 @@ describe('addHabit', () => {
     goalCount: 0
   }
   const scope = nock('http://localhost')
-    .post('/api/v1/habit', { newHabit })
+    .post('/api/v1/habit')
     .reply(201, newHabit)
 
   test('posts new habit to api', () => {
     expect.assertions(2)
     return addHabit(newHabit)
       .then((habit) => {
-        console.log(habit)
         expect(habit).toEqual(newHabit)
         expect(scope.isDone()).toBe(true)
         return null
