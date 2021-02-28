@@ -73,5 +73,6 @@ module.exports = {
   editHabit,
   deleteHabit,
   getHabits,
-  updateUser
+  updateUser,
+  addHabit
 }
