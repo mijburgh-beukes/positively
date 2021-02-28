@@ -3,11 +3,12 @@ const request = require('supertest')
 const db = require('../db/db')
 const server = require('../server')
 
-const baseURL = '/api/v1'
+const baseURL = '/api/v1/'
 
 jest.mock('../db/db', () => {
   return {
-    getUser: jest.fn()
+    getUser: jest.fn(),
+    updateUser: jest.fn()
   }
 })
 
@@ -48,7 +49,7 @@ describe('GET /api/v1/user/:id', () => {
     expect.assertions(2)
 
     return request(server)
-      .get(baseURL + '/user/2')
+      .get(baseURL + 'user/2')
       .then(res => {
         expect(res.status).toBe(200)
         expect(res.body).toEqual(fakeReturnedData)
@@ -61,11 +62,39 @@ describe('GET /api/v1/user/:id', () => {
     expect.assertions(2)
 
     return request(server)
-      .get(baseURL + '/user/2')
+      .get(baseURL + 'user/2')
       .then(err => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')
         return null
+      })
+  })
+})
+
+describe('PATCH /api/v1/:id', () => {
+  it('responds with 200 on successful update', () => {
+    db.updateUser.mockImplementation(() => Promise.resolve())
+    expect.assertions(2)
+
+    return request(server)
+      .patch(baseURL + 'user/1')
+      .then(res => {
+        expect(res.status).toEqual(200)
+        expect(res.text).toEqual('Success')
+      })
+  })
+
+  it('should reject with status 500', () => {
+    db.updateUser.mockImplementation(() =>
+      Promise.reject(new Error('oh noes!'))
+    )
+    expect.assertions(2)
+
+    return request(server)
+      .patch(baseURL + 'user/1')
+      .then(err => {
+        expect(err.status).toEqual(500)
+        expect(err.text).toEqual('DATABASE ERROR: oh noes!')
       })
   })
 })
