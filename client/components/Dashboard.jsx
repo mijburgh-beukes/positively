@@ -9,7 +9,7 @@ import AddHabit from './AddHabit'
 
 const Dashboard = () => {
   return (
-    <div className="row gx-3 pe-3 py-3">
+    <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       <div className="col-md-9">
         <div className="hero rounded-3 px-3 pb-1 pt-2 mb-3">
           <h1>Hello Burg</h1>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const UserDetails = () => {
   return (
-    <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3 mb-3">
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3 mb-md-3 d-none d-sm-block">
       <div className="card">
         <img
           src="https://yourwikis.com/wp-content/uploads/2020/01/mark-zuck-img.jpg"

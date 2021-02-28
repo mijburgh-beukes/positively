@@ -1,8 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function Agenda () {
+function Agenda (props) {
   return (
-    <div /* className="agenda module shadow px-3 pb-2 pt-3" */ className="bg-white rounded-3 px-3 pb-1 pt-2 my-3">
+    <div className="bg-white rounded-3 px-3 pb-1 pt-2 mb-sm-3">
       <div className="row">
         <h3 className="module-header">Agenda</h3>
         <h4>Your top performing habit</h4>
@@ -24,4 +25,10 @@ function HabitPH () {
   )
 }
 
-export default Agenda
+function mapStateToProps (state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Agenda)
