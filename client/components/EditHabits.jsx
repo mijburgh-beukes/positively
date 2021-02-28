@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { updateHabit, removeHabit } from '../actions'
+import { patchHabit } from '../api/apiClient'
 
-const EditHabits = ({ dispatch, habits }) => {
+const EditHabits = ({ dispatch, user }) => {
+  console.log(user)
   const [formData, setFormData] = useState({
     title: '',
     userId: 1,
@@ -22,14 +24,13 @@ const EditHabits = ({ dispatch, habits }) => {
     })
   }
 
-  const handleUpdate = (id, event) => {
-    // event.preventDefault()
-    dispatch(updateHabit(id, formData))
+  function handleUpdate () {
+    dispatch(updateHabit(formData.id, formData))
   }
 
-  const populateForm = (habit, event) => {
-    // event.preventDefault()
+  const populateForm = (habit) => {
     setFormData({
+      id: habit.id,
       title: habit.title,
       userId: 1,
       description: habit.description,
@@ -49,7 +50,7 @@ const EditHabits = ({ dispatch, habits }) => {
         </div>
         <div className="row gx-3">
           <div className="col-3">
-            {habits?.map(habit => (
+            {user.habits?.map(habit => (
               <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
@@ -79,7 +80,7 @@ const EditHabits = ({ dispatch, habits }) => {
                 <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
               </div>
 
-              <button type="button" onClick={() => handleUpdate(formData.id)} className="btn accentBG text-white">Update</button>
+              <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
             </form>
           </div>
         </div>
@@ -88,9 +89,9 @@ const EditHabits = ({ dispatch, habits }) => {
   )
 }
 
-function mapStateToProps (globalState) {
+function mapStateToProps (state) {
   return {
-    habits: globalState.user.habits
+    user: state.user
   }
 }
 
