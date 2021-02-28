@@ -6,14 +6,10 @@ import Achievements from './Achievements'
 import Agenda from './Agenda'
 import UserDetails from './UserDetails'
 
-<<<<<<< HEAD
-const Dashboard = () => {
-=======
 import AddHabit from './AddHabit'
 
 const Dashboard = ({ user }) => {
   console.log(user)
->>>>>>> e8c4de9a0b9ea3c100a05a780fb1d996925d6c7e
   return (
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       <div className="col-md-9">
