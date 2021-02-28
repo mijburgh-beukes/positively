@@ -12,7 +12,6 @@ export function getUser (id) {
 }
 
 export function patchUser (userId, userChanges) {
-  console.log('api', userChanges)
   return request
     .patch(`${baseUrl}/${userId}`)
     .send(userChanges)
