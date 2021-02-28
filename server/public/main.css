@@ -1,32 +1,43 @@
 /* * {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 255, 8);
 } */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-  background-color: #eee;
+  padding: 1rem;
+  background-color: #fff;
   font-family: Nunito, sans-serif;
 }
 
-/* .app {
-  display: flex;
-  flex-direction: row;
-} */
+.app {
+  /* display: flex;
+  flex-direction: row; */
+  background-color: #eee;
+}
 
-/* .nav {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-bottom: auto;
-} */
+.nav {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; */
+  background-color: #1B1446;
+  height: 100%;
+  color: #fff;
+  align-items: center;
+  min-height: 4rem;
+}
+
+.nav svg {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem 0;
+}
 
 .card {
   border: none;
 }
 
-.module-h2 {
-  font-weight: 600;
-  padding: 0;
+.module-header {
+  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
@@ -45,7 +56,7 @@ body {
 .module {
   background-color: #fff;
   border-radius: 0.75rem;
-  margin: 2rem auto;
+  /* margin: 1rem auto; */
 }
 
 .module .row {
@@ -66,10 +77,12 @@ body {
 
 /* THis is a temporary placeholder class */
 .habitPH {
+  /* display: grid;
+  vertical-align: center; */
   background-color: #ed1e79;
   color: #fff;
   height: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.05rem;
 }
@@ -88,3 +101,26 @@ body {
   font-size: 1rem;
   border-radius: 0.5rem;
 }
+
+.hero {
+  display: grid;
+  vertical-align: center;
+  background-color: #1B1446 ;
+  color: #fff;
+}
+
+.logo {
+  width: 60%;
+  max-height: 3rem;
+}
+
+.active {
+  fill: #ed1e79;
+}
+
+.inactive {
+  fill: #ffffff77;
+}
+/* .agenda {
+  height: calc(100% - 2rem);
+} */

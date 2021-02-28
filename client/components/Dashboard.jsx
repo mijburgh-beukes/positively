@@ -9,11 +9,18 @@ import AddHabit from './AddHabit'
 
 const Dashboard = () => {
   return (
-    <div>
-      <Agenda />
-      <Achievements />
-      <UserDetails />
-      <AddHabit />
+    <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
+      <div className="col-md-9">
+        <div className="hero rounded-3 px-3 pb-1 pt-2 mb-3">
+          <h1>Hello Burg</h1>
+          <p>Here&apos;s an overview of your lifestyle ...</p>
+        </div>
+        <Agenda />
+      </div>
+      <div className="col-md-3">
+        <UserDetails />
+        <Achievements />
+      </div>
     </div>
   )
 }

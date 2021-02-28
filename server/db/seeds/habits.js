@@ -12,7 +12,7 @@ exports.seed = function (knex) {
           habit_icon: 'some icon',
           total_goal_count: '0',
           priority: 4,
-          goal_count: 10
+          goal_count: 5
         },
         {
           user_id: 2,
@@ -21,7 +21,7 @@ exports.seed = function (knex) {
           habit_icon: 'some icon',
           total_goal_count: '0',
           priority: 1,
-          goal_count: 15
+          goal_count: 10
         },
         {
           user_id: 2,
@@ -30,7 +30,7 @@ exports.seed = function (knex) {
           habit_icon: 'some icon',
           total_goal_count: '0',
           priority: 1,
-          goal_count: 20
+          goal_count: 50
         },
         {
           user_id: 1,
@@ -39,7 +39,7 @@ exports.seed = function (knex) {
           habit_icon: 'some icon',
           total_goal_count: '100',
           priority: 1,
-          goal_count: 25
+          goal_count: 20
         },
         {
           user_id: 1,
@@ -48,7 +48,7 @@ exports.seed = function (knex) {
           habit_icon: 'some icon',
           total_goal_count: '50',
           priority: 2,
-          goal_count: 30
+          goal_count: 35
         },
         {
           user_id: 1,
@@ -57,7 +57,7 @@ exports.seed = function (knex) {
           habit_icon: 'some icon',
           total_goal_count: '52',
           priority: 3,
-          goal_count: 35
+          goal_count: 30
         }
       ])
     })
