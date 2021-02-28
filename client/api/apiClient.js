@@ -12,12 +12,10 @@ export function getUser (id) {
 }
 
 export function patchUser (userId, userChanges) {
-  console.log('api', userChanges)
   return request
     .patch(`${baseUrl}/${userId}`)
     .send(userChanges)
     .then(res => {
-      console.log('userChanges', res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
@@ -28,7 +26,6 @@ export function addHabit (habit) {
     .post(habitUrl)
     .send(habit)
     .then(res => {
-      console.log('addhabbitAPI', res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
@@ -39,7 +36,6 @@ export function patchHabit (id, habit) {
     .patch(`${habitUrl}/${id}`)
     .send(habit)
     .then(res => {
-      console.log('patchhabitAPI', res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
@@ -49,7 +45,7 @@ export function deleteHabit (id) {
   return request
     .delete(`${habitUrl}/${id}`)
     .then(res => {
-      console.log('deletehabitAPI', res)
+      console.log('deletehabitAPI', res.body)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
