@@ -17,7 +17,6 @@ export function patchUser (userId, userChanges) {
     .patch(`${baseUrl}/${userId}`)
     .send(userChanges)
     .then(res => {
-      console.log('userChanges', res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
