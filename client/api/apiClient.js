@@ -36,7 +36,6 @@ export function patchHabit (id, habit) {
     .patch(`${habitUrl}/${id}`)
     .send(habit)
     .then(res => {
-      console.log('patchhabitAPI', res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })

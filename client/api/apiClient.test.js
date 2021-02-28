@@ -76,8 +76,30 @@ describe('addHabit', () => {
 })
 
 describe('patchHabit', () => {
-  const 
-  const scope = 
+  const newGC = { goalCount: 12 }
+  const updatedHabit = {
+    id: 1,
+    title: 'run once a week',
+    userId: 2,
+    description: 'run at least once per week, 5km',
+    habitIcon: 'haUDhsLKF',
+    totalGoalCount: 20,
+    priority: 4,
+    goalCount: 12
+  }
+  const scope = nock('http://localhost')
+    .patch('/api/v1/habit/1', newGC)
+    .reply(201, updatedHabit)
+
+  test('updates habit details', () => {
+    expect.assertions(2)
+    return patchHabit(1, newGC)
+      .then((patchedHabit) => {
+        expect(patchedHabit).toEqual(updatedHabit)
+        expect(scope.isDone()).toBe(true)
+        return null
+      })
+  })
 })
 
 describe('deleteHabit', () => {
