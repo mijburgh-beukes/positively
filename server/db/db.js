@@ -55,10 +55,10 @@ function editHabit (id, changes, db = database) {
     .then(() => getHabit(id, db))
 }
 
-function getHabit (id, db) {
+function getHabit (id, db = database) {
   return db('habits').select().where('id', id).first()
 }
-function getHabits (db) {
+function getHabits (db = database) {
   return db('habits').select()
 }
 
@@ -72,6 +72,7 @@ module.exports = {
   addHabit,
   editHabit,
   deleteHabit,
+  getHabit,
   getHabits,
   updateUser
 }
