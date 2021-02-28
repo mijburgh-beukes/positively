@@ -7,11 +7,10 @@ const userReducer = (state = [], action) => {
       return {
         ...state,
         habits: state.habits.map((habit) => {
-          const updatedHabit = habit.id === action.id
+          const updatedHabit = habit.id === action.habit.id
           return updatedHabit ? action.habit : habit
         })
       }
-      return action.habit
 
     case 'UPDATE_HABIT':
       return state.habits.map(habit => habit.id === action.id ? action.habit : habit)
