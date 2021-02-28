@@ -31,7 +31,7 @@ function Habit ({ dispatch, habit, user }) {
   return (
     <div className='habitListItem'>
       <div>
-        {`${topHabitTitle} - ${topHabitGoalCount}xp `}
+        {`${topHabitTitle} - ${topHabitGoalCount} `}
         <button className='plusButton' onClick={handleCount}>
           <span>+</span>
         </button>
