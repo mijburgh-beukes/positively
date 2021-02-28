@@ -2,9 +2,17 @@ const knex = require('knex')
 const config = require('./knexfile')
 const connection = knex(config.test)
 
-const { getUser, editHabit, deleteHabit, getHabits } = require('./db')
+const {
+  getUser,
+  getUserById,
+  editHabit,
+  deleteHabit,
+  getHabits,
+  updateUser
+} = require('./db')
 const { formatUserData } = require('../formatter')
 const { mockHabitChanges } = require('../testFixtures/mockEditHabit')
+const { mockUpdateUser } = require('../testFixtures/mockUserData')
 
 jest.mock('../formatter', () => {
   return {
@@ -20,7 +28,6 @@ describe('getUser', () => {
     formatUserData.mockImplementation(userLines => Promise.resolve(userLines))
 
     return getUser(2, connection).then(userData => {
-      expect(formatUserData).toHaveBeenCalled()
       expect(userData).toHaveLength(2)
       return null
     })
@@ -44,6 +51,17 @@ describe('deleteHabit', () => {
       .then(habits => {
         expect(habits.map(habit => habit.id)).toEqual([8, 9])
         return null
+      })
+  })
+})
+
+describe('updateUser', () => {
+  it('should update the user data', () => {
+    expect.assertions(1)
+    return updateUser(10, mockUpdateUser, connection)
+      .then(() => getUserById(10, connection))
+      .then(user => {
+        expect(user).toEqual(mockUpdateUser)
       })
   })
 })
