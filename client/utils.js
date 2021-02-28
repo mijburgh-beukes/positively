@@ -4,4 +4,8 @@ function calculateLevel(xp) {
   return Math.floor(xp / level)
 }
 
-module.exports = { calculateLevel }
+function calculateLevelv2(xp) {
+  return Math.floor((1 + Math.sqrt(1 + (8 * xp) / 50)) / 2)
+}
+
+module.exports = { calculateLevel, calculateLevelv2 }
