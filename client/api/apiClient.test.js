@@ -76,7 +76,8 @@ describe('addHabit', () => {
 })
 
 describe('patchHabit', () => {
-
+  const 
+  const scope = 
 })
 
 describe('deleteHabit', () => {
