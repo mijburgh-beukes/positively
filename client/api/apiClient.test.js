@@ -77,7 +77,7 @@ describe('addHabit', () => {
 
 describe('patchHabit', () => {
   const newGC = { goalCount: 12 }
-  const updatedHabit = {
+  const fakeHabit = {
     id: 1,
     title: 'run once a week',
     userId: 2,
@@ -89,13 +89,13 @@ describe('patchHabit', () => {
   }
   const scope = nock('http://localhost')
     .patch('/api/v1/habit/1', newGC)
-    .reply(201, updatedHabit)
+    .reply(201, fakeHabit)
 
   test('updates habit details', () => {
     expect.assertions(2)
     return patchHabit(1, newGC)
       .then((patchedHabit) => {
-        expect(patchedHabit).toEqual(updatedHabit)
+        expect(patchedHabit).toEqual(fakeHabit)
         expect(scope.isDone()).toBe(true)
         return null
       })
@@ -103,5 +103,16 @@ describe('patchHabit', () => {
 })
 
 describe('deleteHabit', () => {
+  const scope = nock('http://localhost')
+    .delete('/api/v1/habit/1')
+    .reply(200, {})
 
+  test('deleteHabit deletes habit by given id', () => {
+    expect.assertions(1)
+    return deleteHabit(1)
+      .then(() => {
+        expect(scope.isDone()).toBe(true)
+        return null
+      })
+  })
 })
