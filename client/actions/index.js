@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
 
 export const setUser = (user) => {
