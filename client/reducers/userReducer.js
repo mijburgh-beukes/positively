@@ -3,7 +3,13 @@ const userReducer = (state = [], action) => {
     case 'SET_USER':
       return action.user
 
-    case 'SET_HABIT':
+    case 'ADD_HABIT':
+      return {
+        ...state,
+        habits: [...state.habits, action.habit]
+      }
+
+    case 'UPDATE_HABIT':
       return {
         ...state,
         habits: state.habits.map((habit) => {
@@ -11,9 +17,6 @@ const userReducer = (state = [], action) => {
           return updatedHabit ? action.habit : habit
         })
       }
-
-    case 'UPDATE_HABIT':
-      return state.habits.map(habit => habit.id === action.id ? action.habit : habit)
 
     case 'DELETE_HABIT':
       return {

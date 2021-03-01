@@ -9,8 +9,11 @@ module.exports = router
 router.post('/', (req, res) => {
   const habit = req.body
   db.addHabit(habit)
-    .then(() => {
-      res.sendStatus(201)
+    .then((habit) => {
+      return db.getHabit(habit[0])
+    })
+    .then((newHabit) => {
+      res.status(201).json(newHabit)
       return null
     })
     .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
@@ -21,7 +24,6 @@ router.patch('/:id', (req, res) => {
   const changes = req.body
   db.editHabit(userId, changes)
     .then(habit => res.json(habit))
-    // .then(() => res.sendStatus(200))
     .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
 })
 

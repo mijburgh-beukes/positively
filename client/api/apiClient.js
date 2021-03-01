@@ -21,7 +21,7 @@ export function patchUser (userId, userChanges) {
     .catch(e => { throw new Error(e.response.text) })
 }
 
-export function addHabit (habit) {
+export function postHabit (habit) {
   return request
     .post(habitUrl)
     .send(habit)

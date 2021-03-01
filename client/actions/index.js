@@ -1,4 +1,4 @@
-import { addHabit, patchHabit, deleteHabit } from '../api/apiClient'
+import { postHabit, patchHabit, deleteHabit } from '../api/apiClient'
 
 export const setUser = (user) => {
   return {
@@ -7,9 +7,16 @@ export const setUser = (user) => {
   }
 }
 
-export const setHabit = (habit) => {
+export const addHabit = (habit) => {
   return {
-    type: 'SET_HABIT',
+    type: 'ADD_HABIT',
+    habit: habit
+  }
+}
+
+export const updateTheHabit = (habit) => {
+  return {
+    type: 'UPDATE_HABIT',
     habit
   }
 }
@@ -22,10 +29,11 @@ export function deleteTheHabit (id) {
 }
 
 export const saveHabit = (habit) => {
+  console.log(habit)
   return dispatch => {
-    addHabit(habit)
-      .then(() => {
-        dispatch(setHabit(habit))
+    postHabit(habit)
+      .then((newHabit) => {
+        dispatch(addHabit(newHabit))
         return null
       })
       .catch(err =>
@@ -49,7 +57,7 @@ export const updateHabit = (id, patchData) => {
   return dispatch => {
     patchHabit(id, patchData)
       .then((habit) => {
-        dispatch(setHabit(habit))
+        dispatch(updateTheHabit(habit))
         return null
       })
       .catch(err =>
