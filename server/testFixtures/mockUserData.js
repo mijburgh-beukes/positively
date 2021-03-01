@@ -5,7 +5,6 @@ const mockUser = [
     lastName: 'Marley',
     userImage: 'Image goes here',
     totalXp: 0,
-    pw: 'abc123',
     user_id: 1,
     title: 'running',
     description: '30min a day',
@@ -20,7 +19,6 @@ const mockUser = [
     lastName: 'Marley',
     userImage: 'Image goes here',
     totalXp: 0,
-    pw: 'abc123',
     user_id: 1,
     title: '',
     description: '',
@@ -35,7 +33,6 @@ const mockUser = [
     lastName: 'Marley',
     userImage: 'Image goes here',
     totalXp: 0,
-    pw: 'abc123',
     user_id: 2,
     title: '',
     description: '',
@@ -52,7 +49,6 @@ const mockUser2 = [
     lastName: 'Marley',
     userImage: 'Image goes here',
     totalXp: 0,
-    pw: 'abc123',
     user_id: 1,
     title: 'running',
     description: '30min a day',
@@ -67,7 +63,6 @@ const mockUser2 = [
     lastName: 'Marley',
     userImage: 'Image goes here',
     totalXp: 0,
-    pw: 'abc123',
     user_id: 1,
     title: '',
     description: '',
@@ -82,7 +77,6 @@ const mockUser2 = [
     lastName: 'Marley',
     userImage: 'Image goes here',
     totalXp: 0,
-    pw: 'abc123',
     user_id: 2,
     title: '',
     description: '',
@@ -97,8 +91,7 @@ const mockUpdateUser = {
   firstName: 'jeff',
   lastName: 'jefferson',
   userImage: 'some-image',
-  totalXp: 420,
-  pw: '100'
+  totalXp: 420
 }
 
 module.exports = { mockUser, mockUser2, mockUpdateUser }
