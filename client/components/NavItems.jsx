@@ -5,7 +5,7 @@ export const dashboardSVG = <svg
   width="16"
   height="16"
   fill="currentColor"
-  className="bi bi-columns-gap m-3"
+  className="bi bi-columns-gap m-2"
   viewBox="0 0 16 16">
   <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z" />
 </svg>
@@ -15,7 +15,7 @@ export const addHabitSVG = <svg
   width="16"
   height="16"
   fill="currentColor"
-  className="bi bi-journal-plus inactive"
+  className="bi bi-journal-plus inactive m-2"
   viewBox="0 0 16 16">
   <path
     fillRule="evenodd"
@@ -30,7 +30,7 @@ export const profileSVG = <svg
   width="16"
   height="16"
   fill="currentColor"
-  className="bi bi-person-circle inactive"
+  className="bi bi-person-circle inactive m-2"
   viewBox="0 0 16 16">
   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
   <path
@@ -44,7 +44,7 @@ export const edithabitsSVG = <svg
   width="16"
   height="16"
   fill="currentColor"
-  className="bi bi-pencil-square inactive"
+  className="bi bi-pencil-square inactive m-2"
   viewBox="0 0 16 16">
   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
   <path
