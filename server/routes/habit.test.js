@@ -19,7 +19,7 @@ jest.mock('../db/db')
 describe('POST /api/v1/habit', () => {
   it('responds with 201 on successful creation of row', () => {
     db.addHabit.mockImplementation(() => Promise.resolve([1]))
-    db.getHabit.mockImplementation(() => Promise.resolve({id: 1, title: 'daily run'}))
+    db.getHabit.mockImplementation(() => Promise.resolve({ id: 1, title: 'daily run' }))
     expect.assertions(2)
     return request(server)
       .post(baseURL + '/habit')
