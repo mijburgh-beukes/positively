@@ -31,7 +31,6 @@ router.delete('/:id', (req, res) => {
   const habitId = Number(req.params.id)
   db.deleteHabit(habitId)
     .then(habit => {
-      console.log('Delete Route deleted habit: ' + habit + 'habitID: ' + habitId)
       res.json(habit)
       return null
     })

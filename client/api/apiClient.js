@@ -6,7 +6,6 @@ const habitUrl = '/api/v1/habit'
 export function getUser (id) {
   return request.get(`${userUrl}/${id}`)
     .then((res) => {
-      console.log(res.body)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
@@ -46,7 +45,6 @@ export function deleteHabit (id) {
   return request
     .delete(`${habitUrl}/${id}`)
     .then(res => {
-      console.log(res.body)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
