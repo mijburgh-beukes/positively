@@ -8,7 +8,7 @@ const { formatUserData } = require('../formatter')
 function getUser (id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
-    .select()
+    .select('habits.id as habitId', 'user_id', 'title', 'description', 'habit_icon', 'total_goal_count', 'priority', 'goal_count', 'firstName', 'lastName', 'userImage', 'totalXp', 'userImage', 'users.id as userId')
     .where('users.id', id)
     .then(formatUserData)
 }
@@ -83,6 +83,7 @@ function getHabits (db = database) {
 }
 
 function deleteHabit (habitId, db = database) {
+  console.log('db ' + habitId)
   return db('habits').del().where('id', habitId)
 }
 

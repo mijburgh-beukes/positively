@@ -50,7 +50,7 @@ describe('deleteHabit', () => {
     return deleteHabit(13, connection)
       .then(() => getHabits(connection))
       .then(habits => {
-        expect(habits.map(habit => habit.id)).toEqual([14, 15, 16, 17, 18])
+        expect(habits.map(habit => habit.habitId)).toEqual([14, 15, 16, 17, 18])
         return null
       })
   })

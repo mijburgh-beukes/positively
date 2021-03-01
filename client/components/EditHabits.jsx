@@ -23,11 +23,11 @@ const EditHabits = ({ dispatch, user }) => {
   }
 
   function handleUpdate () {
-    dispatch(updateHabit(formData.id, formData))
+    dispatch(updateHabit(formData.habitId, formData))
   }
 
   function handleDelete () {
-    dispatch(removeHabit(formData.id))
+    dispatch(removeHabit(formData.habitId))
     setFormData({
       title: '',
       userId: 1,
@@ -41,7 +41,7 @@ const EditHabits = ({ dispatch, user }) => {
 
   const populateForm = (habit) => {
     setFormData({
-      id: habit.id,
+      habitId: habit.habitId,
       title: habit.title,
       userId: 1,
       description: habit.description,
@@ -62,7 +62,7 @@ const EditHabits = ({ dispatch, user }) => {
         <div className="row gx-3">
           <div className="col-3">
             {user.habits?.map(habit => (
-              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white mb-2" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+              <button id={habit.habitId} key={habit.habitId} className="btn shadow-sm accentBG text-white mb-2" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
             <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">

@@ -12,7 +12,7 @@ function HabitList ({ user }) {
       <h3 className="text-midnight">Active Habits</h3>
       { orderedHabits?.map(habit =>
         <HabitListItem
-          key={habit.id}
+          key={habit.habitId}
           habit={habit}
           user={user}
         />) }
