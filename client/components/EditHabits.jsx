@@ -60,9 +60,9 @@ const EditHabits = ({ dispatch, user }) => {
           <p>Pick one from the list on the left</p>
         </div>
         <div className="row gx-3">
-          <div className="col-3">
+          <div className="col-3 d-flex flex-column">
             {user.habits?.map(habit => (
-              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white mb-2" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white mb-2 editlist" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
             <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
@@ -91,9 +91,9 @@ const EditHabits = ({ dispatch, user }) => {
                 <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
               </div>
               <div className="d-flex justify-content-between">
-                <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
+                <button type="button" onClick={handleUpdate} className="btn accentBG text-white updateBTN">Update</button>
 
-                <button type="button" onClick={handleDelete} className="btn midnightBG text-white">Delete Habit</button>
+                <button type="button" onClick={handleDelete} className="btn midnightBG text-white delBTN">Delete Habit</button>
 
               </div>
             </form>

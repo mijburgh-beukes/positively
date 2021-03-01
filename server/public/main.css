@@ -177,3 +177,33 @@ a svg {
 a:hover svg {
   fill: #ed1e79;
 }
+
+.editlist:hover {
+  background-color: #1b1446;
+}
+
+.editlist:active {
+  background-color: #ed1e79;
+  transform: scale(0.95);
+  transform-origin: center;
+}
+
+.updateBTN:hover {
+  background-color: #1b1446;
+}
+
+.updateBTN:active {
+  background-color: #ed1e79;
+  transform: scale(0.95);
+  transform-origin: center;
+}
+
+.delBTN:hover {
+  background-color: red;
+}
+
+.delBTN:active {
+  transform: scale(0.95);
+  transform-origin: center;
+  background-color: #1b1446;
+}
