@@ -2,8 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { dashboardSVG, addHabitSVG, profileSVG, edithabitsSVG } from './NavItems'
 
-const Nav = ({ location }) => {
-  console.log(location)
+const Nav = () => {
   return (
     <div className="nav d-flex flex-lg-column flex-lg-row rounded-3 ">
       <img src="/src/logo.svg" alt="app-logo" className="logo m-3" />
