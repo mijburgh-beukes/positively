@@ -55,10 +55,17 @@ function editHabit(id, changes, db = database) {
     .then(() => getHabit(id, db))
 }
 
+<<<<<<< HEAD
 function getHabit(id, db) {
   return db('habits').select().where('id', id).first()
 }
 function getHabits(db) {
+=======
+function getHabit (id, db = database) {
+  return db('habits').select().where('id', id).first()
+}
+function getHabits (db = database) {
+>>>>>>> 6d1cb011f5d2c8e4f3c5df7b886ccaa39698db34
   return db('habits').select()
 }
 
@@ -72,6 +79,7 @@ module.exports = {
   addHabit,
   editHabit,
   deleteHabit,
+  getHabit,
   getHabits,
   updateUser
 }

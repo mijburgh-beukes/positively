@@ -14,6 +14,7 @@ const habit = {
   goalCount: 3
 }
 
+<<<<<<< HEAD
 const mockHabit = {
   id: 1,
   title: 'test habit',
@@ -31,17 +32,25 @@ jest.mock('../db/db', () => {
     deleteHabit: jest.fn()
   }
 })
+=======
+jest.mock('../db/db')
+>>>>>>> 6d1cb011f5d2c8e4f3c5df7b886ccaa39698db34
 
 describe('POST /api/v1/habit', () => {
   it('responds with 201 on successful creation of row', () => {
-    db.addHabit.mockImplementation(() => Promise.resolve())
-    expect.assertions(1)
+    db.addHabit.mockImplementation(() => Promise.resolve([1]))
+    db.getHabit.mockImplementation(() => Promise.resolve({ id: 1, title: 'daily run' }))
+    expect.assertions(2)
     return request(server)
       .post(baseURL)
       .send(mockHabit)
       .then(res => {
         expect(res.status).toBe(201)
+        expect(res.body.id).toBe(1)
         return null
+      })
+      .catch(err => {
+        console.log(err)
       })
   })
 
