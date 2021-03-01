@@ -21,7 +21,6 @@ router.patch('/:id', (req, res) => {
   const changes = req.body
   db.editHabit(userId, changes)
     .then(habit => res.json(habit))
-    // .then(() => res.sendStatus(200))
     .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
 })
 
