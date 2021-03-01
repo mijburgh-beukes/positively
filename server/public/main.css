@@ -18,14 +18,20 @@ body {
 }
 
 .navBar {
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: wrap; */
+  justify-content: space-between;
   background-color: #1b1446;
   height: 100%;
   color: #fff;
   min-height: 4rem;
 }
+
+@media (min-width: 992px) { 
+  .navBar {
+  justify-content: flex-start;
+  }
+}
+
+
 
 .navItems {
   align-items: center;
