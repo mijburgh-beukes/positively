@@ -13,14 +13,12 @@ import AddHabit from './AddHabit'
 
 import { Route, Switch } from 'react-router-dom'
 
-function App ({ dispatch, user }) {
-  // const [currentUser, setUser] = useState(user)
-
+function App ({ dispatch }) {
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(1)
-      .then(user => {
-        dispatch(setUser(user))
+      .then(user1 => {
+        dispatch(setUser(user1))
         return null
       })
       .catch(err => console.log(err))
@@ -46,10 +44,4 @@ function App ({ dispatch, user }) {
   )
 }
 
-function mapStateToProps (state) {
-  return {
-    user: state.user
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default connect()(App)

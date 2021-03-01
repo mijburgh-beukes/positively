@@ -1,4 +1,4 @@
-import { postHabit, patchHabit, deleteHabit } from '../api/apiClient'
+import { postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
 
 export const setUser = (user) => {
   return {
@@ -29,7 +29,6 @@ export function deleteTheHabit (id) {
 }
 
 export const saveHabit = (habit) => {
-  console.log(habit)
   return dispatch => {
     postHabit(habit)
       .then((newHabit) => {
@@ -62,6 +61,27 @@ export const updateHabit = (id, patchData) => {
       })
       .catch(err =>
         console.log(err))
+  }
+}
+
+export const handleCount = (habit, user) => {
+  const newCount = habit.goalCount + 1
+  const newXP = user.totalXp + 25
+  return dispatch => {
+    patchHabit(habit.id, { goalCount: newCount })
+      .then(() => {
+        dispatch(updateCount(habit.id, newCount))
+        return null
+      })
+      .then(() => {
+        patchUser(user.id, { totalXp: newXP })
+        return null
+      })
+      .then(() => {
+        dispatch(updateXp(newXP))
+        return null
+      })
+      .catch(err => console.log(err))
   }
 }
 
