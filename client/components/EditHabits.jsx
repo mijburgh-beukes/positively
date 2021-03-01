@@ -54,7 +54,7 @@ const EditHabits = ({ dispatch, user }) => {
         <div className="row gx-3">
           <div className="col-3">
             {user.habits?.map(habit => (
-              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white mb-2" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
             <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
@@ -82,10 +82,12 @@ const EditHabits = ({ dispatch, user }) => {
                 <label htmlFor="priority" className="form-label">Priority: </label>
                 <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
               </div>
+              <div className="d-flex justify-content-between">
+                <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
 
-              <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
-
-              <button type="button" onClick={handleDelete} className="btn accentBG text-white">Delete Habit</button>
+                <button type="button" onClick={handleDelete} className="btn midnightBG text-white">Delete Habit</button>
+              
+              </div>
             </form>
           </div>
         </div>

@@ -26,9 +26,9 @@ function Agenda ({ user }) {
   return (
     <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3 text-midnight">
       <div className="row">
-        <h3 className="">Agenda</h3>
+        <h3 className="mb-3">Agenda</h3>
         <h5>Your top performing habit</h5>
-        <div /* className="habitPH mb-2 rounded-3" */>
+        <div className="mb-2">
           <HabitListItem
             key={topHabitID}
             habit={topHabit}
@@ -36,14 +36,14 @@ function Agenda ({ user }) {
           />
         </div>
         <h5>Habits needing some love</h5>
-        <div /* className="habitPH mb-2 rounded-3" */>
+        <div>
           <HabitListItem
             key={b1ID}
             habit={b1}
             user={user}
           />
         </div>
-        <div /* className="habitPH mb-2 rounded-3" */>
+        <div className="mb-2">
           <HabitListItem
             key={b2ID}
             habit={b2}

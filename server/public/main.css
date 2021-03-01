@@ -92,6 +92,8 @@ body {
 .plusButton {
   height: 2rem;
   width: 2rem;
+  font-size: 1.5rem;
+  line-height: 0;
   background-color: white;
   color: #1b1446; 
   text-align: center;
@@ -141,6 +143,19 @@ body {
   background-color: #ed1e79;
 }
 
+.midnightBG {
+  background-color: #1b1446;
+}
+
 .text-midnight {
   color: #1b1446;
+}
+
+a svg {
+  color: #ffffff77;
+}
+
+
+a:hover svg {
+  fill: #ed1e79;
 }
