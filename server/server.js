@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const cors = require('cors')
 
 const user = require('./routes/user')
 const habit = require('./routes/habit')

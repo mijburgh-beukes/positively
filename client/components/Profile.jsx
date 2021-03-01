@@ -2,11 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import HabitList from './HabitList'
 
-import { calculateLevelv2 } from '../utils'
 import UserDetails from './UserDetails'
 import Achievements from './Achievements'
 
-const Profile = ({ user }) => {
+const Profile = () => {
   return (
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       {/* <div >
@@ -20,13 +19,13 @@ const Profile = ({ user }) => {
       </div>
       <div className="col-md-6">
         <HabitList />
-        <Achievements/>
+        <Achievements />
       </div>
     </div>
   )
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     user: state.user
   }
