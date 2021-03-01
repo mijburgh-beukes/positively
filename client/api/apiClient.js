@@ -26,6 +26,7 @@ export function postHabit (habit) {
     .post(habitUrl)
     .send(habit)
     .then(res => {
+      console.log(res.body)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
@@ -45,6 +46,7 @@ export function deleteHabit (id) {
   return request
     .delete(`${habitUrl}/${id}`)
     .then(res => {
+      console.log(res)
       return res.body
     })
     .catch(e => { throw new Error(e.response.text) })

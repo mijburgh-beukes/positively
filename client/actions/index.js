@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
 
 export const setUser = (user) => {
@@ -32,7 +33,22 @@ export const saveHabit = (habit) => {
   return dispatch => {
     postHabit(habit)
       .then((newHabit) => {
-        dispatch(addHabit(newHabit))
+        const {
+          user_id, title,
+          description, habit_icon,
+          total_goal_count,
+          priority, goal_count
+        } = newHabit
+        const newHabitObj = {
+          userId: user_id,
+          title,
+          description,
+          habitIcon: habit_icon,
+          totalGoalCount: total_goal_count,
+          priority,
+          goalCount: goal_count
+        }
+        dispatch(addHabit(newHabitObj))
         return null
       })
       .catch(err =>
@@ -42,6 +58,7 @@ export const saveHabit = (habit) => {
 
 export const removeHabit = (id) => {
   return dispatch => {
+    console.log(id)
     deleteHabit(id)
       .then(() => {
         dispatch(deleteTheHabit(id))

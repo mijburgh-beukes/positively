@@ -37,7 +37,7 @@ function addHabit (habit, db = database) {
     habit_icon: habit.habitIcon,
     total_goal_count: habit.totalGoalCount,
     priority: habit.priority,
-    goal_count: habit.goalCount
+    goal_count: 0
   })
 }
 
