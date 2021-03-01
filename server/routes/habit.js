@@ -9,10 +9,10 @@ module.exports = router
 router.post('/', (req, res) => {
   const habit = req.body
   db.addHabit(habit)
-    .then((habit) => {
+    .then(habit => {
       return db.getHabit(habit[0])
     })
-    .then((newHabit) => {
+    .then(newHabit => {
       res.status(201).json(newHabit)
       return null
     })
