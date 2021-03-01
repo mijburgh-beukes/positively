@@ -60,9 +60,9 @@ const EditHabits = ({ dispatch, user }) => {
           <p>Pick one from the list on the left</p>
         </div>
         <div className="row gx-3">
-          <div className="col-3">
+          <div className="col-3 d-flex flex-column">
             {user.habits?.map(habit => (
-              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white mb-2" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+              <button id={habit.id} key={habit.id} className="btn shadow-sm accentBG text-white mb-2 editlist" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">
             <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
