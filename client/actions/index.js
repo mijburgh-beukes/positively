@@ -33,22 +33,7 @@ export const saveHabit = (habit) => {
   return dispatch => {
     postHabit(habit)
       .then((newHabit) => {
-        const {
-          user_id, title,
-          description, habit_icon,
-          total_goal_count,
-          priority, goal_count
-        } = newHabit
-        const newHabitObj = {
-          userId: user_id,
-          title,
-          description,
-          habitIcon: habit_icon,
-          totalGoalCount: total_goal_count,
-          priority,
-          goalCount: goal_count
-        }
-        dispatch(addHabit(newHabitObj))
+        dispatch(addHabit(newHabit))
         return null
       })
       .catch(err =>

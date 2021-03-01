@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const database = require('knex')(config)
@@ -57,6 +58,24 @@ function editHabit (id, changes, db = database) {
 
 function getHabit (id, db = database) {
   return db('habits').select().where('id', id).first()
+    .then(habit => {
+      const {
+        user_id, title,
+        description, habit_icon,
+        total_goal_count,
+        priority, goal_count
+      } = habit
+      const newHabitObj = {
+        userId: user_id,
+        title,
+        description,
+        habitIcon: habit_icon,
+        totalGoalCount: total_goal_count,
+        priority,
+        goalCount: goal_count
+      }
+      return newHabitObj
+    })
 }
 function getHabits (db = database) {
   return db('habits').select()
