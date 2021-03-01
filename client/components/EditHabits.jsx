@@ -85,7 +85,7 @@ const EditHabits = ({ dispatch, user }) => {
                 <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
 
                 <button type="button" onClick={handleDelete} className="btn midnightBG text-white">Delete Habit</button>
-              
+
               </div>
             </form>
           </div>
