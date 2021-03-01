@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
 
 export const setUser = (user) => {
@@ -24,7 +25,7 @@ export const updateTheHabit = (habit) => {
 export function deleteTheHabit (id) {
   return {
     type: 'DELETE_HABIT',
-    id
+    habitId: id
   }
 }
 
@@ -68,13 +69,13 @@ export const handleCount = (habit, user) => {
   const newCount = habit.goalCount + 1
   const newXP = user.totalXp + 25
   return dispatch => {
-    patchHabit(habit.id, { goalCount: newCount })
+    patchHabit(habit.habitId, { goalCount: newCount })
       .then(() => {
-        dispatch(updateCount(habit.id, newCount))
+        dispatch(updateCount(habit.habitId, newCount))
         return null
       })
       .then(() => {
-        patchUser(user.id, { totalXp: newXP })
+        patchUser(user.userId, { totalXp: newXP })
         return null
       })
       .then(() => {

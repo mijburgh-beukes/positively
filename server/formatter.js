@@ -1,8 +1,8 @@
-function createHabits (usersLine) {
+function formatHabitData (usersLine) {
   // eslint-disable-next-line camelcase
-  const { id, title, description, habit_icon, total_goal_count, priority, goal_count } = usersLine
+  const { habitId, title, description, habit_icon, total_goal_count, priority, goal_count } = usersLine
   return {
-    id,
+    habitId,
     title,
     description,
     habitIcon: habit_icon,
@@ -12,26 +12,25 @@ function createHabits (usersLine) {
   }
 }
 
-function createUser (usersLine) {
-  const { id, firstName, lastName, userImage, totalXp, pw } = usersLine
+function formatUserObject (usersLine) {
+  const { userId, firstName, lastName, userImage, totalXp } = usersLine
   return {
-    id,
+    userId,
     firstName,
     lastName,
     userImage,
     totalXp,
-    pw,
-    habits: [createHabits(usersLine)]
+    habits: [formatHabitData(usersLine)]
   }
 }
 
 function formatUserData (usersLines) {
   const usersList = []
   usersLines.forEach(item => {
-    const user = usersList.find(user => user.id === item.user_id)
+    const user = usersList.find(user => user.userId === item.user_id)
     !user
-      ? usersList.push(createUser(item))
-      : user.habits = ([...user.habits, createHabits(item)])
+      ? usersList.push(formatUserObject(item))
+      : user.habits = ([...user.habits, formatHabitData(item)])
   })
   return usersList
 }

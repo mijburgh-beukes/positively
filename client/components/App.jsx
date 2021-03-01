@@ -27,10 +27,10 @@ function App ({ dispatch }) {
   return (
     <div className="app container-lg rounded-3 gx-0">
       <div className="row gx-3">
-        <div className="col-md-1">
+        <div className="col-lg-1">
           <Nav />
         </div>
-        <div className="col mx-auto">
+        <div className="col mx-auto ms-lg-0 ms-md-3">
           <Switch>
             {/* TODO fix up Profile component path */}
             <Route exact path="/" component={Dashboard} />

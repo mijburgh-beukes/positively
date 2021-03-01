@@ -30,6 +30,9 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const habitId = Number(req.params.id)
   db.deleteHabit(habitId)
-    .then(habit => res.json(habit))
+    .then(habit => {
+      res.json(habit)
+      return null
+    })
     .catch(err => res.status(500).send('DATABASE ERROR: ' + err.message))
 })

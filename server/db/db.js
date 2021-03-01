@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const database = require('knex')(config)
@@ -7,7 +8,7 @@ const { formatUserData } = require('../formatter')
 function getUser (id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
-    .select()
+    .select('habits.id as habitId', 'user_id', 'title', 'description', 'habit_icon', 'total_goal_count', 'priority', 'goal_count', 'firstName', 'lastName', 'userImage', 'totalXp', 'userImage', 'users.id as userId')
     .where('users.id', id)
     .then(formatUserData)
 }
@@ -37,7 +38,7 @@ function addHabit (habit, db = database) {
     habit_icon: habit.habitIcon,
     total_goal_count: habit.totalGoalCount,
     priority: habit.priority,
-    goal_count: habit.goalCount
+    goal_count: 0
   })
 }
 
@@ -57,12 +58,32 @@ function editHabit (id, changes, db = database) {
 
 function getHabit (id, db = database) {
   return db('habits').select().where('id', id).first()
+    .then(habit => {
+      const {
+        user_id, title, id,
+        description, habit_icon,
+        total_goal_count,
+        priority, goal_count
+      } = habit
+      const newHabitObj = {
+        userId: user_id,
+        title,
+        id,
+        description,
+        habitIcon: habit_icon,
+        totalGoalCount: total_goal_count,
+        priority,
+        goalCount: goal_count
+      }
+      return newHabitObj
+    })
 }
 function getHabits (db = database) {
   return db('habits').select()
 }
 
 function deleteHabit (habitId, db = database) {
+  console.log('db ' + habitId)
   return db('habits').del().where('id', habitId)
 }
 
