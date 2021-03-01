@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => {
   return (
     <div className="nav d-flex flex-lg-column flex-lg-row rounded-3 ">
-      <img src="./src/logo.svg" alt="app-logo" className="logo m-3" />
+      <img src="/src/logo.svg" alt="app-logo" className="logo m-3" />
       {/* TODO: need to be links once router is set up */}
       <NavLink to="/">
         {/* <img src="./src/dashboard.svg" alt="dashboard" className="inactive"/> */}
