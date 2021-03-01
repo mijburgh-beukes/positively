@@ -45,14 +45,14 @@ const fakeReturnedData = [
 
 describe('GET /api/v1/user/:id', () => {
   it('responds with 200 on successful request', () => {
-    db.getUser.mockImplementation(() => Promise.resolve(fakeReturnedData[0]))
+    db.getUser.mockImplementation(() => Promise.resolve(fakeReturnedData))
     expect.assertions(2)
 
     return request(server)
       .get(baseURL + 'user/2')
       .then(res => {
-        expect(res.status).toBe(200)
         expect(res.body).toEqual(fakeReturnedData[0])
+        expect(res.status).toBe(200)
         return null
       })
   })
