@@ -21,7 +21,7 @@ body {
   /* display: flex;
   flex-direction: row;
   flex-wrap: wrap; */
-  background-color: #1B1446;
+  background-color: #1b1446;
   height: 100%;
   color: #fff;
   align-items: center;
@@ -62,7 +62,7 @@ body {
 }
 
 .module .row {
-  margin: 0rem
+  margin: 0rem;
 }
 
 .module h2 {
@@ -108,7 +108,7 @@ body {
   display: grid;
   vertical-align: center;
   /* background-color: #1B1446 ; */
-  background-color: #ed1e79 ;
+  background-color: #ed1e79;
   color: #fff;
 }
 
@@ -117,15 +117,15 @@ body {
   max-height: 3rem;
 }
 
-.active {
+.active svg {
   fill: #ed1e79;
 }
 
-.inactive {
+.inactive svg {
   fill: #ffffff77;
 }
 
-input[type="range"] {
+input[type='range'] {
   color: red;
 }
 
@@ -134,7 +134,7 @@ input[type="range"] {
 }
 
 .text-midnight {
-  color: #1B1446;
+  color: #1b1446;
 }
 /* .agenda {
   height: calc(100% - 2rem);
