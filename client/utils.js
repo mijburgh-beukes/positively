@@ -7,31 +7,16 @@ function calculateLevelv2 (xp) {
   return Math.floor((1 + Math.sqrt(1 + (8 * xp) / 50)) / 2)
 }
 
-function findBossHabit (user) {
+function orderedHabitsByGoalCount (user) {
   const { habits } = user
-  const valueArray = habits?.map((habit) => habit.goalCount)
-  let index = 0
-  let value = 0
-  valueArray?.forEach((item, i) => {
-    if (item > value) {
-      index = i
-      value = item
-    }
-  })
-  return habits ? habits[index] : null
-}
-
-function findSadHabits (user) {
-  const { habits } = user
-  const bottomTwo = habits?.sort(function (a, b) {
+  const orderedHabitsByGC = habits?.sort(function (a, b) {
     return a.goalCount - b.goalCount
   })
-  return bottomTwo
+  return orderedHabitsByGC
 }
 
 module.exports = {
   calculateLevel,
   calculateLevelv2,
-  findBossHabit,
-  findSadHabits
+  orderedHabitsByGoalCount
 }
