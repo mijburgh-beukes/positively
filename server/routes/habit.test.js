@@ -3,9 +3,10 @@ const request = require('supertest')
 const db = require('../db/db')
 const server = require('../server')
 
-const baseURL = '/api/v1'
+const baseURL = '/api/v1/habit/'
 
-const habit = {
+const mockHabit = {
+  id: 1,
   title: 'test habit',
   description: 'this is a test habit',
   habitIcon: 'img icon',
@@ -18,19 +19,18 @@ jest.mock('../db/db')
 
 describe('POST /api/v1/habit', () => {
   it('responds with 201 on successful creation of row', () => {
-    db.addHabit.mockImplementation(() => Promise.resolve([1]))
-    db.getHabit.mockImplementation(() => Promise.resolve({ id: 1, title: 'daily run' }))
+    db.addHabit.mockImplementation(() => Promise.resolve(1))
+    db.getHabit.mockImplementation(() =>
+      Promise.resolve({ id: 1, title: 'daily run' })
+    )
     expect.assertions(2)
     return request(server)
-      .post(baseURL + '/habit')
-      .send(habit)
+      .post(baseURL)
+      .send(mockHabit)
       .then(res => {
         expect(res.status).toBe(201)
         expect(res.body.id).toBe(1)
         return null
-      })
-      .catch(err => {
-        console.log(err)
       })
   })
 
@@ -38,7 +38,7 @@ describe('POST /api/v1/habit', () => {
     db.addHabit.mockImplementation(() => Promise.reject(new Error('oh noes!')))
     expect.assertions(2)
     return request(server)
-      .post(baseURL + '/habit')
+      .post(baseURL)
       .send({
         field: 'bad test data'
       })
@@ -52,12 +52,14 @@ describe('POST /api/v1/habit', () => {
 
 describe('PATCH /api/v1/habit/:id', () => {
   it('should responds with a habit', () => {
-    db.editHabit.mockImplementation(() => Promise.resolve('hi'))
+    const mockChanges = { title: 'walking' }
+    db.editHabit.mockImplementation(() => Promise.resolve(mockHabit))
     expect.assertions(1)
     return request(server)
-      .patch(baseURL + '/habit/1')
+      .patch(baseURL + '1')
+      .send(mockChanges)
       .then(res => {
-        expect(res.body).toEqual('hi')
+        expect(res.body).toEqual(mockHabit)
         return null
       })
   })
@@ -66,7 +68,7 @@ describe('PATCH /api/v1/habit/:id', () => {
     db.editHabit.mockImplementation(() => Promise.reject(new Error('oh noes!')))
     expect.assertions(2)
     return request(server)
-      .patch(baseURL + '/habit/1')
+      .patch(baseURL + '1')
       .then(err => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')
@@ -78,10 +80,11 @@ describe('PATCH /api/v1/habit/:id', () => {
 describe('DELETE /api/v1/habit/:id', () => {
   it('should responds with a habit', () => {
     db.deleteHabit.mockImplementation(() => Promise.resolve('deleted'))
-    expect.assertions(1)
+    expect.assertions(2)
     return request(server)
-      .delete(baseURL + '/habit/1')
+      .delete(baseURL + '1')
       .then(res => {
+        expect(db.deleteHabit).toHaveBeenCalled()
         expect(res.body).toEqual('deleted')
         return null
       })
@@ -93,7 +96,7 @@ describe('DELETE /api/v1/habit/:id', () => {
     )
     expect.assertions(2)
     return request(server)
-      .delete(baseURL + '/habit/1')
+      .delete(baseURL + '1')
       .then(err => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')

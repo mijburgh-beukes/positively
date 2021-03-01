@@ -1,55 +1,41 @@
 import React from 'react'
-import HabitListItem from './HabitListItem'
-
 import { connect } from 'react-redux'
 
-import { findBossHabit, findSadHabits } from '../utils'
+import HabitListItem from './HabitListItem'
+
+import { orderedHabitsByGoalCount } from '../utils'
 
 function Agenda ({ user }) {
-  const topHabit = findBossHabit(user)
-  const bottomTwoHabits = findSadHabits(user)
-
-  const topHabitID = topHabit ? topHabit.id : null
-  // const topHabitTitle = topHabit ? topHabit.title : null
-  // const topHabitGoalCount = topHabit ? topHabit.goalCount : null
-
-  const b1ID = bottomTwoHabits ? bottomTwoHabits[0].id : null
-  const b1 = bottomTwoHabits ? bottomTwoHabits[0] : null
-
-  const b2ID = bottomTwoHabits ? bottomTwoHabits[1].id : null
-  const b2 = bottomTwoHabits ? bottomTwoHabits[1] : null
-
-  // const b1GoalCount = bottomTwoHabits ? bottomTwoHabits[0].goalCount : null
-  // const b2Title = bottomTwoHabits ? bottomTwoHabits[1].title : null
-  // const b2GoalCount = bottomTwoHabits ? bottomTwoHabits[1].goalCount : null
+  const orderedHabits = orderedHabitsByGoalCount(user)
+  const lengthOfOrderedHabits = orderedHabits ? orderedHabits.length - 1 : null
 
   return (
     <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3 text-midnight">
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
         <h5>Your top performing habit</h5>
-        <div className="mb-2">
+        {orderedHabits && <div className="mb-2">
           <HabitListItem
-            key={topHabitID}
-            habit={topHabit}
+            key={orderedHabits[lengthOfOrderedHabits].id}
+            habit={orderedHabits[lengthOfOrderedHabits]}
             user={user}
           />
-        </div>
+        </div>}
         <h5>Habits needing some love</h5>
-        <div>
+        {orderedHabits && <div /* className="habitPH mb-2 rounded-3" */>
           <HabitListItem
-            key={b1ID}
-            habit={b1}
+            key={orderedHabits[0].id}
+            habit={orderedHabits[0]}
             user={user}
           />
-        </div>
-        <div className="mb-2">
+        </div>}
+        {orderedHabits && <div className="mb-2">
           <HabitListItem
-            key={b2ID}
-            habit={b2}
+            key={orderedHabits[1].id}
+            habit={orderedHabits[1]}
             user={user}
           />
-        </div>
+        </div>}
         <h3>Keep up that momentum!</h3>
       </div>
     </div>
