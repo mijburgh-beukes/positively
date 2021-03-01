@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getUser, patchUser, addHabit, patchHabit, deleteHabit } from '../api/apiClient'
+import { getUser, patchUser, postHabit, patchHabit, deleteHabit } from '../api/apiClient'
 
 describe('getUser', () => {
   const fakeUser = [{
@@ -49,7 +49,7 @@ describe('patchUser', () => {
   })
 })
 
-describe('addHabit', () => {
+describe('postHabit', () => {
   const newHabit = {
     id: 1,
     title: 'run once a week',
@@ -66,7 +66,7 @@ describe('addHabit', () => {
 
   test('posts new habit to api', () => {
     expect.assertions(2)
-    return addHabit(newHabit)
+    return postHabit(newHabit)
       .then((habit) => {
         expect(habit).toEqual(newHabit)
         expect(scope.isDone()).toBe(true)

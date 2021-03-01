@@ -14,24 +14,23 @@ const habit = {
   goalCount: 3
 }
 
-jest.mock('../db/db', () => {
-  return {
-    addHabit: jest.fn(),
-    editHabit: jest.fn(),
-    deleteHabit: jest.fn()
-  }
-})
+jest.mock('../db/db')
 
 describe('POST /api/v1/habit', () => {
   it('responds with 201 on successful creation of row', () => {
-    db.addHabit.mockImplementation(() => Promise.resolve())
-    expect.assertions(1)
+    db.addHabit.mockImplementation(() => Promise.resolve([1]))
+    db.getHabit.mockImplementation(() => Promise.resolve({ id: 1, title: 'daily run' }))
+    expect.assertions(2)
     return request(server)
       .post(baseURL + '/habit')
       .send(habit)
       .then(res => {
         expect(res.status).toBe(201)
+        expect(res.body.id).toBe(1)
         return null
+      })
+      .catch(err => {
+        console.log(err)
       })
   })
 
