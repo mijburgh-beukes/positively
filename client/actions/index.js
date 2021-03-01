@@ -29,7 +29,6 @@ export function deleteTheHabit (id) {
 }
 
 export const saveHabit = (habit) => {
-  console.log(habit)
   return dispatch => {
     postHabit(habit)
       .then((newHabit) => {
@@ -69,20 +68,20 @@ export const handleCount = (habit, user) => {
   const newCount = habit.goalCount + 1
   const newXP = user.totalXp + 25
   return dispatch => {
-  patchHabit(habit.id, { goalCount: newCount })
-    .then(() => {
-      dispatch(updateCount(habit.id, newCount))
-      return null
-    })
-    .then(() => {
-      patchUser(user.id, { totalXp: newXP })
-      return null
-    })
-    .then(() => {
-      dispatch(updateXp(newXP))
-      return null
-    })
-    .catch(err => console.log(err))
+    patchHabit(habit.id, { goalCount: newCount })
+      .then(() => {
+        dispatch(updateCount(habit.id, newCount))
+        return null
+      })
+      .then(() => {
+        patchUser(user.id, { totalXp: newXP })
+        return null
+      })
+      .then(() => {
+        dispatch(updateXp(newXP))
+        return null
+      })
+      .catch(err => console.log(err))
   }
 }
 

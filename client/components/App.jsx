@@ -14,7 +14,6 @@ import AddHabit from './AddHabit'
 import { Route, Switch } from 'react-router-dom'
 
 function App ({ dispatch }) {
-
   useEffect(() => {
     // TODO: Remove hardcoding of user ID
     getUser(1)
