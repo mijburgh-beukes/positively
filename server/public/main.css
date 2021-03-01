@@ -24,14 +24,12 @@ body {
   background-color: #1b1446;
   height: 100%;
   color: #fff;
-  align-items: center;
   min-height: 4rem;
 }
 
-.nav svg {
+.navItems svg {
   width: 2rem;
   height: 2rem;
-  margin: 0.5rem 0;
 }
 
 .card {
@@ -127,8 +125,8 @@ body {
 }
 
 .logo {
-  width: 60%;
-  max-height: 3rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .active svg {
