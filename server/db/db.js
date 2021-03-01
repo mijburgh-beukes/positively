@@ -4,7 +4,7 @@ const database = require('knex')(config)
 
 const { formatUserData } = require('../formatter')
 
-function getUser (id, db = database) {
+function getUser(id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
     .select()
@@ -12,24 +12,24 @@ function getUser (id, db = database) {
     .then(formatUserData)
 }
 
-function getUserById (id, db = database) {
+function getUserById(id, db = database) {
   return db('users')
     .select('firstName', 'lastName', 'userImage', 'totalXp', 'pw')
     .where('id', id)
     .first()
 }
 
-function updateUser (userId, userChanges, db = database) {
+function updateUser(userId, userChanges, db = database) {
+  // TODO validation
   return db('users').where('id', userId).update({
     firstName: userChanges.firstName,
     lastName: userChanges.lastName,
     userImage: userChanges.userImage,
-    totalXp: userChanges.totalXp,
-    pw: userChanges.pw
+    totalXp: userChanges.totalXp
   })
 }
 
-function addHabit (habit, db = database) {
+function addHabit(habit, db = database) {
   return db('habits').insert({
     user_id: habit.userId,
     title: habit.title,
@@ -41,7 +41,7 @@ function addHabit (habit, db = database) {
   })
 }
 
-function editHabit (id, changes, db = database) {
+function editHabit(id, changes, db = database) {
   return db('habits')
     .update({
       title: changes.title,
@@ -55,14 +55,14 @@ function editHabit (id, changes, db = database) {
     .then(() => getHabit(id, db))
 }
 
-function getHabit (id, db = database) {
+function getHabit(id, db = database) {
   return db('habits').select().where('id', id).first()
 }
-function getHabits (db = database) {
+function getHabits(db = database) {
   return db('habits').select()
 }
 
-function deleteHabit (habitId, db = database) {
+function deleteHabit(habitId, db = database) {
   return db('habits').del().where('id', habitId)
 }
 

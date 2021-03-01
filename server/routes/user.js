@@ -9,7 +9,7 @@ module.exports = router
 router.get('/:id', (req, res) => {
   const { id } = req.params
   db.getUser(id)
-    .then((userData) => {
+    .then(userData => {
       res.json(userData)
       return null
     })
@@ -19,6 +19,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.patch('/:id', (req, res) => {
+  // TODO validation to prevent user from setting their xp
   const userId = Number(req.params.id)
   const userChanges = req.body
   db.updateUser(userId, userChanges)
