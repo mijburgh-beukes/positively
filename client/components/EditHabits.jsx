@@ -8,7 +8,7 @@ const EditHabits = ({ dispatch, user }) => {
     userId: 1,
     description: '',
     habitIcon: '',
-    totalGoalCount: 0,
+    totalGoalCount: 1,
     priority: 0,
     goalCount: 0
   })
@@ -28,6 +28,15 @@ const EditHabits = ({ dispatch, user }) => {
 
   function handleDelete () {
     dispatch(removeHabit(formData.id))
+    setFormData({
+      title: '',
+      userId: 1,
+      description: '',
+      habitIcon: '',
+      totalGoalCount: 1,
+      priority: 0,
+      goalCount: 0
+    })
   }
 
   const populateForm = (habit) => {
@@ -73,7 +82,7 @@ const EditHabits = ({ dispatch, user }) => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="totalGoalCount" className="form-label">Total Goal Count: </label>
+                <label htmlFor="totalGoalCount" className="form-label">Minimum times to action: </label>
                 <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount}/>
               </div>
 
