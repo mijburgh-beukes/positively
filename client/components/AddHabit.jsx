@@ -8,7 +8,7 @@ const AddHabit = (props) => {
     userId: 1,
     description: '',
     habitIcon: '',
-    totalGoalCount: 0,
+    totalGoalCount: 1,
     priority: 0,
     goalCount: 0
   })
@@ -30,7 +30,7 @@ const AddHabit = (props) => {
       userId: 1,
       description: '',
       habitIcon: '',
-      totalGoalCount: 0,
+      totalGoalCount: 1,
       priority: 0,
       goalCount: 0
     })
@@ -56,7 +56,7 @@ const AddHabit = (props) => {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="totalGoalCount" className="form-label">Total Goal Count: </label>
+          <label htmlFor="totalGoalCount" className="form-label">Minimum times to action: </label>
           <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount}/>
         </div>
 
