@@ -10,7 +10,7 @@ exports.seed = function (knex) {
           title: 'Picking My Nose',
           description: "I can't keep my finger out of there",
           habit_icon: 'some icon',
-          total_goal_count: '0',
+          total_goal_count: 0,
           priority: 4,
           goal_count: 5
         },
@@ -19,7 +19,7 @@ exports.seed = function (knex) {
           title: 'Smoking',
           description: "I know it's bad for me but I enjoy it.",
           habit_icon: 'some icon',
-          total_goal_count: '0',
+          total_goal_count: 0,
           priority: 1,
           goal_count: 10
         },
@@ -28,7 +28,7 @@ exports.seed = function (knex) {
           title: 'Picking My Nose',
           description: 'I also enjoy picking my nose',
           habit_icon: 'some icon',
-          total_goal_count: '0',
+          total_goal_count: 0,
           priority: 1,
           goal_count: 50
         },
@@ -37,7 +37,7 @@ exports.seed = function (knex) {
           title: 'Running',
           description: 'Running 30 minutes everyday',
           habit_icon: 'some icon',
-          total_goal_count: '100',
+          total_goal_count: 100,
           priority: 1,
           goal_count: 20
         },
@@ -46,7 +46,7 @@ exports.seed = function (knex) {
           title: 'Swimming',
           description: 'swimming every second day',
           habit_icon: 'some icon',
-          total_goal_count: '50',
+          total_goal_count: 50,
           priority: 2,
           goal_count: 35
         },
@@ -55,7 +55,7 @@ exports.seed = function (knex) {
           title: 'Shooting Hoops',
           description: 'Playing ball with my boyz every Saturday for a year',
           habit_icon: 'some icon',
-          total_goal_count: '52',
+          total_goal_count: 52,
           priority: 3,
           goal_count: 30
         }
