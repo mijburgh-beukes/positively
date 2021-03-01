@@ -5,16 +5,6 @@ const server = require('../server')
 
 const baseURL = '/api/v1/habit/'
 
-const habit = {
-  title: 'test habit',
-  description: 'this is a test habit',
-  habitIcon: 'img icon',
-  totalGoalCount: 42,
-  priority: 5,
-  goalCount: 3
-}
-
-<<<<<<< HEAD
 const mockHabit = {
   id: 1,
   title: 'test habit',
@@ -25,21 +15,14 @@ const mockHabit = {
   goalCount: 3
 }
 
-jest.mock('../db/db', () => {
-  return {
-    addHabit: jest.fn(),
-    editHabit: jest.fn(),
-    deleteHabit: jest.fn()
-  }
-})
-=======
 jest.mock('../db/db')
->>>>>>> 6d1cb011f5d2c8e4f3c5df7b886ccaa39698db34
 
 describe('POST /api/v1/habit', () => {
   it('responds with 201 on successful creation of row', () => {
-    db.addHabit.mockImplementation(() => Promise.resolve([1]))
-    db.getHabit.mockImplementation(() => Promise.resolve({ id: 1, title: 'daily run' }))
+    db.addHabit.mockImplementation(() => Promise.resolve(1))
+    db.getHabit.mockImplementation(() =>
+      Promise.resolve({ id: 1, title: 'daily run' })
+    )
     expect.assertions(2)
     return request(server)
       .post(baseURL)
@@ -48,9 +31,6 @@ describe('POST /api/v1/habit', () => {
         expect(res.status).toBe(201)
         expect(res.body.id).toBe(1)
         return null
-      })
-      .catch(err => {
-        console.log(err)
       })
   })
 
