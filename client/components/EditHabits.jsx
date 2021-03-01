@@ -91,9 +91,9 @@ const EditHabits = ({ dispatch, user }) => {
                 <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
               </div>
               <div className="d-flex justify-content-between">
-                <button type="button" onClick={handleUpdate} className="btn accentBG text-white">Update</button>
+                <button type="button" onClick={handleUpdate} className="btn accentBG text-white updateBTN">Update</button>
 
-                <button type="button" onClick={handleDelete} className="btn midnightBG text-white">Delete Habit</button>
+                <button type="button" onClick={handleDelete} className="btn midnightBG text-white delBTN">Delete Habit</button>
 
               </div>
             </form>
