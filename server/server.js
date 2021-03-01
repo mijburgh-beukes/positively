@@ -9,7 +9,6 @@ const server = express()
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
-server.use(cors('*'))
 
 server.use('/api/v1/user', user)
 
