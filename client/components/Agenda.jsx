@@ -10,6 +10,7 @@ function Agenda ({ user }) {
   const lengthOfOrderedHabits = orderedHabits ? orderedHabits.length - 1 : null
 
   // TODO: Possible opportunity for factoriseation
+  const habitWithHighestGC = orderedHabits ? lengthOfOrderedHabits : null
   const habitWithLowestGC = orderedHabits ? orderedHabits[0] : null
   const habitWith2ndLowestGC = orderedHabits ? orderedHabits[1] : null
 
@@ -20,23 +21,23 @@ function Agenda ({ user }) {
         <h5>Your top performing habit</h5>
         {orderedHabits && <div className="mb-2">
           <HabitListItem
-            key={orderedHabits[lengthOfOrderedHabits].id}
-            habit={orderedHabits[lengthOfOrderedHabits]}
+            key={habitWithHighestGC.id}
+            habit={habitWithHighestGC}
             user={user}
           />
         </div>}
         <h5>Habits needing some love</h5>
         {habitWithLowestGC && <div /* className="habitPH mb-2 rounded-3" */>
           <HabitListItem
-            key={orderedHabits[0].id}
-            habit={orderedHabits[0]}
+            key={habitWithLowestGC.id}
+            habit={habitWithLowestGC}
             user={user}
           />
         </div>}
         {habitWith2ndLowestGC && <div className="mb-2">
           <HabitListItem
-            key={orderedHabits[1].id}
-            habit={orderedHabits[1]}
+            key={habitWith2ndLowestGC.id}
+            habit={habitWith2ndLowestGC}
             user={user}
           />
         </div>}
