@@ -13,7 +13,7 @@ const userReducer = (state = [], action) => {
       return {
         ...state,
         habits: state.habits.map((habit) => {
-          const updatedHabit = habit.habitId === action.habit.habitId
+          const updatedHabit = habit.habitId === action.habit.id
           return updatedHabit ? action.habit : habit
         })
       }
@@ -21,14 +21,14 @@ const userReducer = (state = [], action) => {
     case 'DELETE_HABIT':
       return {
         ...state,
-        habits: state.habits.filter(habit => habit.habitId !== action.habitId)
+        habits: state.habits.filter(habit => habit.habitId !== action.id)
       }
 
     case 'UPDATE_COUNT':
       return {
         ...state,
         habits: state.habits.map((habit) => {
-          const newCount = habit.habitId === action.habitId
+          const newCount = habit.habitId === action.id
           return {
             ...habit,
             goalCount: newCount ? action.goalCount : habit.goalCount
