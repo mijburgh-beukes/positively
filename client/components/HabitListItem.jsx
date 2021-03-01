@@ -13,8 +13,8 @@ function Habit ({ dispatch, habit, user }) {
   }
 
   return (
-    <div className='habitListItem'>
-      <div>
+    <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
+      <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
         {`${topHabitTitle} - ${topHabitGoalCount} `}
         <button className='plusButton' onClick={handleTheCount}>
           <span>+</span>

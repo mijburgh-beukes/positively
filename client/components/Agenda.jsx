@@ -12,9 +12,9 @@ function Agenda ({ user }) {
   return (
     <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3 text-midnight">
       <div className="row">
-        <h3 className="module-header">Agenda</h3>
+        <h3 className="mb-3">Agenda</h3>
         <h5>Your top performing habit</h5>
-        {orderedHabits && <div /* className="habitPH mb-2 rounded-3" */>
+        {orderedHabits && <div className="mb-2">
           <HabitListItem
             key={orderedHabits[lengthOfOrderedHabits].id}
             habit={orderedHabits[lengthOfOrderedHabits]}
@@ -29,7 +29,7 @@ function Agenda ({ user }) {
             user={user}
           />
         </div>}
-        {orderedHabits && <div /* className="habitPH mb-2 rounded-3" */>
+        {orderedHabits && <div className="mb-2">
           <HabitListItem
             key={orderedHabits[1].id}
             habit={orderedHabits[1]}
