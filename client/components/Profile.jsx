@@ -2,15 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import HabitList from './HabitList'
 
+import { calculateLevelv2 } from '../utils'
+
 import UserDetails from './UserDetails'
 import Achievements from './Achievements'
 
-const Profile = () => {
+const Profile = ({ user }) => {
   return (
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
-      <div >
-        <h1>Hey {user.firstName} {user.lastName}!</h1>
-        <img src={user.userImage} alt="user-image"/>
+      <div>
+        <h1>
+          Hey {user.firstName} {user.lastName}!
+        </h1>
+        <img src={user.userImage} alt="user-image" />
         <h2>Level: {calculateLevelv2(user.totalXp)}</h2>
         <p>Current Exp. {user.totalXp}</p>
       </div>
@@ -25,7 +29,7 @@ const Profile = () => {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }
