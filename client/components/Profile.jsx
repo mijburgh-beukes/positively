@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import HabitList from './HabitList'
 
-import { calculateLevelv2 } from '../utils'
+// import { calculateLevelv2 } from '../utils'
 import UserDetails from './UserDetails'
 import Achievements from './Achievements'
 
