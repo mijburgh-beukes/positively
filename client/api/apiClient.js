@@ -1,19 +1,19 @@
 import request from 'superagent'
 
-const baseUrl = '/api/v1/user'
+const userUrl = '/api/v1/user'
 const habitUrl = '/api/v1/habit'
 
 export function getUser (id) {
-  return request.get(`${baseUrl}/${id}`)
+  return request.get(`${userUrl}/${id}`)
     .then((res) => {
-      return res.body[0]
+      return res.body
     })
     .catch(e => { throw new Error(e.response.text) })
 }
 
 export function patchUser (userId, userChanges) {
   return request
-    .patch(`${baseUrl}/${userId}`)
+    .patch(`${userUrl}/${userId}`)
     .send(userChanges)
     .then(res => {
       return res.body

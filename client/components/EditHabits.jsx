@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { updateHabit, removeHabit } from '../actions'
 
 const EditHabits = ({ dispatch, user }) => {
-  console.log(user)
   const [formData, setFormData] = useState({
     title: '',
     userId: 1,
