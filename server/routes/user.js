@@ -10,7 +10,7 @@ router.get('/:id', (req, res) => {
   const { id } = req.params
   db.getUser(id)
     .then((userData) => {
-      res.json(userData)
+      res.json(userData[0])
       return null
     })
     .catch(err => {

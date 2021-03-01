@@ -52,7 +52,7 @@ describe('GET /api/v1/user/:id', () => {
       .get(baseURL + 'user/2')
       .then(res => {
         expect(res.status).toBe(200)
-        expect(res.body).toEqual(fakeReturnedData)
+        expect(res.body).toEqual(fakeReturnedData[0])
         return null
       })
   })

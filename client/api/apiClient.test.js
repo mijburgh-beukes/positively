@@ -2,14 +2,14 @@ import nock from 'nock'
 import { getUser, patchUser, postHabit, patchHabit, deleteHabit } from '../api/apiClient'
 
 describe('getUser', () => {
-  const fakeUser = [{
+  const fakeUser = {
     id: 2,
     firstName: 'Allyson',
     lastName: 'Wonderland',
     userImage: 'Image goes here',
     totalXp: 0,
     pw: 'abc123'
-  }]
+  }
   const scope = nock('http://localhost')
     .get('/api/v1/user/2')
     .reply(200, fakeUser)
@@ -17,7 +17,7 @@ describe('getUser', () => {
   test('returns user from api', () => {
     expect.assertions(2)
     return getUser(2).then((user) => {
-      expect(user).toEqual(fakeUser[0])
+      expect(user).toEqual(fakeUser)
       expect(scope.isDone()).toBe(true)
       return null
     })
