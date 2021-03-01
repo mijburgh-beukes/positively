@@ -27,22 +27,9 @@ body {
   min-height: 4rem;
 }
 
-.navItems {
-  align-items: center;
-  justify-content: center;
-}
-
 .navItems svg {
   width: 2rem;
   height: 2rem;
-}
-
-
-.logoContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 4rem;
 }
 
 .logo {
