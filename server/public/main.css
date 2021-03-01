@@ -17,21 +17,44 @@ body {
   background-color: #eee;
 }
 
-.nav {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; */
+.navBar {
+  justify-content: space-between;
   background-color: #1b1446;
   height: 100%;
   color: #fff;
-  align-items: center;
   min-height: 4rem;
 }
 
-.nav svg {
+@media (min-width: 992px) { 
+  .navBar {
+  justify-content: flex-start;
+  }
+}
+
+
+
+.navItems {
+  align-items: center;
+  justify-content: center;
+}
+
+.navItems svg {
   width: 2rem;
   height: 2rem;
-  margin: 0.5rem 0;
+}
+
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 4rem;
+}
+
+.logo {
+  max-height: 3rem;
+  /* width: 3rem;
+  height: 3rem; */
 }
 
 .card {
@@ -124,11 +147,6 @@ body {
   /* background-color: #1B1446 ; */
   background-color: #ed1e79;
   color: #fff;
-}
-
-.logo {
-  width: 60%;
-  max-height: 3rem;
 }
 
 .active svg {
