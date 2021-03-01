@@ -24,33 +24,33 @@ function Agenda ({ user }) {
   // const b2GoalCount = bottomTwoHabits ? bottomTwoHabits[1].goalCount : null
 
   return (
-    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3">
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3 text-midnight">
       <div className="row">
-        <h3 className="module-header">Agenda</h3>
-        <h4>Your top performing habit</h4>
-        <div className="habitPH mb-2 rounded-3">
+        <h3 className="">Agenda</h3>
+        <h5>Your top performing habit</h5>
+        <div /* className="habitPH mb-2 rounded-3" */>
           <HabitListItem
             key={topHabitID}
             habit={topHabit}
             user={user}
           />
         </div>
-        <h4>Habits needing some love</h4>
-        <div className="habitPH mb-2 rounded-3">
+        <h5>Habits needing some love</h5>
+        <div /* className="habitPH mb-2 rounded-3" */>
           <HabitListItem
             key={b1ID}
             habit={b1}
             user={user}
           />
         </div>
-        <div className="habitPH mb-2 rounded-3">
+        <div /* className="habitPH mb-2 rounded-3" */>
           <HabitListItem
             key={b2ID}
             habit={b2}
             user={user}
           />
         </div>
-        <h2>Keep up that momentum!</h2>
+        <h3>Keep up that momentum!</h3>
       </div>
     </div>
   )

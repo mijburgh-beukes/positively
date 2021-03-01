@@ -34,10 +34,11 @@ function App ({ dispatch, user }) {
         </div>
         <div className="col mx-auto">
           <Switch>
-            <Route path="/user/:id" component={Profile} />
+            {/* TODO fix up Profile component path */}
             <Route exact path="/" component={Dashboard} />
-            <Route path="/edithabits" component={EditHabits} />
             <Route path="/addhabit" component={AddHabit}/>
+            <Route path="/user/:id" component={Profile} />
+            <Route path="/edithabits" component={EditHabits} />
           </Switch>
         </div>
       </div>

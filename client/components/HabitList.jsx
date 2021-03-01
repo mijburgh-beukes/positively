@@ -8,15 +8,15 @@ function HabitList ({ user }) {
     return a.goalCount - b.goalCount
   })
   return (
-    <>
-      <h4>Active Habits</h4>
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3 mb-3">
+      <h3 className="text-midnight">Active Habits</h3>
       { orderedHabits?.map(habit =>
         <HabitListItem
           key={habit.id}
           habit={habit}
           user={user}
         />) }
-    </>
+    </div>
 
   )
 }
