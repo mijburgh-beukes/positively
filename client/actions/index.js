@@ -43,7 +43,6 @@ export const saveHabit = (habit) => {
 
 export const removeHabit = (id) => {
   return dispatch => {
-    console.log(id)
     deleteHabit(id)
       .then(() => {
         dispatch(deleteTheHabit(id))
