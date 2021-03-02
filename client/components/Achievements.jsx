@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { calculateLevel } from '../utils'
 
-function Achievements({ user }) {
+function Achievements ({ user }) {
   const level = calculateLevel(user.totalXp)
   console.log(level)
   return (
@@ -28,7 +28,7 @@ function Achievements({ user }) {
   )
 }
 
-function Badge({ level }) {
+function Badge ({ level }) {
   return (
     <div className="aspire-badge">
       <p className="mb-0">Next up: <br></br><strong>{ level }</strong></p>
@@ -36,11 +36,11 @@ function Badge({ level }) {
   )
 }
 
-function AchievementBadge({ level }) {
+function AchievementBadge ({ level }) {
   return <div className="achievement-badge">{level}</div>
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }

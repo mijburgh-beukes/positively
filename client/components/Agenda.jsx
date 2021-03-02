@@ -5,7 +5,7 @@ import HabitListItem from './HabitListItem'
 
 import { orderedHabitsByGoalCount } from '../utils'
 
-function Agenda({ user }) {
+function Agenda ({ user }) {
   const orderedHabits = orderedHabitsByGoalCount(user)
   console.log(orderedHabits)
   const lengthOfOrderedHabits = orderedHabits ? orderedHabits.length - 1 : null
@@ -54,7 +54,7 @@ function Agenda({ user }) {
   )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.user
   }
