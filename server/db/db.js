@@ -83,7 +83,6 @@ function getHabits (db = database) {
 }
 
 function deleteHabit (habitId, db = database) {
-  console.log('db ' + habitId)
   return db('habits').del().where('id', habitId)
 }
 
