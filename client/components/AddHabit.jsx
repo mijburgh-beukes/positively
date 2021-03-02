@@ -34,6 +34,7 @@ const AddHabit = (props) => {
       priority: 1,
       goalCount: 0
     })
+    alert('Added!')
   }
 
   return (
@@ -72,10 +73,4 @@ const AddHabit = (props) => {
   )
 }
 
-function mapStateToProps (globalState) {
-  return {
-    newHabit: globalState.newHabit
-  }
-}
-
-export default connect(mapStateToProps)(AddHabit)
+export default connect()(AddHabit)

@@ -45,7 +45,6 @@ export const removeHabit = (id) => {
   return dispatch => {
     deleteHabit(id)
       .then(() => {
-        console.log(id)
         dispatch(deleteTheHabit(id))
         return null
       })
@@ -58,7 +57,6 @@ export const updateHabit = (id, patchData) => {
   return dispatch => {
     patchHabit(id, patchData)
       .then((habit) => {
-        console.log(habit)
         dispatch(updateTheHabit(habit))
         return null
       })
