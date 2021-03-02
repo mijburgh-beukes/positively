@@ -8,9 +8,21 @@ module.exports = router
 
 router.get('/:id', (req, res) => {
   const { id } = req.params
-  db.getUser(id)
+  db.getUserById(id)
     .then(userData => {
-      res.json(userData[0])
+      res.json(userData)
+      return null
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
+router.get('/:id/habits', (req, res) => {
+  const { id } = req.params
+  db.getHabits(id)
+    .then((habitsData) => {
+      res.json(habitsData)
       return null
     })
     .catch(err => {

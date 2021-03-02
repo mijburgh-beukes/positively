@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { getUser } from '../api/apiClient'
-import { setUser } from '../actions'
+import { setUserHabits } from '../actions'
 
 // Components
 import Nav from './Nav'
@@ -15,13 +14,7 @@ import { Route, Switch } from 'react-router-dom'
 
 function App ({ dispatch }) {
   useEffect(() => {
-    // TODO: Remove hardcoding of user ID
-    getUser(1)
-      .then(user1 => {
-        dispatch(setUser(user1))
-        return null
-      })
-      .catch(err => console.log(err))
+    dispatch(setUserHabits())
   }, [])
 
   return (
