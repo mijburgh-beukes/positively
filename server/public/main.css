@@ -149,9 +149,9 @@ body {
 .hero {
   display: grid;
   vertical-align: center;
-  /* background-color: #1B1446 ; */
-  /* background-color: #1b1446; */
-  background-color: #8D89A6;
+  background-color: #1B1446 ;
+  /* background-color: #fff; */
+  /* background-color: #8D89A6; */
   color: #fff;
 }
 
@@ -169,6 +169,10 @@ body {
 
 .midnightBG {
   background-color: #1b1446;
+}
+
+.text-accent {
+  color: #ed1e79;
 }
 
 .text-midnight {

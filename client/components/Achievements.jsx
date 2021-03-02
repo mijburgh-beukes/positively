@@ -30,7 +30,7 @@ function Achievements ({ user }) {
 function NextBadge ({ level }) {
   return (
     <div className="aspire-badge">
-      <p className="mb-0">Next Badge: <br></br><strong>{ level }</strong></p>
+      <p className="mb-0 lh-sm">Up next <br></br><strong>{ level }</strong></p>
     </div>
   )
 }
