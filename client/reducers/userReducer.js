@@ -42,6 +42,18 @@ const userReducer = (state = { habits: [] }, action) => {
         totalXp: action.xp
       }
 
+    case 'RESET_COUNT':
+      return {
+        ...state,
+        habits: state.habits.map((habit) => {
+          const clearCount = habit.habitId === action.habitId
+          return {
+            ...habit,
+            goalCount: clearCount ? action.cleanCount : habit.goalCount
+          }
+        })
+      }
+
     default :
       return state
   }

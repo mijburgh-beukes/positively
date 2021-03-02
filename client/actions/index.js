@@ -102,3 +102,23 @@ export const updateXp = (xp) => {
     xp
   }
 }
+
+export const handleReset = (habitId) => {
+  const cleanCount = 0
+  return dispatch => {
+    patchHabit(habitId, { goalCount: cleanCount })
+      .then(() => {
+        dispatch(resetCount(habitId, cleanCount))
+        return null
+      })
+      .catch(err => console.log(err))
+  }
+}
+
+export const resetCount = (habitId, cleanCount) => {
+  return {
+    type: 'RESET_COUNT',
+    habitId,
+    cleanCount
+  }
+}
