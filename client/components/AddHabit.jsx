@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { saveHabit } from '../actions'
 
-import  SnackBar from '@material-ui/core/SnackBar'
+import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 
 const AddHabit = (props) => {
-  const [snackBarOpen, setSnackBarOpen] = useState(false)
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-  const [snackBarMsg, setSnackBarMsg] = useState(false)
+  const [snackbarMsg, setSnackbarMsg] = useState(false)
 
   const [formData, setFormData] = useState({
     title: '',
@@ -20,8 +20,8 @@ const AddHabit = (props) => {
     goalCount: 0
   })
 
-  const snackBarClosing = () => {
-    setSnackBarOpen(false)
+  const snackbarClosing = () => {
+    setSnackbarOpen(false)
   }
 
   const handleChange = (event) => {
@@ -45,26 +45,25 @@ const AddHabit = (props) => {
       priority: 1,
       goalCount: 0
     })
-    setSnackBarOpen(true)
-    setSnackBarMsg('Added!')
+    setSnackbarOpen(true)
+    setSnackbarMsg('Habit Added!')
   }
 
   return (
     <div>
-      <SnackBar
+      <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        open = {snackBarOpen}
+        open = {snackbarOpen}
         autoHideDuration = {3000}
-        onClose={snackBarClosing}
-
-        message = {<span id='message-id'>{snackBarMsg}</span>}
+        onClose={snackbarClosing}
+        message = {<span id='message-id'>{snackbarMsg}</span>}
 
         action={[
           <IconButton
             key='close'
             aria-label='close'
             color='inherit'
-            onClick={snackBarClosing}
+            onClick={snackbarClosing}
           >
         x
           </IconButton>
