@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { handleCount } from '../actions/index'
+import { handleCount, handleReset } from '../actions/index'
 
 function Habit ({ dispatch, habit, user }) {
   const topHabitTitle = habit ? habit.title : null
@@ -12,6 +12,11 @@ function Habit ({ dispatch, habit, user }) {
     dispatch(handleCount(habit, user))
   }
 
+  function handleCounterReset () {
+    console.log('testing reset here...')
+    dispatch(handleReset(habit.habitId))
+  }
+
   return (
     <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
       <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
@@ -19,6 +24,11 @@ function Habit ({ dispatch, habit, user }) {
         <button className='plusButton' onClick={handleTheCount}>
           <span>+</span>
         </button>
+        {habit.goalCount >= 0 &&
+        <button className='resetButton' onClick={handleCounterReset}>
+          Reset your weekly goal count here!
+        </button>
+        }
       </div>
     </div>
   )
