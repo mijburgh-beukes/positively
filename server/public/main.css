@@ -123,6 +123,11 @@ body {
   border: none;
 }
 
+.plusButton:active {
+  background-color: #1b1446;
+  color: white;
+}
+
 .power-level {
   display: inline-block;
   font-weight: 400;
