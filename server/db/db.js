@@ -7,7 +7,7 @@ const { formatUserData } = require('../formatter')
 
 function getUser (id, db = database) {
   return db('users')
-    .join(db.raw('habits', ['habits']), 'users.id', 'habits.user_id')
+    .join('habits', 'users.id', 'habits.user_id')
     .select('habits.id as habitId', 'user_id', 'title', 'description', 'habit_icon', 'total_goal_count', 'priority', 'goal_count', 'firstName', 'lastName', 'userImage', 'totalXp', 'userImage', 'users.id as userId')
     .where('users.id', id)
     .then(formatUserData)
