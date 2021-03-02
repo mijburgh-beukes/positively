@@ -18,6 +18,7 @@ function App ({ dispatch }) {
     // TODO: Remove hardcoding of user ID
     getUser(1)
       .then(user1 => {
+        console.log(user1)
         dispatch(setUser(user1))
         return null
       })

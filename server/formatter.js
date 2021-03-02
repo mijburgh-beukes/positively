@@ -27,6 +27,7 @@ function formatUserObject (usersLine) {
 function formatUserData (usersLines) {
   const usersList = []
   usersLines.forEach(item => {
+    console.log(item)
     const user = usersList.find(user => user.userId === item.user_id)
     !user
       ? usersList.push(formatUserObject(item))
