@@ -61,7 +61,7 @@ const EditHabits = ({ dispatch, user }) => {
         </div>
         <div className="row gx-3">
           <div className="col-3 d-flex flex-column">
-            {user.habits?.map(habit => (
+            {user && user.habits?.map(habit => (
               <button id={habit.habitId} key={habit.habitId} className="btn shadow-sm accentBG text-white mb-2 editlist" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
           </div>
           <div /* style={{ padding: '2rem' }}  */className="col">

@@ -11,7 +11,7 @@ const Dashboard = ({ user }) => {
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       <div className="col-md-8">
         <div className="hero rounded-3 px-3 pb-1 pt-2 mb-3">
-          <h1>{`Hello ${user.firstName} ${user.lastName}`}</h1>
+          <h1>{user && `Hello ${user.firstName} ${user.lastName}`}</h1>
           <p>Here&apos;s an overview of your lifestyle ...</p>
         </div>
         <Agenda />

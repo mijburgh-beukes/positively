@@ -4,7 +4,7 @@ import HabitListItem from './HabitListItem'
 import { connect } from 'react-redux'
 
 function HabitList ({ user }) {
-  const orderedHabits = user.habits?.sort(function (a, b) {
+  const orderedHabits = user && user.habits?.sort(function (a, b) {
     return a.goalCount - b.goalCount
   })
   return (
