@@ -5,7 +5,18 @@ import { updateHabit, removeHabit } from '../actions'
 import Snackbar from '@material-ui/core/Snackbar'
 import Button from '@material-ui/core/Button'
 
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  buttonStyle: {
+    color: 'white',
+    backgroundColor: '#ed1e79'
+  }
+})
+
 const EditHabits = ({ dispatch, user }) => {
+  const classes = useStyles()
+
   const [snackbarOpen, setSnackbarOpen] = useState(false)
 
   const [snackbarMsg, setSnackbarMsg] = useState(false)
@@ -72,15 +83,15 @@ const EditHabits = ({ dispatch, user }) => {
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         open = {snackbarOpen}
-        autoHideDuration = {3000}
+        autoHideDuration = {2000}
         onClose={snackbarClosing}
         message = {<span id='message-id'>{snackbarMsg}</span>}
 
         action={[
           <Button
+            className={classes.buttonStyle}
             key='close'
             aria-label='close'
-            color='secondary'
             onClick={snackbarClosing}
           >
       x
