@@ -7,11 +7,10 @@ import { orderedHabitsByGoalCount } from '../utils'
 
 function Agenda ({ user }) {
   const orderedHabits = orderedHabitsByGoalCount(user)
-  console.log(orderedHabits)
   const lengthOfOrderedHabits = orderedHabits ? orderedHabits.length - 1 : null
 
   // TODO: Possible opportunity for factoriseation
-  const habitWithHighestGC = orderedHabits ? lengthOfOrderedHabits : null
+  const habitWithHighestGC = orderedHabits ? habitWithHighestGC[lengthOfOrderedHabits] : null
   const habitWithLowestGC = orderedHabits ? orderedHabits[0] : null
   const habitWith2ndLowestGC = orderedHabits ? orderedHabits[1] : null
 
@@ -29,8 +28,8 @@ function Agenda ({ user }) {
             />
           </div>
         )}
-        <h5>Habits needing some love</h5>
         {habitWithLowestGC && (
+          <h5>Habits needing some love</h5>
           <div /* className="habitPH mb-2 rounded-3" */>
             <HabitListItem
               key={habitWithLowestGC.id}
