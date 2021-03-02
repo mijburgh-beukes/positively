@@ -16,7 +16,7 @@ const Dashboard = ({ user }) => {
         </div>
         <Agenda />
       </div>
-      <div className="col-md-4 d-none d-sm-block">
+      <div className="col-md-4">
         <div className="mb-3">
           <UserDetails />
         </div>
