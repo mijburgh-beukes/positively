@@ -5,8 +5,9 @@ import HabitListItem from './HabitListItem'
 
 import { orderedHabitsByGoalCount } from '../utils'
 
-function Agenda ({ user }) {
+function Agenda({ user }) {
   const orderedHabits = orderedHabitsByGoalCount(user)
+  console.log(orderedHabits)
   const lengthOfOrderedHabits = orderedHabits ? orderedHabits.length - 1 : null
 
   // TODO: Possible opportunity for factoriseation
@@ -19,35 +20,41 @@ function Agenda ({ user }) {
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
         <h5>Your top performing habit</h5>
-        {orderedHabits && <div className="mb-2">
-          <HabitListItem
-            key={habitWithHighestGC.id}
-            habit={habitWithHighestGC}
-            user={user}
-          />
-        </div>}
+        {orderedHabits && (
+          <div className="mb-2">
+            <HabitListItem
+              key={habitWithHighestGC.id}
+              habit={habitWithHighestGC}
+              user={user}
+            />
+          </div>
+        )}
         <h5>Habits needing some love</h5>
-        {habitWithLowestGC && <div /* className="habitPH mb-2 rounded-3" */>
-          <HabitListItem
-            key={habitWithLowestGC.id}
-            habit={habitWithLowestGC}
-            user={user}
-          />
-        </div>}
-        {habitWith2ndLowestGC && <div className="mb-2">
-          <HabitListItem
-            key={habitWith2ndLowestGC.id}
-            habit={habitWith2ndLowestGC}
-            user={user}
-          />
-        </div>}
+        {habitWithLowestGC && (
+          <div /* className="habitPH mb-2 rounded-3" */>
+            <HabitListItem
+              key={habitWithLowestGC.id}
+              habit={habitWithLowestGC}
+              user={user}
+            />
+          </div>
+        )}
+        {habitWith2ndLowestGC && (
+          <div className="mb-2">
+            <HabitListItem
+              key={habitWith2ndLowestGC.id}
+              habit={habitWith2ndLowestGC}
+              user={user}
+            />
+          </div>
+        )}
         <h3>Keep up that momentum!</h3>
       </div>
     </div>
   )
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     user: state.user
   }
