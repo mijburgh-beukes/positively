@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { saveHabit } from '../actions'
 
 import Snackbar from '@material-ui/core/Snackbar'
-import IconButton from '@material-ui/core/IconButton'
+import Button from '@material-ui/core/Button'
 
 const AddHabit = (props) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -59,14 +59,14 @@ const AddHabit = (props) => {
         message = {<span id='message-id'>{snackbarMsg}</span>}
 
         action={[
-          <IconButton
+          <Button
             key='close'
             aria-label='close'
-            color='inherit'
+            color='primary'
             onClick={snackbarClosing}
           >
-        x
-          </IconButton>
+        X
+          </Button>
         ]}
       />
       <div className="col pe-3 py-3 ps-3 ps-md-0">
