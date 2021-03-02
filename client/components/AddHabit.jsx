@@ -9,7 +9,7 @@ const AddHabit = (props) => {
     description: '',
     habitIcon: '',
     totalGoalCount: 1,
-    priority: 0,
+    priority: 1,
     goalCount: 0
   })
 
@@ -31,7 +31,7 @@ const AddHabit = (props) => {
       description: '',
       habitIcon: '',
       totalGoalCount: 1,
-      priority: 0,
+      priority: 1,
       goalCount: 0
     })
   }
@@ -57,12 +57,12 @@ const AddHabit = (props) => {
 
         <div className="mb-3">
           <label htmlFor="totalGoalCount" className="form-label">Minimum times per week to attempt this habit: </label>
-          <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount}/>
+          <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount} min="1"/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="priority" className="form-label">Priority: </label>
-          <input type="range" className="form-range" min="0" max="5" name="priority" value={formData.priority} onChange={handleChange}/>
+          <input type="range" className="form-range" min="1" max="5" name="priority" value={formData.priority} onChange={handleChange}/>
         </div>
 
         <button type="button" onClick={handleSubmit} className="btn accentBG text-white">Add Habit</button>
