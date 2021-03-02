@@ -21,13 +21,13 @@ function Habit ({ dispatch, habit, user }) {
     <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
       <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
         {`${topHabitTitle} - ${topHabitGoalCount} `}
-        <div>
+        <div className="d-flex flex-row align-items-center">
           {habit.goalCount > 0 &&
-        <button className='resetButton' onClick={handleCounterReset}>
-          Reset
+        <button className='btn resetButton me-2' onClick={handleCounterReset}>
+          Reset Count
         </button>
           }
-          <button className='plusButton' onClick={handleTheCount}>
+          <button className='plusButton me-1' onClick={handleTheCount}>
             <span>+</span>
           </button>
         </div>

@@ -110,18 +110,6 @@ body {
   padding: 0;
 }
 
-/* THis is a temporary placeholder class */
-.habitPH {
-  /* display: grid;
-  vertical-align: center; */
-  background-color: #ed1e79;
-  color: #fff;
-  height: 2rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-}
-
 .plusButton {
   height: 2rem;
   width: 2rem;
@@ -215,4 +203,21 @@ a:hover svg {
   transform: scale(0.95);
   transform-origin: center;
   background-color: #1b1446;
+}
+
+.resetButton {
+  border: 1px solid white;
+  color: #fff;
+  height: 2rem;
+  line-height: 0%;
+}
+
+.resetButton:hover {
+  background-color: #fff;
+  color: #ed1e79;
+}
+
+.resetButton:active {
+  background-color: #fff;
+  color: #ed1e79;
 }
