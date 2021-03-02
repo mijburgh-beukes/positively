@@ -82,7 +82,7 @@ const EditHabits = ({ dispatch, user }) => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="totalGoalCount" className="form-label">Minimum times to action: </label>
+                <label htmlFor="totalGoalCount" className="form-label">Minimum times per week to attempt this habit: </label>
                 <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount}/>
               </div>
 
