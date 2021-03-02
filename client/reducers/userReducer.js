@@ -3,6 +3,12 @@ const userReducer = (state = { habits: [] }, action) => {
     case 'SET_USER':
       return action.user
 
+    case 'SET_HABITS':
+      return {
+        ...state,
+        habits: action.habits
+      }
+
     case 'ADD_HABIT':
       return {
         ...state,

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { calculateLevel } from '../utils'
 
 function Achievements ({ user }) {
-  const level = calculateLevel(user.totalXp)
+  const level = calculateLevel(user && user.totalXp)
   return (
     /* add d-none d-md-block to top level div? */
     <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3">
@@ -29,7 +29,7 @@ function Achievements ({ user }) {
 
 function NextBadge ({ level }) {
   return (
-    <div className="aspire-badge">
+    <div data-testid="next-badge" className="aspire-badge">
       <p className="mb-0">Next Badge: <br></br><strong>{ level }</strong></p>
     </div>
   )
@@ -37,14 +37,14 @@ function NextBadge ({ level }) {
 
 function Badge ({ level }) {
   return (
-    <div className="aspire-badge">
+    <div data-testid="aspire" className="aspire-badge">
       <p className="mb-4"><br></br><strong>{ level }</strong></p>
     </div>
   )
 }
 
 function AchievementBadge ({ level }) {
-  return <div className="achievement-badge">{level}</div>
+  return <div data-testid="achieved" className="achievement-badge">{level}</div>
 }
 
 function mapStateToProps (state) {

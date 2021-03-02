@@ -11,6 +11,14 @@ export function getUser (id) {
     .catch(e => { throw new Error(e.response.text) })
 }
 
+export function getHabits (id) {
+  return request.get(`${userUrl}/${id}/habits`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(e => { throw new Error(e.response.text) })
+}
+
 export function patchUser (userId, userChanges) {
   return request
     .patch(`${userUrl}/${userId}`)
