@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { calculateLevel } from '../utils'
 
 function Achievements ({ user }) {
-  const level = calculateLevel(user.totalXp)
+  const level = calculateLevel(user && user.totalXp)
   return (
     /* add d-none d-md-block to top level div? */
     <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3">
