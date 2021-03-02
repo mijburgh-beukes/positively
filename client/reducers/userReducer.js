@@ -13,7 +13,7 @@ const userReducer = (state = [], action) => {
       return {
         ...state,
         habits: state.habits.map((habit) => {
-          const updatedHabit = habit.habitId === action.habit.id
+          const updatedHabit = habit.habitId === action.habit.habitId
           return updatedHabit ? action.habit : habit
         })
       }
