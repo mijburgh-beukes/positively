@@ -24,7 +24,7 @@ function Habit ({ dispatch, habit, user }) {
         <button className='plusButton' onClick={handleTheCount}>
           <span>+</span>
         </button>
-        {habit.goalCount >= 0 &&
+        {habit.goalCount > 0 &&
         <button className='resetButton' onClick={handleCounterReset}>
           Reset your weekly goal count here!
         </button>
