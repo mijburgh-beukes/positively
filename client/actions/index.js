@@ -11,7 +11,7 @@ export const setUser = (user) => {
 export const addHabit = (habit) => {
   return {
     type: 'ADD_HABIT',
-    habit: habit
+    habit
   }
 }
 
@@ -25,7 +25,7 @@ export const updateTheHabit = (habit) => {
 export function deleteTheHabit (id) {
   return {
     type: 'DELETE_HABIT',
-    habitId: id
+    id
   }
 }
 
@@ -45,6 +45,7 @@ export const removeHabit = (id) => {
   return dispatch => {
     deleteHabit(id)
       .then(() => {
+        console.log(id)
         dispatch(deleteTheHabit(id))
         return null
       })
@@ -57,6 +58,7 @@ export const updateHabit = (id, patchData) => {
   return dispatch => {
     patchHabit(id, patchData)
       .then((habit) => {
+        console.log(habit)
         dispatch(updateTheHabit(habit))
         return null
       })
