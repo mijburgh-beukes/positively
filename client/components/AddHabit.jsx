@@ -34,6 +34,7 @@ const AddHabit = (props) => {
       priority: 1,
       goalCount: 0
     })
+    alert('Added!')
   }
 
   return (

@@ -24,6 +24,7 @@ const EditHabits = ({ dispatch, user }) => {
 
   function handleUpdate () {
     dispatch(updateHabit(formData.habitId, formData))
+    alert('Updated!')
   }
 
   function handleDelete () {
@@ -37,6 +38,7 @@ const EditHabits = ({ dispatch, user }) => {
       priority: 1,
       goalCount: 0
     })
+    alert('Deleted!')
   }
 
   const populateForm = (habit) => {
