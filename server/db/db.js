@@ -68,7 +68,7 @@ function getHabit (id, db = database) {
       const newHabitObj = {
         userId: user_id,
         title,
-        id,
+        habitId: id,
         description,
         habitIcon: habit_icon,
         totalGoalCount: total_goal_count,
