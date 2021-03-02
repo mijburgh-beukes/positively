@@ -29,7 +29,7 @@ function Achievements ({ user }) {
 
 function NextBadge ({ level }) {
   return (
-    <div className="aspire-badge">
+    <div data-testid="next-badge" className="aspire-badge">
       <p className="mb-0 lh-sm">Up next <br></br><strong>{ level }</strong></p>
     </div>
   )
@@ -37,14 +37,14 @@ function NextBadge ({ level }) {
 
 function Badge ({ level }) {
   return (
-    <div className="aspire-badge">
+    <div data-testid="aspire" className="aspire-badge">
       <p className="mb-4"><br></br><strong>{ level }</strong></p>
     </div>
   )
 }
 
 function AchievementBadge ({ level }) {
-  return <div className="achievement-badge">{level}</div>
+  return <div data-testid="achieved" className="achievement-badge">{level}</div>
 }
 
 function mapStateToProps (state) {
