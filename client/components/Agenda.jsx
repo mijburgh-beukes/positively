@@ -17,7 +17,7 @@ function Agenda ({ user }) {
     <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 text-midnight">
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
-        {(user && user.habits[0])
+        {(user && user.habits)
           ? <>
             <h5>Your top performing habit</h5>
             {orderedHabits && (

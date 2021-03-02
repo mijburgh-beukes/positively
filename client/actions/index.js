@@ -1,10 +1,37 @@
 /* eslint-disable camelcase */
-import { postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
+import { getUser, getHabits, postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
 
-export const setUser = (user) => {
+export const setUserInfo = (user) => {
   return {
     type: 'SET_USER',
     user
+  }
+}
+
+export const setUserHabits = () => {
+  // TODO: Remove hardcoding of user ID
+  const user = 1
+  return dispatch => {
+    getUser(user)
+      .then(userData => {
+        dispatch(setUserInfo(userData))
+        return null
+      })
+      .then(() => {
+        return getHabits(user)
+      })
+      .then(habits => {
+        dispatch(setHabits(habits))
+        return null
+      })
+      .catch(err => console.log(err))
+  }
+}
+
+export const setHabits = (habits) => {
+  return {
+    type: 'SET_HABITS',
+    habits
   }
 }
 

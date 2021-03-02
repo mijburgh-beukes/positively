@@ -13,7 +13,6 @@ function Habit ({ dispatch, habit, user }) {
   }
 
   function handleCounterReset () {
-    console.log('testing reset here...')
     dispatch(handleReset(habit.habitId))
   }
 
