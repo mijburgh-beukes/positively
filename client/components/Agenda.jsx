@@ -16,7 +16,7 @@ function Agenda({ user }) {
   const habitWith2ndLowestGC = orderedHabits ? orderedHabits[1] : null
 
   return (
-    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-sm-3 text-midnight">
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 text-midnight">
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
         <h5>Your top performing habit</h5>
