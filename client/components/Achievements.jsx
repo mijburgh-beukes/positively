@@ -15,13 +15,13 @@ function Achievements({ user }) {
           {level >= 5 ? <AchievementBadge level={level} /> : <Badge />}
         </div>
         <div className="col-sm-6">
-          <Badge />
+          {level >= 10 ? <AchievementBadge level={level} /> : <Badge />}
         </div>
         <div className="col-sm-6">
-          <Badge />
+          {level >= 15 ? <AchievementBadge level={level} /> : <Badge />}
         </div>
         <div className="col-sm-6">
-          <Badge />
+          {level >= 20 ? <AchievementBadge level={level} /> : <Badge />}
         </div>
       </div>
     </div>
@@ -37,24 +37,7 @@ function Badge() {
 }
 
 function AchievementBadge({ level }) {
-  return (
-    <div className="achievement-badge">
-      <p className="mb-0">
-        <div>
-          Icons made by{' '}
-          <a
-            href="https://www.flaticon.com/authors/vectors-market"
-            title="Vectors Market">
-            Vectors Market
-          </a>{' '}
-          from{' '}
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-        </div>
-      </p>
-    </div>
-  )
+  return <div className="achievement-badge"></div>
 }
 
 function mapStateToProps(state) {
