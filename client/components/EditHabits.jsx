@@ -96,7 +96,7 @@ const EditHabits = ({ dispatch, user }) => {
             aria-label='close'
             onClick={snackbarClosing}
           >
-          x
+          Close
           </Button>
         ]}
       />

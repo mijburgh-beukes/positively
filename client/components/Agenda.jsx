@@ -31,7 +31,7 @@ function Agenda ({ user }) {
               </>
             )}
             {habitWith2ndLowestGC && (
-              <div className="mb-2">
+              <div className="mb-1">
                 <HabitListItem
                   key={habitWith2ndLowestGC.id}
                   habit={habitWith2ndLowestGC}
@@ -39,10 +39,10 @@ function Agenda ({ user }) {
                 />
               </div>
             )}
-            <h3 className="mt-2 pt-2 border-top">Keep up that momentum!</h3>
+            <h5 className="mt-1 pt-2 border-top"><strong>Keep up that momentum!</strong></h5>
           </>
           : <div className="agendaInfoContainer mb-2">
-            <p className='agendaInfoHeader'>It looks like you&apos;re all out of habits! Time to start some new&nbsp;ones!</p>
+            <p className='agendaInfoHeader'>It looks like you&apos;re all out of habits ... Time to start some new&nbsp;ones!</p>
             <ul className="ps-3">
               <li className="mb-2">
                 <p>Set yourself a weekly goal. As you go through the week, click the&nbsp;
@@ -54,8 +54,8 @@ function Agenda ({ user }) {
                   - don&apos;t worry, you won&apos;t lose your xp!</p>
               </li>
             </ul>
-            <p className='agendaInfoHint'>*We recomend that you work on a maximum of three new habits at a time,
-            for a period of one month in order to form your new habits well - But, it&apos;s entirely up to you!</p>
+            <p className='agendaInfoHint'>*We recommend that you work on a maximum of three new habits at a time,
+            for a period of one month in order to form your new habits well - but it&apos;s entirely up to you!</p>
             <p className='agendaInfoGoal'>Our goal is to help you form new habits to improve your happiness
             and wellbeing - Good luck!</p>
           </div>
