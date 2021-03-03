@@ -327,3 +327,7 @@ a:hover svg {
 .border-midnight {
   border-color: #1b1446 !important;
 }
+
+.tool-tip {
+  border: 1px solid #1b1446;
+}

@@ -9,7 +9,7 @@ import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
 
-import 'tippy.js/animations/perspective.css'
+import 'tippy.js/animations/perspective-extreme.css'
 
 function Habit ({ dispatch, habit, user }) {
   const topHabitTitle = habit ? habit.title : null
@@ -24,7 +24,7 @@ function Habit ({ dispatch, habit, user }) {
   }
 
   return (
-    <Tippy animation='perspective' theme='light' content={habit.description}>
+    <Tippy className='tool-tip' maxWidth={200} placement='top-start' animation='perspective-extreme' theme='light' content={habit.description}>
       <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
         <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
           <div className='counterContainer overflow-scroll'>
