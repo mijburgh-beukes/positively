@@ -51,11 +51,11 @@ function Agenda ({ user }) {
               </li>
               <li>
                 <p>At the end of every week, remember to reset each habits counter
-                  - don't worry, you won't lose your xp!</p>
+                  - don&apos;t worry, you won&apos;t lose your xp!</p>
               </li>
             </ul>
             <p className='agendaInfoHint'>*We recomend that you work on a maximum of three new habits at a time,
-            for a period of one month in order to form your new habits well - But, it's entirely up to you!</p>
+            for a period of one month in order to form your new habits well - But, it&apos;s entirely up to you!</p>
             <p className='agendaInfoGoal'>Our goal is to help you form new habits to improve your happiness
             and wellbeing - Good luck!</p>
           </div>
