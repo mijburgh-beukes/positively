@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 const Login = ({ setLogin }) => {
   const history = useHistory()
@@ -72,6 +72,7 @@ const Login = ({ setLogin }) => {
         <button type="submit">Login</button>
       </form>
       {err.length > 1 && <h3>{err}</h3>}
+      <Link to="/register">Register</Link>
     </div>
   )
 }

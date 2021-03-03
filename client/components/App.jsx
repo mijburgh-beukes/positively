@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { getUser } from '../api/apiClient'
@@ -11,20 +11,34 @@ import Profile from './Profile'
 import EditHabits from './EditHabits'
 import AddHabit from './AddHabit'
 import Login from './Login'
+import Register from './Register'
 
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 function App ({ dispatch }) {
   const [login, setLogin] = useState(0)
 
-  if (login > 0) {
-    console.log('User ID: ', login, ' has logged in')
-    getUser(login)
-      .then(user1 => {
-        dispatch(setUser(user1))
+  useEffect(() => {
+    if (login > 0) {
+      console.log('getting user inside useEffect ', login)
+      getUser(login)
+      .then(user => {
+        console.log('got the user: ',user)
+        dispatch(setUser(user))
         return null
       })
       .catch(err => console.log(err))
+    
+    } else {
+      console.log('no login')
+      return null
+    }
+    
+  }, [login])
+
+  if (login > 0) {
+    console.log('User ID: ', login, ' has logged in')
+    
   }
 
   return (
@@ -52,7 +66,7 @@ function App ({ dispatch }) {
         </div>
         : <Switch>
           <Route exact path="/register">
-            <h1>register</h1>
+            <Register />
           </Route>
           <Route exact path="/login">
             <Login setLogin={setLogin} />

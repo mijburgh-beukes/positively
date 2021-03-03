@@ -8,6 +8,8 @@ const habit = require('./routes/habit')
 
 const server = express()
 
+const { addUser } = require('./db/db')
+
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 server.use(express.static(path.join(__dirname, './public')))
@@ -31,6 +33,7 @@ server.get('*', (req, res) =>
 module.exports = server
 
 const passport = require('passport')
+const { response } = require('express')
 
 server.use(passport.initialize())
 server.use(passport.session())
@@ -45,3 +48,13 @@ server.post('/login', function (req, res, next) {
     return res.status(200).json(user)
   })(req, res, next)
 })
+
+server.post('/register', function (req, res, next) {
+  console.log(req.body)
+  return addUser(req.body)
+    .then(()=>{
+      res.redirect('/')
+    })
+    .catch(e=>console.log(e))
+})
+
