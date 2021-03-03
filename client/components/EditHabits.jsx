@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateHabit, removeHabit } from '../actions'
 
@@ -103,7 +104,7 @@ const EditHabits = ({ dispatch, user }) => {
         <div className="col">
           <div className=" text-midnight shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 bg-white">
             <h1>Edit your habits</h1>
-            {user.habits.length !== 0 ? <p>Pick one from the list on the left</p> : <p className="mb-2">You seem to have no habits to edit. Please add some using the form</p>}
+            {user.habits.length !== 0 ? <p className="mb-2">Pick one from the list on the left</p> : <p className="mb-2">You seem to have no habits to edit. Please add some using <Link to="/addHabit">the form</Link>.</p>}
           </div>
           {user.habits.length !== 0 ? <div className="row gx-3">
             <div className="col-3 d-flex flex-column">
@@ -112,7 +113,7 @@ const EditHabits = ({ dispatch, user }) => {
                 let extraClassname = ''
                 if (habit.habitId === formData.habitId) extraClassname = 'active-habit'
 
-                return <button id={habit.habitId} key={habit.habitId} className={`${extraClassname} btn shadow-sm accentBG text-white mb-2 editlist habit-border`} onClick={() => (populateForm(habit))}>{habit.title}</button>
+                return <button id={habit.habitId} key={habit.habitId} className={`${extraClassname} btn shadow-sm accentBG text-white mb-2 editlist`} onClick={() => (populateForm(habit))}>{habit.title}</button>
               })}
             </div>
             <div className="col">

@@ -16,6 +16,17 @@ body {
   flex-direction: row; */
   background-color: #eee;
 }
+a {
+  color: #ed1e79;
+}
+
+a:hover {
+  color: #1b1446;
+}
+
+a:active {
+  color: #1b1446;
+}
 
 .navBar {
   justify-content: space-between;
@@ -331,3 +342,4 @@ a:hover svg {
 .tool-tip {
   border: 1px solid #1b1446;
 }
+
