@@ -122,19 +122,10 @@ const EditHabits = ({ dispatch, user }) => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="habitIcon" className="form-label">Icon: </label>
-                  <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source" value={formData.habitIcon}/>
-                </div>
-
-                <div className="mb-3">
                   <label htmlFor="totalGoalCount" className="form-label">Minimum times per week to attempt this habit: </label>
                   <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount} min="1"/>
                 </div>
 
-                <div className="mb-3">
-                  <label htmlFor="priority" className="form-label">Priority: </label>
-                  <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
-                </div>
                 <div className="d-flex justify-content-between">
                   <button type="button" onClick={handleUpdate} className="btn accentBG text-white updateBTN">Update</button>
 
