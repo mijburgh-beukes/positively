@@ -23,7 +23,6 @@ function Habit ({ dispatch, habit, user }) {
     dispatch(handleReset(habit.habitId))
   }
 
-
   let extraClassname = ''
   if (habit.description === '') extraClassname = 'hide-tippy'
 
@@ -49,7 +48,8 @@ function Habit ({ dispatch, habit, user }) {
           </div>
         </div>
       </div>
-          </Tippy>
-  )}
+    </Tippy>
+  )
+}
 
 export default connect()(Habit)
