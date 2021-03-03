@@ -14,7 +14,7 @@ const UserDetails = ({ user }) => {
           className="card-img-top rounded-circle w-75 mx-auto mb-2"
           alt="..."
         />
-        <div className="card-body mx-auto py-0 d-flex flex-column justify-content-center"
+        <div className="card-body mx-auto py-0 d-flex flex-column justify-content-center">
           <h3 className="card-title text-center text-midnight">{user && `${user.firstName} ${user.lastName}`}</h3>
 
           <div className="power-level mx-auto">{`Level ${userLevel} habiteer`}</div>
