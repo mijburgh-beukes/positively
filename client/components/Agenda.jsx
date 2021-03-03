@@ -6,29 +6,18 @@ import HabitListItem from './HabitListItem'
 import { orderedHabitsByGoalCount } from '../utils'
 
 function Agenda ({ user }) {
-  const orderedHabits = user && orderedHabitsByGoalCount(user)
-  const lengthOfOrderedHabits = orderedHabits ? orderedHabits.length - 1 : null
+  const orderedHabits = orderedHabitsByGoalCount(user)
 
   // TODO: Possible opportunity for factoriseation
-  const habitWithHighestGC = orderedHabits ? lengthOfOrderedHabits : null
   const habitWithLowestGC = orderedHabits ? orderedHabits[0] : null
   const habitWith2ndLowestGC = orderedHabits ? orderedHabits[1] : null
   return (
     <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 text-midnight">
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
-        {(user && user.habits)
+        { (user.habits?.some(habit => habit.userId === user.userId))
           ? <>
-            <h5>Your top performing habit</h5>
-            {orderedHabits && (
-              <div className="mb-2">
-                <HabitListItem
-                  key={habitWithHighestGC.id}
-                  habit={habitWithHighestGC}
-                  user={user}
-                />
-              </div>
-            )}
+            <p>Gidday! We&apos;ve curated some items for you to focus on&nbsp;today...</p>
             {habitWithLowestGC && (
               <>
                 <h5>Habits needing some love</h5>
