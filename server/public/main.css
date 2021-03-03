@@ -299,8 +299,9 @@ a:hover svg {
 }
 
 .MuiSnackbarContent-root {
-  background-color: #1b1446!important;
-  opacity: 0.85;
+  background-color: #ed1e79!important;
+  opacity: 0.5!important;
+  font-size: medium!important;
 }
 
 .active-habit {
@@ -312,5 +313,8 @@ a:hover svg {
 }
 
 .tool-tip {
-  border: 1px solid #1b1446;
+  border: 1px solid #ed1e79;
+  background-color:white!important;
+  font-family: 'Indie Flower', cursive;
+  font-size: medium!important;
 }
