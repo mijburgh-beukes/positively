@@ -10,7 +10,7 @@ const Dashboard = ({ user }) => {
   return (
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       <div className="col-md-8">
-        <div className="hero shadow-sm rounded-3 px-3 pb-0 pt-3 mb-3">
+        <div className="hero shadow-sm rounded-3 px-3 pb-3 pt-3 mb-3">
           <h1>
             Hello{' '}
             <span className="text-accent">{`${user.firstName} ${user.lastName}`}</span>
