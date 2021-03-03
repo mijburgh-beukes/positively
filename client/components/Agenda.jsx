@@ -15,7 +15,7 @@ function Agenda ({ user }) {
     <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 text-midnight">
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
-        {(user && user.habits)
+        { (user.habits?.some(habit => habit.userId === user.userId))
           ? <>
             <p>Gidday! We&apos;ve curated some items for you to focus on&nbsp;today...</p>
             {habitWithLowestGC && (
