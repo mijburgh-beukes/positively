@@ -65,19 +65,21 @@ const Register = () => {
     }
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit} method="POST">
-        <h3>Register</h3>
+    <div className="container-fluid d-flex flex-column vh-100 justify-content-center align-items-center">
+      <form className="d-flex shadow-sm p-4 flex-column" onSubmit={handleSubmit} method="POST">
+      <img className="mb-3" src="./src/mainLogo.svg" height="80" alt=""/>
+        <h3 className="text-center"><b>Register</b></h3>
         <label htmlFor="firstName">First name:</label>
         <input type="text" name="firstName" onChange={handleChange} />
         <label htmlFor="lastName">Last name:</label>
         <input type="text" name="lastName" onChange={handleChange} />
         <label htmlFor="userImage">Image URL:</label>
         <input type="text" name="userImage" onChange={handleChange} />
-        <button type="submit">Sign Up</button>
+        <button className="mb-2 mt-3 p-2 btn btn-primary" style={{background: '#ed1e79', borderColor: 'purple'}} type="submit">Sign Up</button>
+        <Link to="/" className="btn btn-secondary">Login</Link>
       </form>
       {err.length > 1 && <h3>{err}</h3>}
-      <Link to="/">Login</Link>
+      
     </div>
   )
 }

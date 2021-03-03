@@ -62,17 +62,19 @@ const Login = ({ setLogin }) => {
     }
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit} method="POST">
-        <h3>Login</h3>
+    <div className="container-fluid d-flex flex-column vh-100 justify-content-center align-items-center">
+      <form className="d-flex shadow-sm p-4 flex-column" onSubmit={handleSubmit} method="POST">
+        <img className="mb-3" src="./src/mainLogo.svg" height="80" alt=""/>
+        <h3 className="text-center"><b>Login</b></h3>
         <label htmlFor="fname">First name:</label>
         <input type="text" name="fname" onChange={handleChange} />
         <label htmlFor="sname">Last name:</label>
         <input type="text" name="sname" onChange={handleChange} />
-        <button type="submit">Login</button>
+        <button className="mb-2 mt-3 p-2 btn btn-primary" style={{background: '#ed1e79', borderColor: 'purple'}} type="submit">Login</button>
+        <Link to="/register" className="btn btn-secondary">Register</Link>
       </form>
       {err.length > 1 && <h3>{err}</h3>}
-      <Link to="/register">Register</Link>
+      
     </div>
   )
 }
