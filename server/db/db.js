@@ -5,7 +5,7 @@ const database = require('knex')(config)
 
 const { formatUserData } = require('../formatter')
 
-function getUserByName(name, db = database) {
+function getUserByName (name, db = database) {
   return db('users')
     .select()
     .where({ firstName: name })
@@ -14,7 +14,7 @@ function getUserByName(name, db = database) {
     })
 }
 
-function addUser(user, db = database) {
+function addUser (user, db = database) {
   const { firstName, lastName, userImage } = user
   return db('users')
     .insert({
@@ -28,7 +28,7 @@ function addUser(user, db = database) {
     })
 }
 
-function getUser(id, db = database) {
+function getUser (id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
     .select(
@@ -51,7 +51,7 @@ function getUser(id, db = database) {
     .then(formatUserData)
 }
 
-function getUserById(id, db = database) {
+function getUserById (id, db = database) {
   return db('users')
     .select(
       'firstName',
@@ -64,7 +64,7 @@ function getUserById(id, db = database) {
     .first()
 }
 
-function updateUser(userId, userChanges, db = database) {
+function updateUser (userId, userChanges, db = database) {
   // TODO validation
   return db('users').where('id', userId).update({
     firstName: userChanges.firstName,
@@ -74,7 +74,7 @@ function updateUser(userId, userChanges, db = database) {
   })
 }
 
-function addHabit(habit, db = database) {
+function addHabit (habit, db = database) {
   return db('habits').insert({
     user_id: habit.userId,
     title: habit.title,
@@ -86,7 +86,7 @@ function addHabit(habit, db = database) {
   })
 }
 
-function editHabit(id, changes, db = database) {
+function editHabit (id, changes, db = database) {
   return db('habits')
     .update({
       title: changes.title,
@@ -100,7 +100,7 @@ function editHabit(id, changes, db = database) {
     .then(() => getHabit(id, db))
 }
 
-function getHabit(id, db = database) {
+function getHabit (id, db = database) {
   return db('habits')
     .select()
     .where('id', id)
@@ -129,7 +129,7 @@ function getHabit(id, db = database) {
       return newHabitObj
     })
 }
-function getHabits(id, db = database) {
+function getHabits (id, db = database) {
   return db('habits')
     .select(
       'habits.id as habitId',
@@ -144,11 +144,11 @@ function getHabits(id, db = database) {
     .where('user_id', id)
 }
 
-function deleteHabit(habitId, db = database) {
+function deleteHabit (habitId, db = database) {
   return db('habits').del().where('id', habitId)
 }
 
-function getAllHabits(db = database) {
+function getAllHabits (db = database) {
   return db('habits').select()
 }
 
