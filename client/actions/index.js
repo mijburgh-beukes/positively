@@ -8,17 +8,15 @@ export const setUserInfo = (user) => {
   }
 }
 
-export const setUserHabits = () => {
-  // TODO: Remove hardcoding of user ID
-  const user = 1
+export const setUserHabits = (id) => {
   return dispatch => {
-    getUser(user)
+    getUser(id)
       .then(userData => {
         dispatch(setUserInfo(userData))
         return null
       })
       .then(() => {
-        return getHabits(user)
+        return getHabits(id)
       })
       .then(habits => {
         dispatch(setHabits(habits))

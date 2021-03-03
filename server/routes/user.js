@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/habits', (req, res) => {
   const { id } = req.params
   db.getHabits(id)
-    .then((habitsData) => {
+    .then(habitsData => {
       res.json(habitsData)
       return null
     })

@@ -112,9 +112,49 @@ body {
   padding: 0;
 }
 
-.plusButton {
+.counterContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.counterContainer, p{
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.countIndicator{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   height: 2rem;
   width: 2rem;
+  margin-left: 6px;
+  font-size: 1.5rem;
+  line-height: 0;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 50%;
+  border: solid 1px white;
+}
+
+.countIndicator, p{
+  font-weight: normal;
+}
+
+.plusButton {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  margin-left: 6px;
   font-size: 1.5rem;
   line-height: 0;
   background-color: white;

@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 })
 
-const AddHabit = (props) => {
+const AddHabit = ({ dispatch, user }) => {
   const classes = useStyles()
 
   const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -22,7 +22,7 @@ const AddHabit = (props) => {
 
   const [formData, setFormData] = useState({
     title: '',
-    userId: 1,
+    userId: user.userId,
     description: '',
     habitIcon: '',
     totalGoalCount: 1,
@@ -34,7 +34,7 @@ const AddHabit = (props) => {
     setSnackbarOpen(false)
   }
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setFormData(currentFormData => {
       return {
         ...currentFormData,
@@ -43,12 +43,12 @@ const AddHabit = (props) => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault()
-    props.dispatch(saveHabit(formData))
+    dispatch(saveHabit(formData))
     setFormData({
       title: '',
-      userId: 1,
+      userId: user.userId,
       description: '',
       habitIcon: '',
       totalGoalCount: 1,
@@ -82,13 +82,31 @@ const AddHabit = (props) => {
         <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
           <h3>Add your new habit</h3>
           <div className="mb-3">
-            <label htmlFor="title" className="form-label">Title: </label>
-            <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
+            <label htmlFor="title" className="form-label">
+              Title:{' '}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="title"
+              onChange={handleChange}
+              placeholder="What's your habit?"
+              value={formData.title}
+            />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="description" className="form-label">Description: </label>
-            <input type="text" className="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?" value={formData.description}/>
+            <label htmlFor="description" className="form-label">
+              Description:{' '}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="description"
+              onChange={handleChange}
+              placeholder="Describe your habit?"
+              value={formData.description}
+            />
           </div>
 
           <div className="mb-3">
@@ -104,4 +122,10 @@ const AddHabit = (props) => {
   )
 }
 
-export default connect()(AddHabit)
+function mapStateToProps (state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(AddHabit)

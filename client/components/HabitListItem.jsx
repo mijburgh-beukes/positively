@@ -19,7 +19,12 @@ function Habit ({ dispatch, habit, user }) {
   return (
     <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
       <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
-        {`${topHabitTitle} - ${topHabitGoalCount} `}
+        <div className='counterContainer'>
+          <p>{`${topHabitTitle} - `}</p>
+          <div className='countIndicator'>
+            <p>{`${topHabitGoalCount} `}</p>
+          </div>
+        </div>
         <div className="d-flex flex-row align-items-center">
           {habit.goalCount > 0 &&
         <button className='btn resetButton me-2' onClick={handleCounterReset}>

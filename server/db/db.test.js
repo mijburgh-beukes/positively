@@ -7,9 +7,11 @@ const {
   getUserById,
   editHabit,
   deleteHabit,
-  getHabits,
+  getAllHabits,
   addHabit,
-  updateUser
+  updateUser,
+  getUserByName,
+  addUser
 } = require('./db')
 
 const { formatUserData } = require('../formatter')
@@ -49,7 +51,7 @@ describe('deleteHabit', () => {
   it('should delete a specified habit', () => {
     expect.assertions(1)
     return deleteHabit(13, connection)
-      .then(() => getHabits(connection))
+      .then(() => getAllHabits(connection))
       .then(habits => {
         expect(habits.map(habit => habit.id)).toEqual([14, 15, 16, 17, 18])
         return null
@@ -82,9 +84,35 @@ describe('addHabit', () => {
 
   it('should add a habit to the habits db', () => {
     return addHabit(mockHabit, connection)
-      .then(() => getHabits(connection))
+      .then(() => getAllHabits(connection))
       .then(habits => {
         expect(habits).toHaveLength(7)
+        return null
+      })
+  })
+})
+
+describe('getUserByName', () => {
+  it('get a user by name', () => {
+    const name = 'Bob'
+    expect.assertions(1)
+    return getUserByName(name, connection).then(user => {
+      expect(user[0].firstName).toEqual(name)
+      return null
+    })
+  })
+})
+
+describe('addUser', () => {
+  it('should add a new user to users table', () => {
+    const mockUser = { firstName: 'jim', lastName: 'bob', userImage: 'abc123' }
+    expect.assertions(3)
+    return addUser(mockUser, connection)
+      .then(id => getUserById(id, connection))
+      .then(user => {
+        expect(user.firstName).toEqual(mockUser.firstName)
+        expect(user.lastName).toEqual(mockUser.lastName)
+        expect(user.userImage).toEqual(mockUser.userImage)
         return null
       })
   })
