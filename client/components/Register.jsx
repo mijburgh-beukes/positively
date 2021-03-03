@@ -67,7 +67,7 @@ const Register = () => {
   return (
     <div className="container-fluid d-flex flex-column vh-100 justify-content-center align-items-center">
       <form className="d-flex shadow-sm p-4 flex-column" onSubmit={handleSubmit} method="POST">
-      <img className="mb-3" src="./src/mainLogo.svg" height="80" alt=""/>
+      <img className="mb-3" src="./src/mainLogo.svg" height="200" alt=""/>
         <h3 className="text-center"><b>Register</b></h3>
         <label htmlFor="firstName">First name:</label>
         <input type="text" name="firstName" onChange={handleChange} />
@@ -75,8 +75,8 @@ const Register = () => {
         <input type="text" name="lastName" onChange={handleChange} />
         <label htmlFor="userImage">Image URL:</label>
         <input type="text" name="userImage" onChange={handleChange} />
-        <button className="mb-2 mt-3 p-2 btn btn-primary" style={{background: '#ed1e79', borderColor: 'purple'}} type="submit">Sign Up</button>
-        <Link to="/" className="btn btn-secondary">Login</Link>
+        <button className="mb-2 mt-3 p-2 btn btn-primary" style={{background: '#1b1446', borderColor: 'purple'}} type="submit">Sign Up</button>
+        <Link to="/" className="btn" style={{background: '#bbb'}}>Login</Link>
       </form>
       {err.length > 1 && <h3>{err}</h3>}
       
