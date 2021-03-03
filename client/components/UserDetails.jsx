@@ -14,7 +14,7 @@ const UserDetails = ({ user }) => {
       <div className="card">
         <img
           src={user && user.userImage}
-          className="card-img-top rounded-circle w-75 mx-auto mb-2"
+          className="card-img-top rounded-circle w-75 mx-auto mb-2 fit-image"
           alt="..."
         />
         <div className="card-body mx-auto py-0 d-flex flex-column justify-content-center">

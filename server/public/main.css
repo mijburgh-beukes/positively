@@ -16,6 +16,17 @@ body {
   flex-direction: row; */
   background-color: #eee;
 }
+a {
+  color: #ed1e79;
+}
+
+a:hover {
+  color: #1b1446;
+}
+
+a:active {
+  color: #1b1446;
+}
 
 .navBar {
   justify-content: space-between;
@@ -77,11 +88,24 @@ body {
   font-weight: 700;
 }
 
-.aspire-badge {
+.aspire-badge-next {
   display: grid;
   background-color: #fff;
   color: #1b1446;
   border: 2px solid #1b1446;
+  width: 100%;
+  height: 5rem;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  text-align: center;
+  place-items: center;
+}
+
+.aspire-badge {
+  display: grid;
+  background-color: #fff;
+  color: #999;
+  border: 2px solid #999;
   width: 100%;
   height: 5rem;
   border-radius: 0.5rem;
@@ -131,7 +155,7 @@ body {
 }
 
 .agendaInfoGoal {
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
   font-weight: bold;
 }
@@ -312,7 +336,12 @@ a:hover svg {
   border: 1px solid white;
 }
 
+.border-midnight {
+  border-color: #1b1446 !important;
+}
+
 .tool-tip {
+
   background-color:white!important;
   font-family: 'Indie Flower', cursive;
   font-size: medium!important;
@@ -321,3 +350,9 @@ a:hover svg {
 .hide-tippy {
   visibility: hidden!important;
 }
+
+.fit-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover !important;
+}
+
