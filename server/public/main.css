@@ -343,3 +343,7 @@ a:hover svg {
   border: 1px solid #1b1446;
 }
 
+.fit-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover !important;
+}

@@ -14,7 +14,7 @@ function Achievements ({ user }) {
           {level >= 5 /* && level < 10 */ ? <AchievementBadge level={'Initiator'} /> : <NextBadge level={'Initiator'}/>}
         </div>
         <div className="col-sm-6">
-          {level >= 10 /* && level < 15 */ ? <AchievementBadge level={'Novice'} /> : level >= 5 ? <NextBadge level={'Novice'}/> : <Badge level={'Novice'}/>}
+          {level >= 10 /* && level < 15 */ ? <AchievementBadge level={'Enthusiast'} /> : level >= 5 ? <NextBadge level={'Enthusiast'}/> : <Badge level={'Enthusiast'}/>}
         </div>
         <div className="col-sm-6">
           {level >= 15 /* && level < 20 */ ? <AchievementBadge level={'Pro'} /> : level >= 10 ? <NextBadge level={'Pro'}/> : <Badge level={'Pro'}/>}
