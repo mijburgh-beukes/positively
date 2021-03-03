@@ -310,3 +310,7 @@ a:hover svg {
 .habit-border {
   border: 1px solid white;
 }
+
+.tool-tip {
+  border: 1px solid #1b1446;
+}
