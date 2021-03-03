@@ -5,6 +5,29 @@ const database = require('knex')(config)
 
 const { formatUserData } = require('../formatter')
 
+function getUserByName (name, db = database) {
+  return db('users')
+    .select()
+    .where({ firstName: name })
+    .then((user) => {
+      return user
+    })
+}
+
+function addUser (user, db = database) {
+  const { firstName, lastName, userImage } = user
+  return db('users')
+    .insert({
+      firstName,
+      lastName,
+      userImage,
+      totalXp: 0
+    })
+    .then((res) => {
+      return res
+    }).catch(e => console.log(e))
+}
+
 function getUser (id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
@@ -130,7 +153,9 @@ function getAllHabits (db = database) {
 }
 
 module.exports = {
+  getUserByName,
   getUser,
+  addUser,
   getUserById,
   addHabit,
   editHabit,
