@@ -1,3 +1,10 @@
+
+### Browser compatibility warning:
+
+The image for the UserDetails component uses the css aspect-ratio property in order to keep the image properly circular regardless of the image's inherent aspect ratio. This css property is still quite new and not widely supported, but will work fine on chrome. Worst case scenario will be the user uploads a non-square image and it renders as an oval on browsers that don't support the feature yet.
+
+### Data shape
+
 GET 'api/v1/user/:id' will return the following object:
 
 ```
@@ -32,4 +39,5 @@ GET 'api/v1/user/:id' will return the following object:
     }
 ]
 ```
+
 
