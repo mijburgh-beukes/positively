@@ -5,6 +5,9 @@ import { calculateLevel } from '../utils'
 
 const UserDetails = ({ user }) => {
   const userLevel = calculateLevel(user && user.totalXp)
+  const levelProgressDecimal = ((user.totalXp / 250) - userLevel).toFixed(2)
+  const levelProgress = (levelProgressDecimal * 100) + '%'
+
   return (
     /* add d-none d-sm-block to top level div? */
     <div className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-3 ">
@@ -18,6 +21,9 @@ const UserDetails = ({ user }) => {
           <h3 className="card-title text-center text-midnight">{user && `${user.firstName} ${user.lastName}`}</h3>
 
           <div className="power-level mx-auto">{`Level ${userLevel} habiteer`}</div>
+        </div>
+        <div className="progress">
+          <div className="progress-bar" style={{ width: levelProgress }} role="progressbar" aria-valuenow={{ levelProgress }} aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
     </div>
