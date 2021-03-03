@@ -10,7 +10,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   buttonStyle: {
     color: 'white',
-    backgroundColor: '#ed1e79'
+    backgroundColor: '#ed1e79',
+    opacity: 0.85
   }
 })
 
