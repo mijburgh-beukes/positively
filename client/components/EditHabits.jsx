@@ -81,13 +81,12 @@ const EditHabits = ({ dispatch, user }) => {
   return (
     <div>
       <Snackbar
-        style={{backgroundColor: 'white'}}
+        style={{ backgroundColor: 'white' }}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         open = {snackbarOpen}
         autoHideDuration = {2000}
         onClose={snackbarClosing}
         message = {<span id='message-id'>{snackbarMsg}</span>}
-
         action={[
           <Button
             className={classes.buttonStyle}
@@ -110,7 +109,7 @@ const EditHabits = ({ dispatch, user }) => {
               {user.habits?.map(habit => (
                 <button id={habit.habitId} key={habit.habitId} className="btn shadow-sm accentBG text-white mb-2 editlist" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
             </div>
-            <div /* style={{ padding: '2rem' }}  */className="col">
+            <div className="col">
               <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">Title: </label>

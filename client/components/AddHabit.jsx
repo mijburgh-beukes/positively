@@ -67,13 +67,11 @@ const AddHabit = (props) => {
         autoHideDuration = {2000}
         onClose={snackbarClosing}
         message = {<span id='message-id'>{snackbarMsg}</span>}
-
         action={[
           <Button
             className={classes.buttonStyle}
             key='close'
             aria-label='close'
-            // color='primary'
             onClick={snackbarClosing}
           >
         x
