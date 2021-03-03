@@ -5,6 +5,15 @@ const database = require('knex')(config)
 
 const { formatUserData } = require('../formatter')
 
+function getUserByName (name, db = database) {
+  return db('users')
+    .select()
+    .where({ firstName: name })
+    .then((user) => {
+      return user
+    })
+}
+
 function getUser (id, db = database) {
   return db('users')
     .join('habits', 'users.id', 'habits.user_id')
@@ -88,6 +97,7 @@ function deleteHabit (habitId, db = database) {
 }
 
 module.exports = {
+  getUserByName,
   getUser,
   getUserById,
   addHabit,
