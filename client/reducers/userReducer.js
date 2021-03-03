@@ -1,7 +1,13 @@
-const userReducer = (state = [], action) => {
+const userReducer = (state = { habits: [] }, action) => {
   switch (action.type) {
     case 'SET_USER':
       return action.user
+
+    case 'SET_HABITS':
+      return {
+        ...state,
+        habits: action.habits
+      }
 
     case 'ADD_HABIT':
       return {
@@ -40,6 +46,18 @@ const userReducer = (state = [], action) => {
       return {
         ...state,
         totalXp: action.xp
+      }
+
+    case 'RESET_COUNT':
+      return {
+        ...state,
+        habits: state.habits.map((habit) => {
+          const clearCount = habit.habitId === action.habitId
+          return {
+            ...habit,
+            goalCount: clearCount ? action.cleanCount : habit.goalCount
+          }
+        })
       }
 
     default :

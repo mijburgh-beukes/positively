@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { getUser } from '../api/apiClient'
-import { setUser } from '../actions'
+import { setUserHabits } from '../actions'
 
 // Components
 import Nav from './Nav'
@@ -20,27 +19,9 @@ function App ({ dispatch }) {
 
   useEffect(() => {
     if (login > 0) {
-      console.log('getting user inside useEffect ', login)
-      getUser(login)
-      .then(user => {
-        console.log('got the user: ',user)
-        dispatch(setUser(user))
-        return null
-      })
-      .catch(err => console.log(err))
-    
-    } else {
-      console.log('no login')
-      return null
+    dispatch(setUserHabits(login))
     }
-    
   }, [login])
-
-  if (login > 0) {
-    console.log('User ID: ', login, ' has logged in')
-    
-  }
-
   return (
     <>
       { login > 0

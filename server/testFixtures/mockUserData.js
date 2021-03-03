@@ -1,6 +1,6 @@
 const mockUser = [
   {
-    id: 1,
+    userId: 1,
     firstName: 'Bob',
     lastName: 'Marley',
     userImage: 'Image goes here',
@@ -14,7 +14,7 @@ const mockUser = [
     goal_count: 0
   },
   {
-    id: 4,
+    userId: 4,
     firstName: 'Bob',
     lastName: 'Marley',
     userImage: 'Image goes here',
@@ -28,7 +28,7 @@ const mockUser = [
     goal_count: 0
   },
   {
-    id: 5,
+    userId: 5,
     firstName: 'Bob',
     lastName: 'Marley',
     userImage: 'Image goes here',
@@ -44,7 +44,7 @@ const mockUser = [
 ]
 const mockUser2 = [
   {
-    id: 1,
+    userId: 1,
     firstName: 'Bob',
     lastName: 'Marley',
     userImage: 'Image goes here',
@@ -58,7 +58,7 @@ const mockUser2 = [
     goal_count: 0
   },
   {
-    id: 4,
+    userId: 4,
     firstName: 'Bob',
     lastName: 'Marley',
     userImage: 'Image goes here',
@@ -72,7 +72,7 @@ const mockUser2 = [
     goal_count: 0
   },
   {
-    id: 5,
+    userId: 5,
     firstName: 'Bob',
     lastName: 'Marley',
     userImage: 'Image goes here',

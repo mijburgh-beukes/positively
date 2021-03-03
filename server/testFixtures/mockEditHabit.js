@@ -1,5 +1,5 @@
 const mockHabitChanges = {
-  id: 7,
+  habitId: 7,
   userId: 1,
   title: 'running',
   description: '30min a day',
