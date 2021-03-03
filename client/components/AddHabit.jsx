@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 })
 
-const AddHabit = props => {
+const AddHabit = ({ dispatch, user }) => {
   const classes = useStyles()
 
   const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -22,7 +22,7 @@ const AddHabit = props => {
 
   const [formData, setFormData] = useState({
     title: '',
-    userId: 1,
+    userId: user.userId,
     description: '',
     habitIcon: '',
     totalGoalCount: 1,
@@ -45,10 +45,10 @@ const AddHabit = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    props.dispatch(saveHabit(formData))
+    dispatch(saveHabit(formData))
     setFormData({
       title: '',
-      userId: 1,
+      userId: user.userId,
       description: '',
       habitIcon: '',
       totalGoalCount: 1,
@@ -165,4 +165,10 @@ const AddHabit = props => {
   )
 }
 
-export default connect()(AddHabit)
+function mapStateToProps (state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(AddHabit)
