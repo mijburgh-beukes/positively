@@ -7,7 +7,6 @@ const {
   getUserById,
   editHabit,
   deleteHabit,
-  getHabits,
   getAllHabits,
   addHabit,
   updateUser

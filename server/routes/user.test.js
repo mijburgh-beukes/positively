@@ -7,7 +7,6 @@ const baseURL = '/api/v1/'
 
 jest.mock('../db/db', () => {
   return {
-    getUser: jest.fn(),
     getUserById: jest.fn(),
     updateUser: jest.fn(),
     getHabits: jest.fn()
@@ -105,6 +104,7 @@ describe('GET /:id/habits', () => {
       .then(res => {
         expect(res.status).toEqual(200)
         expect(res.body).toEqual(fakeHabits)
+        return null
       })
   })
 })
