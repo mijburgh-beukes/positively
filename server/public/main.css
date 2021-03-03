@@ -313,8 +313,11 @@ a:hover svg {
 }
 
 .tool-tip {
-  border: 1px solid #ed1e79;
   background-color:white!important;
   font-family: 'Indie Flower', cursive;
   font-size: medium!important;
+}
+
+.hide-tippy {
+  visibility: hidden!important;
 }

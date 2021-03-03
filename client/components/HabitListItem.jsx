@@ -24,9 +24,11 @@ function Habit ({ dispatch, habit, user }) {
   }
 
 
+  let extraClassname = ''
+  if (habit.description === '') extraClassname = 'hide-tippy'
 
   return (
-    <Tippy className='tool-tip' hideOnClick={true} arrow={false} interactive={true} maxWidth={200} placement='top-start' animation='perspective-extreme' theme='light' content={habit.description}>
+    <Tippy className={`tool-tip ${extraClassname}`} arrow={false} interactive={true} maxWidth={200} placement='top-start' animation='perspective-extreme' theme='light' content={habit.description}>
       <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
         <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
           <div className='counterContainer'>
@@ -49,6 +51,5 @@ function Habit ({ dispatch, habit, user }) {
       </div>
           </Tippy>
   )}
-
 
 export default connect()(Habit)
