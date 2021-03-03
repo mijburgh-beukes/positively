@@ -42,7 +42,7 @@ function Agenda ({ user }) {
             <h3>Keep up that momentum!</h3>
           </>
           : <div className="agendaInfoContainer mb-2">
-            <p className='agendaInfoHeader'>Create a habit to get started!</p>
+            <p className='agendaInfoHeader'>It looks like you&apos;re all out of habits! Time to make some new ones!</p>
             <ul>
               <li>
                 <p>Set yourself a weekly goal. As you go through the week, click the
