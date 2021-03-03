@@ -11,7 +11,10 @@ const Dashboard = ({ user }) => {
     <div className="row gx-3 pe-3 py-3 ps-3 ps-md-0">
       <div className="col-md-8">
         <div className="hero shadow-sm rounded-3 px-3 pb-0 pt-3 mb-3">
-          <h1>Hello <span className="text-accent">{`${user.firstName} ${user.lastName}`}</span></h1>
+          <h1>
+            Hello{' '}
+            <span className="text-accent">{`${user.firstName} ${user.lastName}`}</span>
+          </h1>
           <p>Here&apos;s an overview of your lifestyle ...</p>
         </div>
         <Agenda />

@@ -7,7 +7,7 @@ const {
   getUserById,
   editHabit,
   deleteHabit,
-  getHabits,
+  getAllHabits,
   addHabit,
   updateUser
 } = require('./db')
@@ -49,7 +49,7 @@ describe('deleteHabit', () => {
   it('should delete a specified habit', () => {
     expect.assertions(1)
     return deleteHabit(13, connection)
-      .then(() => getHabits(connection))
+      .then(() => getAllHabits(connection))
       .then(habits => {
         expect(habits.map(habit => habit.id)).toEqual([14, 15, 16, 17, 18])
         return null
@@ -82,7 +82,7 @@ describe('addHabit', () => {
 
   it('should add a habit to the habits db', () => {
     return addHabit(mockHabit, connection)
-      .then(() => getHabits(connection))
+      .then(() => getAllHabits(connection))
       .then(habits => {
         expect(habits).toHaveLength(7)
         return null

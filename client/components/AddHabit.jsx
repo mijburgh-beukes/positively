@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 })
 
-const AddHabit = (props) => {
+const AddHabit = props => {
   const classes = useStyles()
 
   const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -34,7 +34,7 @@ const AddHabit = (props) => {
     setSnackbarOpen(false)
   }
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setFormData(currentFormData => {
       return {
         ...currentFormData,
@@ -43,7 +43,7 @@ const AddHabit = (props) => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault()
     props.dispatch(saveHabit(formData))
     setFormData({
@@ -63,20 +63,18 @@ const AddHabit = (props) => {
     <div>
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        open = {snackbarOpen}
-        autoHideDuration = {2000}
+        open={snackbarOpen}
+        autoHideDuration={2000}
         onClose={snackbarClosing}
-        message = {<span id='message-id'>{snackbarMsg}</span>}
-
+        message={<span id="message-id">{snackbarMsg}</span>}
         action={[
           <Button
             className={classes.buttonStyle}
-            key='close'
-            aria-label='close'
+            key="close"
+            aria-label="close"
             // color='primary'
-            onClick={snackbarClosing}
-          >
-        x
+            onClick={snackbarClosing}>
+            x
           </Button>
         ]}
       />
@@ -84,32 +82,83 @@ const AddHabit = (props) => {
         <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
           <h3>Add your new habit</h3>
           <div className="mb-3">
-            <label htmlFor="title" className="form-label">Title: </label>
-            <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
+            <label htmlFor="title" className="form-label">
+              Title:{' '}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="title"
+              onChange={handleChange}
+              placeholder="What's your habit?"
+              value={formData.title}
+            />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="description" className="form-label">Description: </label>
-            <input type="text" className="form-control" name="description" onChange={handleChange} placeholder="Describe your habit?" value={formData.description}/>
+            <label htmlFor="description" className="form-label">
+              Description:{' '}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="description"
+              onChange={handleChange}
+              placeholder="Describe your habit?"
+              value={formData.description}
+            />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="habitIcon" className="form-label">Icon: </label>
-            <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source" value={formData.habitIcon}/>
+            <label htmlFor="habitIcon" className="form-label">
+              Icon:{' '}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="habitIcon"
+              onChange={handleChange}
+              placeholder="Icon source"
+              value={formData.habitIcon}
+            />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="totalGoalCount" className="form-label">Minimum times per week to attempt this habit: </label>
-            <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount} min="1"/>
+            <label htmlFor="totalGoalCount" className="form-label">
+              Minimum times per week to attempt this habit:{' '}
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              name="totalGoalCount"
+              onChange={handleChange}
+              placeholder="The skys the limit!"
+              value={formData.totalGoalCount}
+              min="1"
+            />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="priority" className="form-label">Priority: </label>
-            <input type="range" className="form-range" min="1" max="5" name="priority" value={formData.priority} onChange={handleChange}/>
+            <label htmlFor="priority" className="form-label">
+              Priority:{' '}
+            </label>
+            <input
+              type="range"
+              className="form-range"
+              min="1"
+              max="5"
+              name="priority"
+              value={formData.priority}
+              onChange={handleChange}
+            />
           </div>
 
-          <button type="button" onClick={handleSubmit} className="btn accentBG text-white">Add Habit</button>
-
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="btn accentBG text-white">
+            Add Habit
+          </button>
         </form>
       </div>
     </div>
