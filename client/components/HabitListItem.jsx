@@ -4,6 +4,13 @@ import { connect } from 'react-redux'
 
 import { handleCount, handleReset } from '../actions/index'
 
+import Tippy from '@tippyjs/react'
+
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/themes/light.css'
+
+import 'tippy.js/animations/perspective.css'
+
 function Habit ({ dispatch, habit, user }) {
   const topHabitTitle = habit ? habit.title : null
   const topHabitGoalCount = habit ? habit.goalCount : null
@@ -17,6 +24,7 @@ function Habit ({ dispatch, habit, user }) {
   }
 
   return (
+      <Tippy animation='perspective' theme='light' content={habit.description}>
     <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
       <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
         <div className='counterContainer'>
@@ -37,6 +45,7 @@ function Habit ({ dispatch, habit, user }) {
         </div>
       </div>
     </div>
+          </Tippy>
   )
 }
 
