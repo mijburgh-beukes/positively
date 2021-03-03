@@ -8,6 +8,7 @@ const baseURL = '/api/v1/'
 jest.mock('../db/db', () => {
   return {
     getUser: jest.fn(),
+    getUserById: jest.fn(),
     updateUser: jest.fn()
   }
 })
@@ -45,20 +46,22 @@ const fakeReturnedData = [
 
 describe('GET /api/v1/user/:id', () => {
   it('responds with 200 on successful request', () => {
-    db.getUser.mockImplementation(() => Promise.resolve(fakeReturnedData))
+    db.getUserById.mockImplementation(() => Promise.resolve(fakeReturnedData))
     expect.assertions(2)
 
     return request(server)
       .get(baseURL + 'user/2')
       .then(res => {
-        expect(res.body).toEqual(fakeReturnedData[0])
+        expect(res.body).toEqual(fakeReturnedData)
         expect(res.status).toBe(200)
         return null
       })
   })
 
   it('should reject with a 500 code', () => {
-    db.getUser.mockImplementation(() => Promise.reject(new Error('oh noes!')))
+    db.getUserById.mockImplementation(() =>
+      Promise.reject(new Error('oh noes!'))
+    )
     expect.assertions(2)
 
     return request(server)
