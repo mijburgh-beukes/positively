@@ -32,10 +32,10 @@ const Register = () => {
         .then((response) => {
           if (response.status === 200) {
             history.push('/')
-            return null
           } else {
             setErr('Could not create user')
           }
+          return null
         }).catch(e => console.log(e))
     } else {
       setErr('Please fill out all provided fields')
@@ -63,7 +63,6 @@ const Register = () => {
         userImage: event.target.value
       })
     }
-
   }
   return (
     <div>

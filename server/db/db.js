@@ -15,17 +15,17 @@ function getUserByName (name, db = database) {
 }
 
 function addUser (user, db = database) {
-  const {firstName, lastName, userImage} = user
+  const { firstName, lastName, userImage } = user
   return db('users')
     .insert({
       firstName,
       lastName,
       userImage,
-      totalXp: 0,
+      totalXp: 0
     })
     .then((res) => {
       return res
-    }).catch(e=>console.log(e))
+    }).catch(e => console.log(e))
 }
 
 function getUser (id, db = database) {

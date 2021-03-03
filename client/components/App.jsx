@@ -19,7 +19,7 @@ function App ({ dispatch }) {
 
   useEffect(() => {
     if (login > 0) {
-    dispatch(setUserHabits(login))
+      dispatch(setUserHabits(login))
     }
   }, [login])
   return (

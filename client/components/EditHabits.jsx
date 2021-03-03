@@ -81,7 +81,7 @@ const EditHabits = ({ dispatch, user }) => {
   return (
     <div>
       <Snackbar
-        style={{backgroundColor: 'white'}}
+        style={{ backgroundColor: 'white' }}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         open = {snackbarOpen}
         autoHideDuration = {2000}

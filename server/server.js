@@ -33,7 +33,6 @@ server.get('*', (req, res) =>
 module.exports = server
 
 const passport = require('passport')
-const { response } = require('express')
 
 server.use(passport.initialize())
 server.use(passport.session())
@@ -50,11 +49,10 @@ server.post('/login', function (req, res, next) {
 })
 
 server.post('/register', function (req, res, next) {
-  console.log(req.body)
   return addUser(req.body)
-    .then(()=>{
+    .then(() => {
       res.redirect('/')
+      return null
     })
-    .catch(e=>console.log(e))
+    .catch(e => console.log(e))
 })
-
