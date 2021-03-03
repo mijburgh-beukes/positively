@@ -63,7 +63,7 @@ const Login = ({ setLogin }) => {
   }
   return (
     <div className="container-fluid d-flex flex-column vh-100 justify-content-center align-items-center">
-      <form className="d-flex shadow-sm p-4 flex-column" onSubmit={handleSubmit} method="POST">
+      <form className="d-flex shadow-sm p-4 flex-column mb-3" onSubmit={handleSubmit} method="POST">
         <img className="mb-3" src="./src/mainLogo.svg" height="200" alt=""/>
         <h3 className="text-center" style={{ opacity: '.8' }}><b>Login</b></h3>
         <label htmlFor="fname">First name:</label>
