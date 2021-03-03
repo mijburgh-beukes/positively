@@ -1,10 +1,37 @@
 /* eslint-disable camelcase */
-import { postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
+import { getUser, getHabits, postHabit, patchHabit, deleteHabit, patchUser } from '../api/apiClient'
 
-export const setUser = (user) => {
+export const setUserInfo = (user) => {
   return {
     type: 'SET_USER',
     user
+  }
+}
+
+export const setUserHabits = () => {
+  // TODO: Remove hardcoding of user ID
+  const user = 1
+  return dispatch => {
+    getUser(user)
+      .then(userData => {
+        dispatch(setUserInfo(userData))
+        return null
+      })
+      .then(() => {
+        return getHabits(user)
+      })
+      .then(habits => {
+        dispatch(setHabits(habits))
+        return null
+      })
+      .catch(err => console.log(err))
+  }
+}
+
+export const setHabits = (habits) => {
+  return {
+    type: 'SET_HABITS',
+    habits
   }
 }
 
@@ -45,7 +72,6 @@ export const removeHabit = (id) => {
   return dispatch => {
     deleteHabit(id)
       .then(() => {
-        console.log(id)
         dispatch(deleteTheHabit(id))
         return null
       })
@@ -58,7 +84,6 @@ export const updateHabit = (id, patchData) => {
   return dispatch => {
     patchHabit(id, patchData)
       .then((habit) => {
-        console.log(habit)
         dispatch(updateTheHabit(habit))
         return null
       })
@@ -100,5 +125,25 @@ export const updateXp = (xp) => {
   return {
     type: 'UPDATE_XP',
     xp
+  }
+}
+
+export const handleReset = (habitId) => {
+  const cleanCount = 0
+  return dispatch => {
+    patchHabit(habitId, { goalCount: cleanCount })
+      .then(() => {
+        dispatch(resetCount(habitId, cleanCount))
+        return null
+      })
+      .catch(err => console.log(err))
+  }
+}
+
+export const resetCount = (habitId, cleanCount) => {
+  return {
+    type: 'RESET_COUNT',
+    habitId,
+    cleanCount
   }
 }

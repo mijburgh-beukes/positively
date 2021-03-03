@@ -38,7 +38,7 @@ function getUser (id, db = database) {
 
 function getUserById (id, db = database) {
   return db('users')
-    .select('firstName', 'lastName', 'userImage', 'totalXp')
+    .select('firstName', 'lastName', 'userImage', 'totalXp', 'users.id as userId')
     .where('id', id)
     .first()
 }
@@ -101,12 +101,13 @@ function getHabit (id, db = database) {
       return newHabitObj
     })
 }
-function getHabits (db = database) {
-  return db('habits').select()
+function getHabits (id, db = database) {
+  return db('habits')
+    .select('habits.id as habitId', 'user_id as userId', 'title', 'description', 'habit_icon as habitIcon', 'total_goal_count as totalGoalCount', 'priority', 'goal_count as goalCount')
+    .where('user_id', id)
 }
 
 function deleteHabit (habitId, db = database) {
-  console.log('db ' + habitId)
   return db('habits').del().where('id', habitId)
 }
 

@@ -11,9 +11,9 @@ const Nav = () => {
         </NavLink>
       </div>
       <div className="navItems pt-lg-4 d-flex flex-lg-column flex-sm-row">
-        <NavLink exact={true} to="/">
+        {/* <NavLink exact={true} to="/">
           {dashboardSVG}
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/addHabit">
           {addHabitSVG}
         </NavLink>
