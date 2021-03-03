@@ -62,7 +62,7 @@ const AddHabit = (props) => {
   return (
     <div>
       <Snackbar
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open = {snackbarOpen}
         autoHideDuration = {2000}
         onClose={snackbarClosing}

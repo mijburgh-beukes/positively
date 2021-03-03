@@ -82,7 +82,7 @@ const EditHabits = ({ dispatch, user }) => {
     <div>
       <Snackbar
         style={{ backgroundColor: 'white' }}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open = {snackbarOpen}
         autoHideDuration = {2000}
         onClose={snackbarClosing}
@@ -106,12 +106,17 @@ const EditHabits = ({ dispatch, user }) => {
           </div>
           <div className="row gx-3">
             <div className="col-3 d-flex flex-column">
-              {user.habits?.map(habit => (
-                <button id={habit.habitId} key={habit.habitId} className="btn shadow-sm accentBG text-white mb-2 editlist" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+
+              {user.habits?.map(habit => {
+                let extraClassname = ''
+                if (habit.habitId === formData.habitId) extraClassname = 'active-habit'
+
+                return <button id={habit.habitId} key={habit.habitId} className={`${extraClassname} btn shadow-sm accentBG text-white mb-2 editlist`} onClick={() => (populateForm(habit))}>{habit.title}</button>})}
             </div>
             <div className="col">
               <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
                 <div className="mb-3">
+                  
                   <label htmlFor="title" className="form-label">Title: </label>
                   <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
                 </div>
