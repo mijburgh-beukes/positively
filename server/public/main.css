@@ -273,3 +273,11 @@ a:hover svg {
   background-color: #fff;
   color: #ed1e79;
 }
+
+.MuiSnackbarContent-root, .active-habit {
+  background-color: #1b1446!important;
+}
+
+.habit-border {
+  border: 1px solid white;
+}

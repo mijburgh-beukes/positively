@@ -82,12 +82,11 @@ const EditHabits = ({ dispatch, user }) => {
     <div>
       <Snackbar
         style={{ backgroundColor: 'white' }}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open = {snackbarOpen}
         autoHideDuration = {2000}
         onClose={snackbarClosing}
         message = {<span id='message-id'>{snackbarMsg}</span>}
-
         action={[
           <Button
             className={classes.buttonStyle}
@@ -107,12 +106,18 @@ const EditHabits = ({ dispatch, user }) => {
           </div>
           <div className="row gx-3">
             <div className="col-3 d-flex flex-column">
-              {user.habits?.map(habit => (
-                <button id={habit.habitId} key={habit.habitId} className="btn shadow-sm accentBG text-white mb-2 editlist" onClick={() => (populateForm(habit))}>{habit.title}</button>))}
+
+              {user.habits?.map(habit => {
+                let extraClassname = ''
+                if (habit.habitId === formData.habitId) extraClassname = 'active-habit'
+
+                return <button id={habit.habitId} key={habit.habitId} className={`${extraClassname} btn shadow-sm accentBG text-white mb-2 editlist habit-border`} onClick={() => (populateForm(habit))}>{habit.title}</button>
+              })}
             </div>
-            <div /* style={{ padding: '2rem' }}  */className="col">
+            <div className="col">
               <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
                 <div className="mb-3">
+
                   <label htmlFor="title" className="form-label">Title: </label>
                   <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
                 </div>
@@ -123,19 +128,10 @@ const EditHabits = ({ dispatch, user }) => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="habitIcon" className="form-label">Icon: </label>
-                  <input type="text" className="form-control" name="habitIcon" onChange={handleChange} placeholder="Icon source" value={formData.habitIcon}/>
-                </div>
-
-                <div className="mb-3">
                   <label htmlFor="totalGoalCount" className="form-label">Minimum times per week to attempt this habit: </label>
                   <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount} min="1"/>
                 </div>
 
-                <div className="mb-3">
-                  <label htmlFor="priority" className="form-label">Priority: </label>
-                  <input type="range" className="form-range text-midnight" min="0" max="5" name="priority" onChange={handleChange} value={formData.priority}/>
-                </div>
                 <div className="d-flex justify-content-between">
                   <button type="button" onClick={handleUpdate} className="btn accentBG text-white updateBTN">Update</button>
 

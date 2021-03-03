@@ -62,19 +62,19 @@ const AddHabit = ({ dispatch, user }) => {
   return (
     <div>
       <Snackbar
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        open={snackbarOpen}
-        autoHideDuration={2000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open = {snackbarOpen}
+        autoHideDuration = {2000}
         onClose={snackbarClosing}
-        message={<span id="message-id">{snackbarMsg}</span>}
+        message = {<span id='message-id'>{snackbarMsg}</span>}
         action={[
           <Button
             className={classes.buttonStyle}
-            key="close"
-            aria-label="close"
-            // color='primary'
-            onClick={snackbarClosing}>
-            x
+            key='close'
+            aria-label='close'
+            onClick={snackbarClosing}
+          >
+        x
           </Button>
         ]}
       />
@@ -110,55 +110,12 @@ const AddHabit = ({ dispatch, user }) => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="habitIcon" className="form-label">
-              Icon:{' '}
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="habitIcon"
-              onChange={handleChange}
-              placeholder="Icon source"
-              value={formData.habitIcon}
-            />
+            <label htmlFor="totalGoalCount" className="form-label">Minimum times per week to attempt this habit: </label>
+            <input type="number" className="form-control" name="totalGoalCount" onChange={handleChange} placeholder="The skys the limit!" value={formData.totalGoalCount} min="1"/>
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="totalGoalCount" className="form-label">
-              Minimum times per week to attempt this habit:{' '}
-            </label>
-            <input
-              type="number"
-              className="form-control"
-              name="totalGoalCount"
-              onChange={handleChange}
-              placeholder="The skys the limit!"
-              value={formData.totalGoalCount}
-              min="1"
-            />
-          </div>
+          <button type="button" onClick={handleSubmit} className="btn accentBG text-white">Add Habit</button>
 
-          <div className="mb-3">
-            <label htmlFor="priority" className="form-label">
-              Priority:{' '}
-            </label>
-            <input
-              type="range"
-              className="form-range"
-              min="1"
-              max="5"
-              name="priority"
-              value={formData.priority}
-              onChange={handleChange}
-            />
-          </div>
-
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="btn accentBG text-white">
-            Add Habit
-          </button>
         </form>
       </div>
     </div>
