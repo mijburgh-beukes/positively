@@ -41,8 +41,23 @@ function Agenda ({ user }) {
             )}
             <h3>Keep up that momentum!</h3>
           </>
-          : <div className="mb-2">
-            <p>Create a habit to get started!</p>
+          : <div className="agendaInfoContainer mb-2">
+            <p className='agendaInfoHeader'>Create a habit to get started!</p>
+            <ul>
+              <li>
+                <p>Set yourself a weekly goal. As you go through the week, click the
+                  <strong> + </strong> button on your new habit to add to the weekly
+                  counter and gain xp for your profile</p>
+              </li>
+              <li>
+                <p>At the end of every week, remember to reset each habits counter
+                  - don't worry, you won't lose your xp!</p>
+              </li>
+            </ul>
+            <p className='agendaInfoHint'>*We recomend that you work on a maximum of three new habits at a time,
+            for a period of one month in order to form your new habits well - But, it's entirely up to you!</p>
+            <p className='agendaInfoGoal'>Our goal is to help you form new habits to improve your happiness
+            and wellbeing - good luck!</p>
           </div>
         }
       </div>
