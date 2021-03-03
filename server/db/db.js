@@ -9,7 +9,7 @@ function getUserByName (name, db = database) {
   return db('users')
     .select()
     .where({ firstName: name })
-    .then((user) => {
+    .then(user => {
       return user
     })
 }
@@ -23,9 +23,9 @@ function addUser (user, db = database) {
       userImage,
       totalXp: 0
     })
-    .then((res) => {
+    .then(res => {
       return res
-    }).catch(e => console.log(e))
+    })
 }
 
 function getUser (id, db = database) {
