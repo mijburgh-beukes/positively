@@ -23,7 +23,7 @@ const EditHabits = ({ dispatch, user }) => {
 
   const [formData, setFormData] = useState({
     title: '',
-    userId: 1,
+    userId: user.userId,
     description: '',
     habitIcon: '',
     totalGoalCount: 1,
@@ -54,7 +54,7 @@ const EditHabits = ({ dispatch, user }) => {
     dispatch(removeHabit(formData.habitId))
     setFormData({
       title: '',
-      userId: 1,
+      userId: user.userId,
       description: '',
       habitIcon: '',
       totalGoalCount: 1,
@@ -69,7 +69,7 @@ const EditHabits = ({ dispatch, user }) => {
     setFormData({
       habitId: habit.habitId,
       title: habit.title,
-      userId: 1,
+      userId: user.userId,
       description: habit.description,
       habitIcon: habit.habitIcon,
       totalGoalCount: habit.totalGoalCount,
