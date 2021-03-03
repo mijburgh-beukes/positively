@@ -91,7 +91,7 @@ const AddHabit = ({ dispatch, user }) => {
               className="form-control"
               name="title"
               onChange={handleChange}
-              placeholder="What's your habit?"
+              placeholder="What habit do you want to form?"
               value={formData.title}
             />
           </div>
@@ -105,7 +105,7 @@ const AddHabit = ({ dispatch, user }) => {
               className="form-control"
               name="description"
               onChange={handleChange}
-              placeholder="Describe your habit?"
+              placeholder="Describe your new habit?"
               value={formData.description}
             />
           </div>

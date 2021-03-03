@@ -112,6 +112,30 @@ body {
   padding: 0;
 }
 
+.agendaInfoContainer {
+  line-height: 1.5;
+}
+
+.agendaInfoContainer, ul {
+  margin-bottom: 5px;
+}
+
+.agendaInfoHeader {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.agendaInfoHint {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.agendaInfoGoal {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
 .counterContainer {
   display: flex;
   justify-content: center;

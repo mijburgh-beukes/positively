@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {
-  dashboardSVG,
   addHabitSVG,
   profileSVG,
   edithabitsSVG
@@ -16,9 +15,6 @@ const Nav = () => {
         </NavLink>
       </div>
       <div className="navItems pt-lg-4 d-flex flex-lg-column flex-sm-row">
-        <NavLink exact={true} to="/">
-          {dashboardSVG}
-        </NavLink>
         <NavLink to="/addHabit">{addHabitSVG}</NavLink>
         <NavLink to="/user/:id">{profileSVG}</NavLink>
         <NavLink to="/edithabits">{edithabitsSVG}</NavLink>
