@@ -91,7 +91,8 @@ const mockUpdateUser = {
   firstName: 'jeff',
   lastName: 'jefferson',
   userImage: 'some-image',
-  totalXp: 420
+  totalXp: 420,
+  userId: 10
 }
 
 module.exports = { mockUser, mockUser2, mockUpdateUser }

@@ -9,7 +9,8 @@ jest.mock('../db/db', () => {
   return {
     getUser: jest.fn(),
     getUserById: jest.fn(),
-    updateUser: jest.fn()
+    updateUser: jest.fn(),
+    getHabits: jest.fn()
   }
 })
 
@@ -44,6 +45,27 @@ const fakeReturnedData = [
   }
 ]
 
+const fakeHabits = [
+  {
+    id: 2,
+    title: 'smoking',
+    description: "I know it's bad for me but I enjoy it.",
+    habitIcon: 'some icon',
+    totalGoalCount: 0,
+    priority: 1,
+    goalCount: 0
+  },
+  {
+    id: 3,
+    title: 'picking my nose',
+    description: 'I also enjoy picking my nose',
+    habitIcon: 'some icon',
+    totalGoalCount: 0,
+    priority: 1,
+    goalCount: 0
+  }
+]
+
 describe('GET /api/v1/user/:id', () => {
   it('responds with 200 on successful request', () => {
     db.getUserById.mockImplementation(() => Promise.resolve(fakeReturnedData))
@@ -70,6 +92,19 @@ describe('GET /api/v1/user/:id', () => {
         expect(err.status).toEqual(500)
         expect(err.text).toEqual('DATABASE ERROR: oh noes!')
         return null
+      })
+  })
+})
+
+describe('GET /:id/habits', () => {
+  it('responds with 200 on successful request', () => {
+    db.getHabits.mockImplementation(() => Promise.resolve(fakeHabits))
+
+    return request(server)
+      .get(baseURL + 'user/2/habits')
+      .then(res => {
+        expect(res.status).toEqual(200)
+        expect(res.body).toEqual(fakeHabits)
       })
   })
 })
