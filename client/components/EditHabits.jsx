@@ -103,9 +103,9 @@ const EditHabits = ({ dispatch, user }) => {
         <div className="col">
           <div className=" text-midnight shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 bg-white">
             <h1>Edit your habits</h1>
-            <p>Pick one from the list on the left</p>
+            {user.habits.length !== 0 ? <p>Pick one from the list on the left</p> : <p className="mb-2">You seem to have no habits to edit. Please add some using the form</p>}
           </div>
-          <div className="row gx-3">
+          {user.habits.length !== 0 ? <div className="row gx-3">
             <div className="col-3 d-flex flex-column">
 
               {user.habits?.map(habit => {
@@ -141,7 +141,7 @@ const EditHabits = ({ dispatch, user }) => {
                 </div>
               </form>
             </div>
-          </div>
+          </div> : '' }
         </div>
       </div>
     </div>
