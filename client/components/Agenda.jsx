@@ -17,7 +17,7 @@ function Agenda ({ user }) {
         <h3 className="mb-3">Agenda</h3>
         { (user.habits?.some(habit => habit.userId === user.userId))
           ? <>
-            <p>Gidday! We&apos;ve curated some items for you to focus on&nbsp;today...</p>
+            <p className="border-bottom mb-2 pb-2 lh-sm">Gidday, welcome back! We&apos;ve curated some items for you to focus on&nbsp;today... But don&apos;t just stop here, check on your other habits to see what you can work on!</p>
             {habitWithLowestGC && (
               <>
                 <h5>Habits needing some love</h5>
@@ -39,7 +39,7 @@ function Agenda ({ user }) {
                 />
               </div>
             )}
-            <h3>Keep up that momentum!</h3>
+            <h3 className="mt-2 pt-2 border-top">Keep up that momentum!</h3>
           </>
           : <div className="agendaInfoContainer mb-2">
             <p className='agendaInfoHeader'>It looks like you&apos;re all out of habits! Time to make some new ones!</p>
