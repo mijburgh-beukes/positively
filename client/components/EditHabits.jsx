@@ -111,12 +111,13 @@ const EditHabits = ({ dispatch, user }) => {
                 let extraClassname = ''
                 if (habit.habitId === formData.habitId) extraClassname = 'active-habit'
 
-                return <button id={habit.habitId} key={habit.habitId} className={`${extraClassname} btn shadow-sm accentBG text-white mb-2 editlist`} onClick={() => (populateForm(habit))}>{habit.title}</button>})}
+                return <button id={habit.habitId} key={habit.habitId} className={`${extraClassname} btn shadow-sm accentBG text-white mb-2 editlist habit-border`} onClick={() => (populateForm(habit))}>{habit.title}</button>
+              })}
             </div>
             <div className="col">
               <form className="bg-white shadow-sm rounded-3 px-3 pb-3 pt-2 text-midnight">
                 <div className="mb-3">
-                  
+
                   <label htmlFor="title" className="form-label">Title: </label>
                   <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
                 </div>
