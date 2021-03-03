@@ -120,7 +120,7 @@ const EditHabits = ({ dispatch, user }) => {
                 <div className="mb-3">
 
                   <label htmlFor="title" className="form-label">Title: </label>
-                  <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What's your habit?" value={formData.title}/>
+                  <input type="text" className="form-control" name="title" onChange={handleChange} placeholder="What habit do you want to form? (15 characters max)" value={formData.title} maxLength="15"/>
                 </div>
 
                 <div className="mb-3">

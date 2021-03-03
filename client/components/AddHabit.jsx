@@ -91,8 +91,9 @@ const AddHabit = ({ dispatch, user }) => {
               className="form-control"
               name="title"
               onChange={handleChange}
-              placeholder="What habit do you want to form?"
+              placeholder="What habit do you want to form? (15 characters max)"
               value={formData.title}
+              maxLength="15"
             />
           </div>
 

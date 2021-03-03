@@ -27,7 +27,7 @@ function Habit ({ dispatch, habit, user }) {
     <Tippy animation='perspective' theme='light' content={habit.description}>
       <div className='accentBG text-white ps-2 pe-1 rounded-2 mb-2'>
         <div className="ps-1 py-1 d-flex justify-content-between align-items-center">
-          <div className='counterContainer'>
+          <div className='counterContainer overflow-scroll'>
             <p>{`${topHabitTitle} - `}</p>
             <div className='countIndicator'>
               <p>{`${topHabitGoalCount} `}</p>

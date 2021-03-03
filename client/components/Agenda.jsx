@@ -12,7 +12,7 @@ function Agenda ({ user }) {
   const habitWithLowestGC = orderedHabits ? orderedHabits[0] : null
   const habitWith2ndLowestGC = orderedHabits ? orderedHabits[1] : null
   return (
-    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 text-midnight">
+    <div className="bg-white shadow-sm rounded-3 px-3 pb-1 pt-2 mb-3 mb-md-0 text-midnight">
       <div className="row">
         <h3 className="mb-3">Agenda</h3>
         { (user.habits?.some(habit => habit.userId === user.userId))
@@ -42,14 +42,14 @@ function Agenda ({ user }) {
             <h3 className="mt-2 pt-2 border-top">Keep up that momentum!</h3>
           </>
           : <div className="agendaInfoContainer mb-2">
-            <p className='agendaInfoHeader'>It looks like you&apos;re all out of habits! Time to make some new ones!</p>
-            <ul>
-              <li>
-                <p>Set yourself a weekly goal. As you go through the week, click the
-                  <strong> + </strong> button on your new habit to add to the weekly
+            <p className='agendaInfoHeader'>It looks like you&apos;re all out of habits! Time to start some new&nbsp;ones!</p>
+            <ul className="ps-3">
+              <li className="mb-2">
+                <p>Set yourself a weekly goal. As you go through the week, click the&nbsp;
+                  <strong><span className="accentBG text-white rounded">&nbsp;+&nbsp;</span></strong>&nbsp;button on your new habit to add to the weekly
                   counter and gain xp for your profile</p>
               </li>
-              <li>
+              <li className="mb-2">
                 <p>At the end of every week, remember to reset each habits counter
                   - don&apos;t worry, you won&apos;t lose your xp!</p>
               </li>

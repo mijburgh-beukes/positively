@@ -15,7 +15,7 @@ const Dashboard = ({ user }) => {
             Hello{' '}
             <span className="text-accent">{`${user.firstName} ${user.lastName}`}</span>
           </h1>
-          <p>Here&apos;s an overview of your lifestyle ...</p>
+          <p>Here&apos;s an overview of your self-improvement journey ...</p>
         </div>
         <Agenda />
       </div>
