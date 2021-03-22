@@ -1,3 +1,12 @@
+## Final group project from Dev Academy
+
+Positively is a gamified habit formation app. 
+
+I took up the Scrum Master role and was the main UX/UI developer.     
+
+This app was completed within seven days, from planning and conception to presenting the final working product. We were a team of six bootcamp students, working day and night to complete this app and solidify our learning from the 15 week bootcamp. Our main focus was on learning and working as an agile team. 
+
+I worked mostly on the frontend, with a sprinkling of backend tasks and writing component tests. The bulk of my workload focused on getting the UI up and running using bootstrap. This entailed setting up a bunch of the React components, with myself and others adding more functionality as the project progressed. Other team members did more work on the backend, but I had a good understanding of what was going on. My main focus was getting the product to look professional and be responsive.
 
 ### Browser compatibility warning:
 
